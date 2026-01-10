@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Resources - the816">
+  <Navigation />
+
+  <main class="pt-16 min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <h1 class="text-4xl md:text-5xl font-bold mb-8">Resources</h1>
+
+      <div class="prose prose-lg">
+        <p class="text-xl text-gray-700 mb-8">
+          Teaching materials and course repositories.
+        </p>
+
+        <h2>Teaching Materials</h2>
+        <ul>
+          <li>Link to teaching resource 1</li>
+          <li>Link to teaching resource 2</li>
+        </ul>
+
+        <h2>Course Repositories</h2>
+        <ul>
+          <li>Link to course repo 1</li>
+          <li>Link to course repo 2</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

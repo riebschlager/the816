@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About - the816">
+  <Navigation />
+
+  <main class="pt-16 min-h-screen">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <h1 class="text-4xl md:text-5xl font-bold mb-8">About</h1>
+
+      <div class="prose prose-lg">
+        <p class="text-xl text-gray-700 mb-6">
+          Bio and background information goes here.
+        </p>
+
+        <h2>Contact</h2>
+        <p>Contact information and social links go here.</p>
+
+        <h2>How to Reach</h2>
+        <p>Preferred methods of contact and collaboration inquiries.</p>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

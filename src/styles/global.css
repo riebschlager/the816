@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/* Custom global styles */
+@layer base {
+  body {
+    @apply font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+/* Prose customization for markdown content */
+@layer components {
+  .prose img {
+    @apply rounded-lg;
+  }
+
+  .prose a {
+    @apply text-gray-900 underline hover:text-gray-600 transition-colors;
+  }
+}
