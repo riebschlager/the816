@@ -1,49 +1,82 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { Image } from "astro:assets";
+import ChrisAtThundergong from "../assets/chris-at-thundergong.jpg";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://www.instagram.com/riebschlager/">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>Hello, I'm Chris.</h1>
+      <div class="intro">
+        <figure class="portrait">
+          <Image src={ChrisAtThundergong} alt="Chris at Thundergong" />
+        </figure>
+        <div class="copy">
+          <p>
+            I lead Creative Technology at <a
+              href="https://dimin.com"
+              target="_blank">Dimensional Innovations</a
+            >, where my teams build interactive installations and immersive
+            experiences for stadiums, museums, and entertainment venues. Twenty-plus
+            years in, my work has run the gamut from web applications to venue-scale
+            projects like <a href="/projects/atlas9">Atlas9</a>. The through-line
+            has always been the same: knowing what an experience should feel like,
+            and building until it does.
+          </p>
+        </div>
+      </div>
+      <p>
+        I came up through creative coding (TouchDesigner, Processing,
+        openFrameworks) and taught interactive installation and interaction
+        design at the collegiate level. These days most of my energy goes into
+        building teams of artists and technologists, and making sure the people
+        doing the work have what they need to do it well. I learned from
+        generous mentors. I try to be one.
+      </p>
+    </main>
+    <Footer />
+  </body>
 </html>
+
+<style>
+  .intro {
+    display: flow-root;
+  }
+
+  .portrait {
+    float: left;
+    width: min(39%, 253px);
+    margin: 0.15rem 2rem 1rem 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.4rem;
+    background: var(--surface);
+    box-shadow: var(--box-shadow);
+  }
+
+  .portrait img {
+    display: block;
+    width: 100%;
+    border-radius: 6px;
+  }
+
+  .copy p {
+    margin-top: 0;
+}
+
+  @media (max-width: 560px) {
+    .portrait {
+      width: 44%;
+      margin-right: 1.25rem;
+    }
+  }
+</style>
