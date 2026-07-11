@@ -1,0 +1,103 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+
+const projects = [
+	{ title: 'Atlas9', slug: 'atlas9', number: '01' },
+	{ title: 'Thundergong', slug: 'thundergong', number: '02' },
+	{ title: 'Terra Luna', slug: 'terra-luna', number: '03' },
+	{ title: 'Spectacle Society', slug: 'spectacle-society', number: '04' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Projects | ${SITE_TITLE}`} description="A selection of projects by Chris Riebschlager." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<header class="page-intro">
+				<p class="eyebrow">Selected work</p>
+				<h1>Projects</h1>
+				<p>A few things taking shape. More to come.</p>
+			</header>
+
+			<ul class="project-list">
+				{
+					projects.map((project) => (
+						<li>
+							<a href={`/projects/${project.slug}`}>
+								<span class="number">{project.number}</span>
+								<span class="project-name">{project.title}</span>
+								<span class="arrow" aria-hidden="true">↗</span>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.page-intro {
+		margin-bottom: 3.5rem;
+	}
+	.eyebrow {
+		margin: 0 0 0.35rem;
+		color: var(--accent-dark);
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+	}
+	.page-intro h1 {
+		margin-bottom: 0.35rem;
+	}
+	.page-intro p:last-child {
+		margin: 0;
+		color: rgb(var(--gray));
+	}
+	.project-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid rgb(var(--gray-light));
+	}
+	.project-list li {
+		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	.project-list a {
+		display: grid;
+		grid-template-columns: 3.5rem 1fr auto;
+		gap: 1rem;
+		align-items: center;
+		padding: 1.25rem 0;
+		color: rgb(var(--black));
+		text-decoration: none;
+		transition: color 160ms ease, padding 160ms ease;
+	}
+	.project-list a:hover {
+		padding-right: 0.35rem;
+		padding-left: 0.35rem;
+		color: var(--accent-dark);
+	}
+	.number {
+		color: rgb(var(--gray));
+		font-size: 0.8rem;
+		font-variant-numeric: tabular-nums;
+	}
+	.project-name {
+		font-size: 1.5rem;
+		font-weight: 700;
+		line-height: 1.1;
+	}
+	.arrow {
+		font-size: 1.5rem;
+	}
+</style>
