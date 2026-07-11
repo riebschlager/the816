@@ -61,16 +61,16 @@ const projects = [
 	}
 	.page-intro p:last-child {
 		margin: 0;
-		color: rgb(var(--gray));
+		color: var(--text-muted);
 	}
 	.project-list {
 		margin: 0;
 		padding: 0;
 		list-style: none;
-		border-top: 1px solid rgb(var(--gray-light));
+		border-top: 1px solid var(--border);
 	}
 	.project-list li {
-		border-bottom: 1px solid rgb(var(--gray-light));
+		border-bottom: 1px solid var(--border);
 	}
 	.project-list a {
 		display: grid;
@@ -78,7 +78,7 @@ const projects = [
 		gap: 1rem;
 		align-items: center;
 		padding: 1.25rem 0;
-		color: rgb(var(--black));
+		color: var(--text);
 		text-decoration: none;
 		transition: color 160ms ease, padding 160ms ease;
 	}
@@ -88,7 +88,7 @@ const projects = [
 		color: var(--accent-dark);
 	}
 	.number {
-		color: rgb(var(--gray));
+		color: var(--text-muted);
 		font-size: 0.8rem;
 		font-variant-numeric: tabular-nums;
 	}
