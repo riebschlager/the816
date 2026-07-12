@@ -3,36 +3,38 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
+import { type CollectionEntry, getCollection, render } from 'astro:content';
 
-export function getStaticPaths() {
-	return [
-		{ slug: 'atlas9', title: 'Atlas9', number: '01' },
-		{ slug: 'thundergong', title: 'Thundergong', number: '02' },
-		{ slug: 'terra-luna', title: 'Terra Luna', number: '03' },
-		{ slug: 'spectacle-society', title: 'Spectacle Society', number: '04' },
-	].map(({ slug, ...project }) => ({ params: { slug }, props: { project } }));
+export async function getStaticPaths() {
+	const projects = await getCollection('projects');
+	return projects.map((project) => ({ params: { slug: project.id }, props: project }));
 }
 
-const { project } = Astro.props;
+type Props = CollectionEntry<'projects'>;
+
+const project = Astro.props;
+const { Content } = await render(project);
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`${project.title} | ${SITE_TITLE}`} description={`${project.title} project placeholder.`} />
+		<BaseHead title={`${project.data.title} | ${SITE_TITLE}`} description={project.data.description} />
 	</head>
 	<body>
 		<Header />
 		<main>
 			<a class="back" href="/projects">← All projects</a>
 			<article>
-				<p class="eyebrow">Project {project.number}</p>
-				<h1>{project.title}</h1>
+				<p class="eyebrow">Project {project.data.number}</p>
+				<h1>{project.data.title}</h1>
 				<div class="status">
 					<span aria-hidden="true"></span>
-					In progress
+					{project.data.status}
 				</div>
-				<p class="placeholder">This project page is being assembled. Check back soon for the full story.</p>
+				<div class="project-content">
+					<Content />
+				</div>
 			</article>
 		</main>
 		<Footer />
@@ -81,7 +83,23 @@ const { project } = Astro.props;
 		border-radius: 50%;
 		background: var(--accent);
 	}
-	.placeholder {
+	.project-content {
 		font-size: 1.2rem;
+	}
+	.project-content :global(.video-embed) {
+		position: relative;
+		width: 100%;
+		margin: 2.5em 0;
+		padding-bottom: 56.25%;
+		overflow: hidden;
+		border-radius: 8px;
+		background: #000;
+	}
+	.project-content :global(.video-embed iframe) {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
 	}
 </style>

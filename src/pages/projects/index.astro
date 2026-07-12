@@ -3,13 +3,11 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
+import { getCollection } from 'astro:content';
 
-const projects = [
-	{ title: 'Atlas9', slug: 'atlas9', number: '01' },
-	{ title: 'Thundergong', slug: 'thundergong', number: '02' },
-	{ title: 'Terra Luna', slug: 'terra-luna', number: '03' },
-	{ title: 'Spectacle Society', slug: 'spectacle-society', number: '04' },
-];
+const projects = (await getCollection('projects')).sort((a, b) =>
+	a.data.number.localeCompare(b.data.number),
+);
 ---
 
 <!doctype html>
@@ -30,9 +28,9 @@ const projects = [
 				{
 					projects.map((project) => (
 						<li>
-							<a href={`/projects/${project.slug}`}>
-								<span class="number">{project.number}</span>
-								<span class="project-name">{project.title}</span>
+							<a href={`/projects/${project.id}`}>
+								<span class="number">{project.data.number}</span>
+								<span class="project-name">{project.data.title}</span>
 								<span class="arrow" aria-hidden="true">↗</span>
 							</a>
 						</li>
