@@ -148,6 +148,13 @@ Reference: [Astro CLI: `astro check`](https://docs.astro.build/en/reference/cli-
 
 **Priority: medium**
 
+**Status: Complete — July 12, 2026**
+
+Expanded the README with the supported Node and npm setup, background dev-server
+lifecycle, validation and production commands, schema-backed authoring examples
+for both content collections, asset-placement guidance, and the static deployment
+contract for the canonical production origin.
+
 Expand the one-line `README.md` with:
 
 - the supported Node version and `npm install` setup
