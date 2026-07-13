@@ -86,6 +86,10 @@ Also centralize navigation and social profile data in a small typed data module.
 
 **Priority: medium**
 
+**Status: Complete — July 12, 2026**
+
+Added a shared `SocialLinks.astro` component with placement-specific presentation for the header and footer, and a slotted `Prose.astro` component that owns reusable Markdown typography, figure captions, and responsive video embeds. Page- and layout-specific presentation remains colocated with its existing owner.
+
 Astro's scoped component styles are already a good fit here. Preserve that approach and extract only patterns with demonstrated reuse:
 
 - Create a reusable `SocialLinks.astro` used by both header and footer; place individual icons in small components or a typed icon map.

@@ -1,21 +1,12 @@
 ---
-import { SOCIAL_LINKS } from '../consts';
+import SocialLinks from './SocialLinks.astro';
 
 const today = new Date();
 ---
 
 <footer>
 	&copy; {today.getFullYear()} Chris Riebschlager. All rights reserved.
-	<div class="social-links">
-		{SOCIAL_LINKS.map(({ href, label, iconPath }) => (
-			<a {href} target="_blank" rel="noopener noreferrer">
-				<span class="sr-only">{label}</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32">
-					<path fill="currentColor" d={iconPath}></path>
-				</svg>
-			</a>
-		))}
-	</div>
+	<SocialLinks placement="footer" />
 </footer>
 <style>
 	footer {
@@ -24,18 +15,5 @@ const today = new Date();
 		background: var(--surface);
 		color: var(--text-muted);
 		text-align: center;
-	}
-	.social-links {
-		display: flex;
-		justify-content: center;
-		gap: 1em;
-		margin-top: 1em;
-	}
-	.social-links a {
-		text-decoration: none;
-		color: var(--text-muted);
-	}
-	.social-links a:hover {
-		color: var(--accent-blue);
 	}
 </style>

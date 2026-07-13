@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
+import Prose from '../components/Prose.astro';
 
 type Props = CollectionEntry<'projects'>['data'];
 
@@ -16,7 +17,7 @@ const { title, description, order, status } = Astro.props;
 			<span aria-hidden="true"></span>
 			{status}
 		</div>
-		<div class="project-content"><slot /></div>
+		<Prose variant="project"><slot /></Prose>
 	</article>
 </BaseLayout>
 
@@ -57,22 +58,5 @@ const { title, description, order, status } = Astro.props;
 		height: 0.5rem;
 		border-radius: 50%;
 		background: var(--accent);
-	}
-	.project-content { font-size: 1.2rem; }
-	.project-content :global(.video-embed) {
-		position: relative;
-		width: 100%;
-		margin: 2.5em 0;
-		padding-bottom: 56.25%;
-		overflow: hidden;
-		border-radius: 8px;
-		background: #000;
-	}
-	.project-content :global(.video-embed iframe) {
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		border: 0;
 	}
 </style>
