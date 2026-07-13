@@ -3,6 +3,7 @@ title: "Super-Gooey Plastic in TouchDesigner"
 description: "I love being able to make an image that you can feel. Just imagine running your fingers over this thing. You can almost feel it, right…"
 pubDate: "2024-03-27T03:16:51.849Z"
 heroImage: "./heroes/super-gooey-plastic-in-touchdesigner.jpeg"
+heroImageAlt: "A glossy pink and blue abstract form created in TouchDesigner"
 ---
 
 ![Ooo yeah. That’s gooey.](./heroes/super-gooey-plastic-in-touchdesigner.jpeg)

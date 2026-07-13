@@ -91,6 +91,20 @@ a:focus-visible {
   outline-offset: 4px;
   border-radius: 2px;
 }
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  background: var(--surface-raised);
+  box-shadow: var(--box-shadow);
+  transform: translateY(calc(-100% - 2rem));
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
 p {
   margin-bottom: 1em;
 }

@@ -38,8 +38,9 @@ const {
     />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <Header />
-    <main class={mainClass}>
+    <main id="main-content" class={mainClass}>
       <slot />
     </main>
     <Footer />

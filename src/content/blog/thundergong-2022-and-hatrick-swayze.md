@@ -3,6 +3,7 @@ title: "ThunderGong 2022 and Hatrick Swayze"
 description: "Last month I was sitting behind my computer, side-stage at the Uptown Theater here in Kansas City. Just a few feet away, Jason Sudeikis…"
 pubDate: "2022-12-04T17:08:12.834Z"
 heroImage: "./heroes/thundergong-2022-and-hatrick-swayze.jpeg"
+heroImageAlt: "Performers onstage at ThunderGong 2022 beneath colorful concert lighting"
 ---
 
 Last month I was sitting behind my computer, side-stage at the Uptown Theater here in Kansas City. Just a few feet away, Jason Sudeikis, Fred Armisen and Will Forte (the Mt. Rushmore of my comedy heroes) were rehearsing songs. “This is so insanely cool,” I thought, “but I’ll have to appreciate this later after I figure out why there’s no audio signal getting from my PC to the mixer.”

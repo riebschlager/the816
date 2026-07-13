@@ -178,6 +178,14 @@ Review whether `sharp` needs to be a direct dependency for the deployment target
 
 **Priority: medium**
 
+**Status: Complete — July 12, 2026**
+
+Added a keyboard-visible skip link and stable main-content target, made hero-image
+alt text an explicit editorial field, standardized new-tab link relations, and
+sorted RSS posts newest-first. Existing Astro image dimensions, active-navigation
+`aria-current` state, and the corrected About-page heading hierarchy were also
+verified as part of this pass.
+
 - Add a skip link in the base layout and a stable target on `<main>`.
 - Add explicit `width`/`height` or reliable aspect ratios to editorial images whenever possible to avoid layout shift.
 - Use descriptive hero-image alt text when an image conveys content; keep `alt=""` only for intentionally decorative images. A `heroImageAlt` schema field makes this an editorial decision rather than a template default.

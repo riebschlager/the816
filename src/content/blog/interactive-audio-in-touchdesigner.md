@@ -3,6 +3,7 @@ title: "Interactive Audio in TouchDesigner"
 description: "A standout feature in TouchDesigner is its capability to function as a VST host, opening up a world of creative possibilities for…"
 pubDate: "2024-03-30T21:14:01.221Z"
 heroImage: "./heroes/interactive-audio-in-touchdesigner.gif"
+heroImageAlt: "A TouchDesigner network for an interactive audio project"
 ---
 
 A standout feature in TouchDesigner is its capability to function as a VST host, opening up a world of creative possibilities for integrating audio into your projects. VST, short for Virtual Studio Technology, empowers you to seamlessly incorporate synthesizers and effects processors, treating them as you would any other node in your project.

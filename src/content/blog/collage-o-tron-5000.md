@@ -3,6 +3,7 @@ title: "Collage-o-tron 5000"
 description: "One thing I’ve really missed this year is seeing live music, especially jazz. Watching a good jazz band can be absolutely transcendent…"
 pubDate: "2020-12-28T01:46:42.677Z"
 heroImage: "./heroes/collage-o-tron-5000.jpeg"
+heroImageAlt: "A musician performing inside a colorful, layered digital collage"
 ---
 
 ![Collage-o-tron 5000](./heroes/collage-o-tron-5000.jpeg)

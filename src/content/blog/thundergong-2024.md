@@ -3,6 +3,7 @@ title: "Thundergong 2024!"
 description: "For the last three years, I’ve had the opportunity to contribute some fun interactive visual work to Thundergong, an annual benefit concert…"
 pubDate: "2024-11-17T15:56:04.480Z"
 heroImage: "./heroes/thundergong-2024.png"
+heroImageAlt: "ThunderGong 2024 performers and audience under bright stage lighting"
 ---
 
 For the last three years, I’ve had the opportunity to contribute some fun interactive visual work to [Thundergong](https://thundergong.org), an annual benefit concert presented by the [Steps of Faith Foundation](https://www.stepsoffaithfoundation.org/) and hosted by Jason Sudeikis. I’ve gotta say, I think this year’s show might have been the best one yet. But don’t take it from me, just check out this video of Weird Al Yankovic and Will Forte covering Chappell Roan’s HOT TO GO.
