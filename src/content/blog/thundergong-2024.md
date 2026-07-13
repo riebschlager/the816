@@ -2,7 +2,7 @@
 title: 'Thundergong 2024!'
 description: 'For the last three years, I’ve had the opportunity to contribute some fun interactive visual work to Thundergong, an annual benefit concert…'
 pubDate: '2024-11-17T15:56:04.480Z'
-heroImage: '/images/blog/thundergong-2024/01.png'
+heroImage: './heroes/thundergong-2024.png'
 ---
 For the last three years, I’ve had the opportunity to contribute some fun interactive visual work to [Thundergong](https://thundergong.org), an annual benefit concert presented by the [Steps of Faith Foundation](https://www.stepsoffaithfoundation.org/) and hosted by Jason Sudeikis. I’ve gotta say, I think this year’s show might have been the best one yet. But don’t take it from me, just check out this video of Weird Al Yankovic and Will Forte covering Chappell Roan’s HOT TO GO.
 
@@ -10,7 +10,7 @@ For the last three years, I’ve had the opportunity to contribute some fun inte
 
 We focused this year on developing live interactive visuals for the LED walls on stage. Our look this year (developed by [Micah Smith](https://www.amicahsmith.com/)) was inspired by [Sister Corita Kent’s](https://www.corita.org/) vibrant art. Think bold, energetic colors that overlap and blend in this beautifully imperfect way. We were playing with layered paper cutouts and letting colors mix freely to create a sense of movement.
 
-![Thundergong 2024!](/images/blog/thundergong-2024/01.png)
+![Thundergong 2024!](./heroes/thundergong-2024.png)
 
 ![Thundergong 2024!](/images/blog/thundergong-2024/02.png)
 

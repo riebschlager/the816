@@ -4,7 +4,7 @@ import { SITE_TITLE } from '../../consts';
 import { getCollection } from 'astro:content';
 
 const projects = (await getCollection('projects')).sort((a, b) =>
-	a.data.number.localeCompare(b.data.number),
+	a.data.order - b.data.order,
 );
 ---
 
@@ -20,7 +20,7 @@ const projects = (await getCollection('projects')).sort((a, b) =>
 					projects.map((project) => (
 						<li>
 							<a href={`/projects/${project.id}`}>
-								<span class="number">{project.data.number}</span>
+								<span class="number">{String(project.data.order).padStart(2, '0')}</span>
 								<span class="project-name">{project.data.title}</span>
 								<span class="arrow" aria-hidden="true">↗</span>
 							</a>

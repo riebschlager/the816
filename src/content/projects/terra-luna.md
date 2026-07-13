@@ -1,7 +1,7 @@
 ---
 title: 'Terra Luna'
 description: 'A project by Chris Riebschlager.'
-number: '03'
+order: 3
 status: 'Complete'
 ---
 This project page is being assembled. Check back soon for the full story!

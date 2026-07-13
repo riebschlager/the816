@@ -2,7 +2,7 @@
 title: 'ThunderGong 2022 and Hatrick Swayze'
 description: 'Last month I was sitting behind my computer, side-stage at the Uptown Theater here in Kansas City. Just a few feet away, Jason Sudeikis…'
 pubDate: '2022-12-04T17:08:12.834Z'
-heroImage: '/images/blog/thundergong-2022-and-hatrick-swayze/02.jpeg'
+heroImage: './heroes/thundergong-2022-and-hatrick-swayze.jpeg'
 ---
 Last month I was sitting behind my computer, side-stage at the Uptown Theater here in Kansas City. Just a few feet away, Jason Sudeikis, Fred Armisen and Will Forte (the Mt. Rushmore of my comedy heroes) were rehearsing songs. “This is so insanely cool,” I thought, “but I’ll have to appreciate this later after I figure out why there’s no audio signal getting from my PC to the mixer.”
 
@@ -24,7 +24,7 @@ The setup was relatively simple. Ed was speaking into a mic and our application 
 
 The majority of Hatrick’s interactivity was driven by this touchscreen interface. This gave Randall instant access to all of Hatrick’s possible emotions, reactions and animations.
 
-![L to R: Me, Brandon, Randall, Ed, Guy whose name I didn’t catch :)](/images/blog/thundergong-2022-and-hatrick-swayze/02.jpeg)
+![L to R: Me, Brandon, Randall, Ed, Guy whose name I didn’t catch :)](./heroes/thundergong-2022-and-hatrick-swayze.jpeg)
 
 *L to R: Me, Brandon, Randall, Ed, Guy whose name I didn’t catch :)*
 

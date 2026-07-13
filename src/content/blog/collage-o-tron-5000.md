@@ -2,9 +2,9 @@
 title: 'Collage-o-tron 5000'
 description: 'One thing I’ve really missed this year is seeing live music, especially jazz. Watching a good jazz band can be absolutely transcendent…'
 pubDate: '2020-12-28T01:46:42.677Z'
-heroImage: '/images/blog/collage-o-tron-5000/01.jpeg'
+heroImage: './heroes/collage-o-tron-5000.jpeg'
 ---
-![Collage-o-tron 5000](/images/blog/collage-o-tron-5000/01.jpeg)
+![Collage-o-tron 5000](./heroes/collage-o-tron-5000.jpeg)
 
 One thing I’ve really missed this year is seeing live music, especially jazz. Watching a good jazz band can be absolutely transcendent. It’s a perfect illustration of the magic that happens when you mix technical mastery with artistic expression.
 

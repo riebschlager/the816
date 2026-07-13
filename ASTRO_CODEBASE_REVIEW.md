@@ -21,9 +21,13 @@ The highest-value next step is to introduce one site-wide layout and compose the
 
 ## Recommended roadmap
 
-### 1. Add a site-wide base layout
+### 1. Add a site-wide base layout ✅
 
 **Priority: high**
+
+**Status: Complete — July 12, 2026**
+
+Implemented `BaseLayout.astro` as the shared document shell and composed the blog and project layouts around it. Added a neutral `ContentLayout.astro` for the evergreen About page so it no longer uses blog-post semantics or a synthetic publication date.
 
 Create `src/layouts/BaseLayout.astro` to own the full document shell:
 
@@ -41,9 +45,13 @@ Related opportunity: `about.astro` currently uses `BlogPost.astro` and supplies 
 
 Reference: [Astro layouts](https://docs.astro.build/en/basics/layouts/)
 
-### 2. Strengthen content schemas and make media build-managed
+### 2. Strengthen content schemas and make media build-managed ✅
 
 **Priority: high**
+
+**Status: Complete — July 12, 2026**
+
+Project status is now a constrained enum, project ordering is stored as a positive integer and formatted for display, and blog hero images are colocated with the content collection and validated with Astro's `image()` helper. The production build now optimizes these editorial images and fails during content sync when a referenced hero image is invalid.
 
 Tighten `src/content.config.ts` so invalid content fails early and its types communicate intent:
 
@@ -174,4 +182,3 @@ At the time of review:
 - `npm run build` passes.
 - Astro generates 14 static pages plus RSS and sitemap output.
 - No application changes were made as part of this review; this document is the only intentional source change.
-

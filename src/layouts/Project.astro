@@ -5,13 +5,13 @@ import BaseLayout from './BaseLayout.astro';
 
 type Props = CollectionEntry<'projects'>['data'];
 
-const { title, description, number, status } = Astro.props;
+const { title, description, order, status } = Astro.props;
 ---
 
 <BaseLayout title={`${title} | ${SITE_TITLE}`} {description}>
 	<a class="back" href="/projects">← All projects</a>
 	<article>
-		<p class="eyebrow">Project {number}</p>
+		<p class="eyebrow">Project {String(order).padStart(2, '0')}</p>
 		<h1>{title}</h1>
 		<div class="status">
 			<span aria-hidden="true"></span>

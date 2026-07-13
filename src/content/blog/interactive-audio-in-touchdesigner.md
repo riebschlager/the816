@@ -2,7 +2,7 @@
 title: 'Interactive Audio in TouchDesigner'
 description: 'A standout feature in TouchDesigner is its capability to function as a VST host, opening up a world of creative possibilities for…'
 pubDate: '2024-03-30T21:14:01.221Z'
-heroImage: '/images/blog/interactive-audio-in-touchdesigner/01.gif'
+heroImage: './heroes/interactive-audio-in-touchdesigner.gif'
 ---
 A standout feature in TouchDesigner is its capability to function as a VST host, opening up a world of creative possibilities for integrating audio into your projects. VST, short for Virtual Studio Technology, empowers you to seamlessly incorporate synthesizers and effects processors, treating them as you would any other node in your project.
 
@@ -16,7 +16,7 @@ I haven’t seen many examples of other people using VSTs in TouchDesigner, so I
 
 I’ve created a simplified version of my installation for this walk-through. The project is based around a simple physics simulation. I’m dropping spheres in the scene and when those spheres hit the bottom, they trigger a note and an animation. I generated several FRENS textures using Adobe Firefly and used those images to texture the spheres in the scene. Seems easy, right? It is! Let’s break down this project, starting with the physics.
 
-![Interactive Audio in TouchDesigner](/images/blog/interactive-audio-in-touchdesigner/01.gif)
+![Interactive Audio in TouchDesigner](./heroes/interactive-audio-in-touchdesigner.gif)
 
 This GIF shows you what’s happening behind the scenes of the Bullet Solver physics simulation. Spheres are spawned at three points above the rendered view. They then fall, eventually colliding with three small “bumpers” that align with the bottom of the rendered view. Eventually the FRENS find their way past these bumpers to the “floor” cube at the bottom of the scene. When they collide with this box, they are re-spawned at the top with a new texture image. I added walls and ceiling boxes to the simulation so that they don’t go flying off into space. Since we don’t need any Z motion in this case, it’s being computed as a 2D simulation.
 
