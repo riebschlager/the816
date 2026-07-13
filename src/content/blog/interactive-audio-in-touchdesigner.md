@@ -1,9 +1,10 @@
 ---
-title: 'Interactive Audio in TouchDesigner'
-description: 'A standout feature in TouchDesigner is its capability to function as a VST host, opening up a world of creative possibilities for…'
-pubDate: '2024-03-30T21:14:01.221Z'
-heroImage: './heroes/interactive-audio-in-touchdesigner.gif'
+title: "Interactive Audio in TouchDesigner"
+description: "A standout feature in TouchDesigner is its capability to function as a VST host, opening up a world of creative possibilities for…"
+pubDate: "2024-03-30T21:14:01.221Z"
+heroImage: "./heroes/interactive-audio-in-touchdesigner.gif"
 ---
+
 A standout feature in TouchDesigner is its capability to function as a VST host, opening up a world of creative possibilities for integrating audio into your projects. VST, short for Virtual Studio Technology, empowers you to seamlessly incorporate synthesizers and effects processors, treating them as you would any other node in your project.
 
 I used the VST capabilities in an installation I created for an interactive art exhibition my friends and I curated last autumn. The concept revolved around a communication conduit designed to engage with entities dubbed FRENS (Frequency Resonators Emitting Noteworthy Sounds). Through projection mapping, visitors wielded a MIDI controller to interact with the FRENS, dynamically altering their visual attributes and the sounds they produced.
@@ -44,7 +45,7 @@ def onCollision(solverComp, collisions):
    op('bsolver1/table1')[b1.index, 0] = random.randint(0, op('bsolver1/base1/folder1').numRows)
 
   # This is just a reversed version of the above
-  # Is it repetetive? Is there a better way to do this? Yeah, probably. 
+  # Is it repetetive? Is there a better way to do this? Yeah, probably.
   # But whatever. We're having fun here.
   elif b2.owner != floor and b1.owner == floor:
    b2.translate = newPoint(solverComp, b2.index)
@@ -55,14 +56,14 @@ def onCollision(solverComp, collisions):
 
   # Check to see if a FREN hit a bumper
   elif b1.owner == bumper and collision.impact:
-   # If the Y component of the FREN's velocity is greater than 1, 
+   # If the Y component of the FREN's velocity is greater than 1,
    # play a note and trigger the pulse animation.
-   # Why check the velocity? I don't want to trigger notes if the FREN 
+   # Why check the velocity? I don't want to trigger notes if the FREN
    # somehow bounced back up towards the bumper.
    if b2.linearVelocity[1] > 0:
     playNote(b1.index)
     pulse(b1.index)
-    
+
   # Yeah. Repetitve code again. Sue me.
   elif b2.owner == bumper and collision.impact:
    if b1.linearVelocity[1] > 0:
@@ -88,7 +89,7 @@ def playNote(index):
   [6, 10, 1],  # F# Major / Gb Major
   [7, 11, 2],  # G Major
   [8, 0, 3],   # G# Major / Ab Major
-  
+
   [9, 0, 4],    # A Minor
   [10, 1, 5],   # A# Minor / Bb Minor
   [11, 2, 6],   # B Minor

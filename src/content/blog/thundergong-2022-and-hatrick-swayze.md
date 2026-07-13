@@ -1,9 +1,10 @@
 ---
-title: 'ThunderGong 2022 and Hatrick Swayze'
-description: 'Last month I was sitting behind my computer, side-stage at the Uptown Theater here in Kansas City. Just a few feet away, Jason Sudeikis…'
-pubDate: '2022-12-04T17:08:12.834Z'
-heroImage: './heroes/thundergong-2022-and-hatrick-swayze.jpeg'
+title: "ThunderGong 2022 and Hatrick Swayze"
+description: "Last month I was sitting behind my computer, side-stage at the Uptown Theater here in Kansas City. Just a few feet away, Jason Sudeikis…"
+pubDate: "2022-12-04T17:08:12.834Z"
+heroImage: "./heroes/thundergong-2022-and-hatrick-swayze.jpeg"
 ---
+
 Last month I was sitting behind my computer, side-stage at the Uptown Theater here in Kansas City. Just a few feet away, Jason Sudeikis, Fred Armisen and Will Forte (the Mt. Rushmore of my comedy heroes) were rehearsing songs. “This is so insanely cool,” I thought, “but I’ll have to appreciate this later after I figure out why there’s no audio signal getting from my PC to the mixer.”
 
 The show was [ThunderGong](https://thundergong.org/), an annual benefit concert created by the [Steps of Faith Foundation](https://www.stepsoffaithfoundation.org/) and hosted by Jason Sudeikis. My friends Randall Statler and Brandon Wood and I were invited to create an interactive element for the show. What we created was Hatrick Swayze, a live-controlled, animated version of this year’s show mascot, designed by [Micah Smith](https://www.amicahsmith.com/).
@@ -26,15 +27,15 @@ The majority of Hatrick’s interactivity was driven by this touchscreen interfa
 
 ![L to R: Me, Brandon, Randall, Ed, Guy whose name I didn’t catch :)](./heroes/thundergong-2022-and-hatrick-swayze.jpeg)
 
-*L to R: Me, Brandon, Randall, Ed, Guy whose name I didn’t catch :)*
+_L to R: Me, Brandon, Randall, Ed, Guy whose name I didn’t catch :)_
 
 ![Ed, Billy, Brandon, Dustin, Randall and Jason plan Hatrick’s segments of the show.](/images/blog/thundergong-2022-and-hatrick-swayze/03.jpeg)
 
-*Ed, Billy, Brandon, Dustin, Randall and Jason plan Hatrick’s segments of the show.*
+_Ed, Billy, Brandon, Dustin, Randall and Jason plan Hatrick’s segments of the show._
 
 <div class="video-embed"><iframe src="https://www.youtube.com/embed/iEJATxbr5rI?feature=oembed" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
 
-*Hatrick has a lil’ blow up.*
+_Hatrick has a lil’ blow up._
 
 The project was so fun and the show was an absolute blast. A huge thanks to Billy Brimblecom and Steps of Faith for including us and also thanks to Blake Young at [Loud Productions](https://www.loudproductiongroup.com/) who we couldn’t have done this without.
 

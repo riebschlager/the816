@@ -1,62 +1,66 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseLayout from './BaseLayout.astro';
-import Prose from '../components/Prose.astro';
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "./BaseLayout.astro";
+import Prose from "../components/Prose.astro";
 
-type Props = CollectionEntry<'projects'>['data'];
+type Props = CollectionEntry<"projects">["data"];
 
 const { title, description, order, status } = Astro.props;
 ---
 
 <BaseLayout {title} {description}>
-	<a class="back" href="/projects">← All projects</a>
-	<article>
-		<p class="eyebrow">Project {String(order).padStart(2, '0')}</p>
-		<h1>{title}</h1>
-		<div class="status">
-			<span aria-hidden="true"></span>
-			{status}
-		</div>
-		<Prose variant="project"><slot /></Prose>
-	</article>
+  <a class="back" href="/projects">← All projects</a>
+  <article>
+    <p class="eyebrow">Project {String(order).padStart(2, "0")}</p>
+    <h1>{title}</h1>
+    <div class="status">
+      <span aria-hidden="true"></span>
+      {status}
+    </div>
+    <Prose variant="project"><slot /></Prose>
+  </article>
 </BaseLayout>
 
 <style>
-	.back {
-		display: inline-block;
-		margin-bottom: 4.5rem;
-		font-size: 0.9rem;
-		font-weight: 700;
-		text-decoration: none;
-	}
-	article { max-width: 38rem; }
-	.eyebrow {
-		margin: 0 0 0.35rem;
-		color: var(--accent-dark);
-		font-size: 0.75rem;
-		font-weight: 700;
-		letter-spacing: 0.16em;
-		text-transform: uppercase;
-	}
-	h1 { margin-bottom: 1.25rem; }
-	.status {
-		display: flex;
-		align-items: center;
-		gap: 0.45rem;
-		width: fit-content;
-		margin-bottom: 2.5rem;
-		padding: 0.35rem 0.75rem;
-		border: 1px solid var(--border);
-		border-radius: 999px;
-		background: var(--surface-raised);
-		color: var(--text);
-		font-size: 0.8rem;
-		font-weight: 700;
-	}
-	.status span {
-		width: 0.5rem;
-		height: 0.5rem;
-		border-radius: 50%;
-		background: var(--accent);
-	}
+  .back {
+    display: inline-block;
+    margin-bottom: 4.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  article {
+    max-width: 38rem;
+  }
+  .eyebrow {
+    margin: 0 0 0.35rem;
+    color: var(--accent-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  h1 {
+    margin-bottom: 1.25rem;
+  }
+  .status {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    width: fit-content;
+    margin-bottom: 2.5rem;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface-raised);
+    color: var(--text);
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .status span {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--accent);
+  }
 </style>

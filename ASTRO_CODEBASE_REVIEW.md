@@ -124,6 +124,10 @@ Other small CSS maintenance wins:
 
 **Priority: high**
 
+**Status: Complete — July 12, 2026**
+
+Added Astro diagnostics with `@astrojs/check` and TypeScript, repository-wide Prettier formatting with Astro template support, and a GitHub Actions workflow that validates diagnostics, formatting, and the production build on pull requests and pushes to `main`.
+
 The production build is healthy, but `astro build` is not a complete substitute for Astro diagnostics. Add `@astrojs/check` and `typescript`, then scripts along these lines:
 
 ```json

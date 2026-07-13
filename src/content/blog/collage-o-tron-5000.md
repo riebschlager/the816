@@ -1,9 +1,10 @@
 ---
-title: 'Collage-o-tron 5000'
-description: 'One thing I’ve really missed this year is seeing live music, especially jazz. Watching a good jazz band can be absolutely transcendent…'
-pubDate: '2020-12-28T01:46:42.677Z'
-heroImage: './heroes/collage-o-tron-5000.jpeg'
+title: "Collage-o-tron 5000"
+description: "One thing I’ve really missed this year is seeing live music, especially jazz. Watching a good jazz band can be absolutely transcendent…"
+pubDate: "2020-12-28T01:46:42.677Z"
+heroImage: "./heroes/collage-o-tron-5000.jpeg"
 ---
+
 ![Collage-o-tron 5000](./heroes/collage-o-tron-5000.jpeg)
 
 One thing I’ve really missed this year is seeing live music, especially jazz. Watching a good jazz band can be absolutely transcendent. It’s a perfect illustration of the magic that happens when you mix technical mastery with artistic expression.
@@ -17,9 +18,9 @@ But here’s the great thing about improvisation: It doesn’t have to be perfec
 > “If you hit the wrong note, it’s the next note that determines if it’s good or bad.”  
 >  — Miles Davis
 
-We don’t really get chances to “play” in our day jobs. We have a thing we need to do and it’s usually best to take the quickest path to it being done. But I think playing is absolutely critical to elevating your craft from something you do to pay your mortgage to something you do because you can’t imagine *not* doing it.
+We don’t really get chances to “play” in our day jobs. We have a thing we need to do and it’s usually best to take the quickest path to it being done. But I think playing is absolutely critical to elevating your craft from something you do to pay your mortgage to something you do because you can’t imagine _not_ doing it.
 
-Creative coding is playing. It’s experimenting, failing, then adjusting and trying again. Above all, it’s creating the conditions where happy accidents will occur. You hit a wrong note, then pick the *perfect* note to play next and *BOOM! *That’s pure magic and you ain’t gonna get there any other way but by “playing around”.
+Creative coding is playing. It’s experimenting, failing, then adjusting and trying again. Above all, it’s creating the conditions where happy accidents will occur. You hit a wrong note, then pick the _perfect_ note to play next and *BOOM! *That’s pure magic and you ain’t gonna get there any other way but by “playing around”.
 
 ### So let’s play.
 

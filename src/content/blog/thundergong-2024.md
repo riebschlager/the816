@@ -1,9 +1,10 @@
 ---
-title: 'Thundergong 2024!'
-description: 'For the last three years, I’ve had the opportunity to contribute some fun interactive visual work to Thundergong, an annual benefit concert…'
-pubDate: '2024-11-17T15:56:04.480Z'
-heroImage: './heroes/thundergong-2024.png'
+title: "Thundergong 2024!"
+description: "For the last three years, I’ve had the opportunity to contribute some fun interactive visual work to Thundergong, an annual benefit concert…"
+pubDate: "2024-11-17T15:56:04.480Z"
+heroImage: "./heroes/thundergong-2024.png"
 ---
+
 For the last three years, I’ve had the opportunity to contribute some fun interactive visual work to [Thundergong](https://thundergong.org), an annual benefit concert presented by the [Steps of Faith Foundation](https://www.stepsoffaithfoundation.org/) and hosted by Jason Sudeikis. I’ve gotta say, I think this year’s show might have been the best one yet. But don’t take it from me, just check out this video of Weird Al Yankovic and Will Forte covering Chappell Roan’s HOT TO GO.
 
 <div class="video-embed"><iframe src="https://www.youtube.com/embed/KaiyQ7jJMaI?feature=oembed" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
@@ -18,7 +19,7 @@ Our friends at [Loud Productions](https://www.loudproductiongroup.com/) provided
 
 <div class="video-embed"><iframe src="https://www.youtube.com/embed/q7HDa3aDmgI?feature=oembed" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
 
-*I am not a professional drummer.*
+_I am not a professional drummer._
 
 We wanted to try some new things this year. First off, we wanted to give Billy, the drummer and co-host of the show, direct control over the effects happening on the video walls. To do this, we started with rolling our own drum-hit-sensing solution. We cobbled together a system using [Phidgets](https://phidgets.com/) accelerometers. While this solution was workable, we opted for an off-the-shelf MIDI drum trigger. These fun little devices clamp to the drum heads and send MIDI notes when the drums are hit.
 
@@ -26,7 +27,7 @@ Using that device, we could then use MIDI information to drive visuals on the LE
 
 ![See that small red box in the lower left? That’s our MIDI trigger device.](/images/blog/thundergong-2024/03.jpeg)
 
-*See that small red box in the lower left? That’s our MIDI trigger device.*
+_See that small red box in the lower left? That’s our MIDI trigger device._
 
 In addition to the drum-triggered effects, we used a MIDI control surface to orchestrate all the other visual effects. This allowed us to preform our part of the show live with the band. Here’s a video that breaks down how that worked during the show.
 
@@ -34,7 +35,7 @@ In addition to the drum-triggered effects, we used a MIDI control surface to orc
 
 ![Our stage-right workstation just before showtime.](/images/blog/thundergong-2024/04.jpeg)
 
-*Our stage-right workstation just before showtime.*
+_Our stage-right workstation just before showtime._
 
 And as in past years, we also had a touch screen interface for all the other video wall controls: Switching between songs, triggering messages and live previz of the video walls as well as a preview of the roaming camera feed used in the composition.
 

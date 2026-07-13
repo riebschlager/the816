@@ -1,88 +1,97 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 
-const projects = (await getCollection('projects')).sort((a, b) =>
-	a.data.order - b.data.order,
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order,
 );
 ---
 
-<BaseLayout title="Projects" description="A selection of projects by Chris Riebschlager.">
-			<header class="page-intro">
-				<p class="eyebrow">Selected work</p>
-				<h1>Projects</h1>
-				<p>A few things taking shape. More to come.</p>
-			</header>
+<BaseLayout
+  title="Projects"
+  description="A selection of projects by Chris Riebschlager."
+>
+  <header class="page-intro">
+    <p class="eyebrow">Selected work</p>
+    <h1>Projects</h1>
+    <p>A few things taking shape. More to come.</p>
+  </header>
 
-			<ul class="project-list">
-				{
-					projects.map((project) => (
-						<li>
-							<a href={`/projects/${project.id}`}>
-								<span class="number">{String(project.data.order).padStart(2, '0')}</span>
-								<span class="project-name">{project.data.title}</span>
-								<span class="arrow" aria-hidden="true">↗</span>
-							</a>
-						</li>
-					))
-				}
-			</ul>
+  <ul class="project-list">
+    {
+      projects.map((project) => (
+        <li>
+          <a href={`/projects/${project.id}`}>
+            <span class="number">
+              {String(project.data.order).padStart(2, "0")}
+            </span>
+            <span class="project-name">{project.data.title}</span>
+            <span class="arrow" aria-hidden="true">
+              ↗
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </BaseLayout>
 
 <style>
-	.page-intro {
-		margin-bottom: 3.5rem;
-	}
-	.eyebrow {
-		margin: 0 0 0.35rem;
-		color: var(--accent-dark);
-		font-size: 0.75rem;
-		font-weight: 700;
-		letter-spacing: 0.16em;
-		text-transform: uppercase;
-	}
-	.page-intro h1 {
-		margin-bottom: 0.35rem;
-	}
-	.page-intro p:last-child {
-		margin: 0;
-		color: var(--text-muted);
-	}
-	.project-list {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		border-top: 1px solid var(--border);
-	}
-	.project-list li {
-		border-bottom: 1px solid var(--border);
-	}
-	.project-list a {
-		display: grid;
-		grid-template-columns: 3.5rem 1fr auto;
-		gap: 1rem;
-		align-items: center;
-		padding: 1.25rem 0;
-		color: var(--text);
-		text-decoration: none;
-		transition: color 160ms ease, padding 160ms ease;
-	}
-	.project-list a:hover {
-		padding-right: 0.35rem;
-		padding-left: 0.35rem;
-		color: var(--accent-dark);
-	}
-	.number {
-		color: var(--text-muted);
-		font-size: 0.8rem;
-		font-variant-numeric: tabular-nums;
-	}
-	.project-name {
-		font-size: 1.5rem;
-		font-weight: 700;
-		line-height: 1.1;
-	}
-	.arrow {
-		font-size: 1.5rem;
-	}
+  .page-intro {
+    margin-bottom: 3.5rem;
+  }
+  .eyebrow {
+    margin: 0 0 0.35rem;
+    color: var(--accent-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .page-intro h1 {
+    margin-bottom: 0.35rem;
+  }
+  .page-intro p:last-child {
+    margin: 0;
+    color: var(--text-muted);
+  }
+  .project-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--border);
+  }
+  .project-list li {
+    border-bottom: 1px solid var(--border);
+  }
+  .project-list a {
+    display: grid;
+    grid-template-columns: 3.5rem 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.25rem 0;
+    color: var(--text);
+    text-decoration: none;
+    transition:
+      color 160ms ease,
+      padding 160ms ease;
+  }
+  .project-list a:hover {
+    padding-right: 0.35rem;
+    padding-left: 0.35rem;
+    color: var(--accent-dark);
+  }
+  .number {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .project-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .arrow {
+    font-size: 1.5rem;
+  }
 </style>

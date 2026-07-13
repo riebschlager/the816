@@ -1,77 +1,82 @@
 ---
-import AboutHeroImage from '../assets/chris-projection.jpg';
-import ContentLayout from '../layouts/ContentLayout.astro';
+import AboutHeroImage from "../assets/chris-projection.jpg";
+import ContentLayout from "../layouts/ContentLayout.astro";
 ---
 
 <ContentLayout
- title="About Me"
- description="All About Chris Riebschlager"
- heroImage={AboutHeroImage}
+  title="About Me"
+  description="All About Chris Riebschlager"
+  heroImage={AboutHeroImage}
 >
-	<p>
-		I never know what to say when people ask me what I do. Maybe we could start
-		with what I've done so far.
-	</p>
-	<h2>The Work Experiences that Shaped Me</h2>
-	<hr />
-	<section class="experience">
-	<h3>River City Studio <span>(2000)</span></h3>
-	<p>
-    My first job out of college was at River City Studio, where I worked as a
-    web developer. I learned to code before LLMs were a thing. Even before Stack
-    Overflow was a thing. Yes, I am old.
-	</p>
-	<h3>Bernstein-Rein <span>(2006)</span></h3>
-	<p>
-    I'm still in touch with many of the ridiculously talented people I worked
-    with at BR. Being on this team was like playing for the Chicago Bulls in
-    1995. It was truly a dream team and I learned <strong>so much</strong> from this
-    group.
-	</p>
-	<h3>RKO Workshop <span>(2011)</span></h3>
-	<p>
-    My friends John and Tim and I started RKO Workshop to create interactive
-    installations for clients like the Nelson-Atkins Museum of Art. This is when
-    I fell in love with applying technology to the built space.
-	</p>
-	<h3>Barkley <span>(2012)</span></h3>
-	<p>
-    I worked at Moonshot, the innovation lab at Barkley and my actual job title
-    was "Inventor". We made so many fun prototypes, like a "mind-controlled"
-    slot car track, a vending machine that dispensed drinks in exchange for
-    social likes, and an interactive portrait creation tool we brought to SXSW
-    and TEDxAustin.
-	</p>
-	<h3>Kansas City Art Institute <span>(2018)</span></h3>
-	<p>
-    I was invited to teach two classes at KCAI, one on creative coding and one
-    on interactive installations. Teaching was massively rewarding and insanely
-    difficult. This gig enshrined the respect I have for educators.
-	</p>
-	<h3>Dimensional Innovations <span>(2015)</span></h3>
-	<p>
-    I joined DI as the first on-staff software developer. Within a couple months
-    of starting, I was already on site at an MLB stadium, installing my first
-    large-scale interactive games. Over the last decade (plus), I've helped
-    build this team into what I now lead as the Director of Creative Technology.
-	</p>
-	</section>
-	<hr />
-	<p>
-		<strong>Want to see what we've built? Check out my <a href="/projects">projects</a>.</strong>
-	</p>
+  <p>
+    I never know what to say when people ask me what I do. Maybe we could start
+    with what I've done so far.
+  </p>
+  <h2>The Work Experiences that Shaped Me</h2>
+  <hr />
+  <section class="experience">
+    <h3>River City Studio <span>(2000)</span></h3>
+    <p>
+      My first job out of college was at River City Studio, where I worked as a
+      web developer. I learned to code before LLMs were a thing. Even before
+      Stack Overflow was a thing. Yes, I am old.
+    </p>
+    <h3>Bernstein-Rein <span>(2006)</span></h3>
+    <p>
+      I'm still in touch with many of the ridiculously talented people I worked
+      with at BR. Being on this team was like playing for the Chicago Bulls in
+      1995. It was truly a dream team and I learned <strong>so much</strong> from
+      this group.
+    </p>
+    <h3>RKO Workshop <span>(2011)</span></h3>
+    <p>
+      My friends John and Tim and I started RKO Workshop to create interactive
+      installations for clients like the Nelson-Atkins Museum of Art. This is
+      when I fell in love with applying technology to the built space.
+    </p>
+    <h3>Barkley <span>(2012)</span></h3>
+    <p>
+      I worked at Moonshot, the innovation lab at Barkley and my actual job
+      title was "Inventor". We made so many fun prototypes, like a
+      "mind-controlled" slot car track, a vending machine that dispensed drinks
+      in exchange for social likes, and an interactive portrait creation tool we
+      brought to SXSW and TEDxAustin.
+    </p>
+    <h3>Kansas City Art Institute <span>(2018)</span></h3>
+    <p>
+      I was invited to teach two classes at KCAI, one on creative coding and one
+      on interactive installations. Teaching was massively rewarding and
+      insanely difficult. This gig enshrined the respect I have for educators.
+    </p>
+    <h3>Dimensional Innovations <span>(2015)</span></h3>
+    <p>
+      I joined DI as the first on-staff software developer. Within a couple
+      months of starting, I was already on site at an MLB stadium, installing my
+      first large-scale interactive games. Over the last decade (plus), I've
+      helped build this team into what I now lead as the Director of Creative
+      Technology.
+    </p>
+  </section>
+  <hr />
+  <p>
+    <strong
+      >Want to see what we've built? Check out my <a href="/projects"
+        >projects</a
+      >.</strong
+    >
+  </p>
 </ContentLayout>
 
 <style>
-	.experience {
-		margin-top: 2rem;
-	}
-	.experience h3 {
-		color: var(--accent-dark);
-		font-size: 1.25em;
-	}
-	.experience h3 span,
-	.experience p {
-		color: var(--text-muted);
-	}
+  .experience {
+    margin-top: 2rem;
+  }
+  .experience h3 {
+    color: var(--accent-dark);
+    font-size: 1.25em;
+  }
+  .experience h3 span,
+  .experience p {
+    color: var(--text-muted);
+  }
 </style>

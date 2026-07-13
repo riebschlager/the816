@@ -1,53 +1,57 @@
 ---
-import { NAVIGATION, SITE_TITLE } from '../consts';
-import HeaderLink from './HeaderLink.astro';
-import SocialLinks from './SocialLinks.astro';
+import { NAVIGATION, SITE_TITLE } from "../consts";
+import HeaderLink from "./HeaderLink.astro";
+import SocialLinks from "./SocialLinks.astro";
 ---
 
 <header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			{NAVIGATION.map(({ href, label }) => <HeaderLink {href}>{label}</HeaderLink>)}
-		</div>
-		<SocialLinks placement="header" />
-	</nav>
+  <nav>
+    <h2><a href="/">{SITE_TITLE}</a></h2>
+    <div class="internal-links">
+      {
+        NAVIGATION.map(({ href, label }) => (
+          <HeaderLink {href}>{label}</HeaderLink>
+        ))
+      }
+    </div>
+    <SocialLinks placement="header" />
+  </nav>
 </header>
 <style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: color-mix(in srgb, var(--background) 90%, transparent);
-		border-bottom: 1px solid var(--border);
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-		backdrop-filter: blur(16px);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
+  header {
+    margin: 0;
+    padding: 0 1em;
+    background: color-mix(in srgb, var(--background) 90%, transparent);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(16px);
+  }
+  h2 {
+    margin: 0;
+    font-size: 1em;
+  }
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--text);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-		color: var(--accent);
-	}
-	nav a:hover {
-		color: var(--accent-dark);
-	}
+  h2 a,
+  h2 a.active {
+    text-decoration: none;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav a {
+    padding: 1em 0.5em;
+    color: var(--text);
+    border-bottom: 4px solid transparent;
+    text-decoration: none;
+  }
+  nav a.active {
+    text-decoration: none;
+    border-bottom-color: var(--accent);
+    color: var(--accent);
+  }
+  nav a:hover {
+    color: var(--accent-dark);
+  }
 </style>

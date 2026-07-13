@@ -1,9 +1,10 @@
 ---
-title: 'Creating a Playable 12-Foot-Tall Electric Guitar'
-description: 'My team at Dimensional Innovations was asked to create something amazing for Boulevardia, a two day festival of music, food and of course…'
-pubDate: '2017-06-20T21:52:18.523Z'
-heroImage: './heroes/creating-a-playable-12-foot-tall-electric-guitar.jpeg'
+title: "Creating a Playable 12-Foot-Tall Electric Guitar"
+description: "My team at Dimensional Innovations was asked to create something amazing for Boulevardia, a two day festival of music, food and of course…"
+pubDate: "2017-06-20T21:52:18.523Z"
+heroImage: "./heroes/creating-a-playable-12-foot-tall-electric-guitar.jpeg"
 ---
+
 ![Creating a Playable 12-Foot-Tall Electric Guitar](/images/blog/creating-a-playable-12-foot-tall-electric-guitar/01.jpeg)
 
 My team at [Dimensional Innovations](http://dimin.com) was asked to create something amazing for [Boulevardia](http://boulevardia.com), a two day festival of music, food and of course, beer. The space we had to work with was the area immediately after the main entrance of the festival. We wanted to create something iconic, interactive and engaging. It had to be something that welcomed visitors and let them know that they had left Kansas City and had entered a whole other nation. The nation of Boulevardia!
@@ -54,7 +55,7 @@ The reaction we got at the event was overwhelming. It was being played and being
 
 ![The guitar was also a hit on social media, it was a regular feature in people’s posts from the event. Brody Buster even snapped a photo featuring his sticker. I’m a big fan of Brody, so this made me *really* happy to see.](/images/blog/creating-a-playable-12-foot-tall-electric-guitar/10.png)
 
-*The guitar was also a hit on social media, it was a regular feature in people’s posts from the event. Brody Buster even snapped a photo featuring his sticker. I’m a big fan of Brody, so this made me *really* happy to see.*
+_The guitar was also a hit on social media, it was a regular feature in people’s posts from the event. Brody Buster even snapped a photo featuring his sticker. I’m a big fan of Brody, so this made me *really* happy to see._
 
 This project was without a doubt one of the most exciting, challenging and rewarding projects I’ve been a part of. From concept to execution, the entire project took only five weeks. The fact that we pulled this off in so little time really speaks to the talent and dedication of the people I get to work with.
 

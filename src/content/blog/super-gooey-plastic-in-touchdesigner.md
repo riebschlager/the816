@@ -1,12 +1,13 @@
 ---
-title: 'Super-Gooey Plastic in TouchDesigner'
-description: 'I love being able to make an image that you can feel. Just imagine running your fingers over this thing. You can almost feel it, right…'
-pubDate: '2024-03-27T03:16:51.849Z'
-heroImage: './heroes/super-gooey-plastic-in-touchdesigner.jpeg'
+title: "Super-Gooey Plastic in TouchDesigner"
+description: "I love being able to make an image that you can feel. Just imagine running your fingers over this thing. You can almost feel it, right…"
+pubDate: "2024-03-27T03:16:51.849Z"
+heroImage: "./heroes/super-gooey-plastic-in-touchdesigner.jpeg"
 ---
+
 ![Ooo yeah. That’s gooey.](./heroes/super-gooey-plastic-in-touchdesigner.jpeg)
 
-*Ooo yeah. That’s gooey.*
+_Ooo yeah. That’s gooey._
 
 I love being able to make an image that you can feel. Just imagine running your fingers over this thing. You can almost feel it, right? It’s like a slightly rough plastic with layers of old paint that feel like rough spots on the surface.
 
@@ -19,7 +20,7 @@ But like with many things, TouchDesigner makes working with PBR extremely easy. 
 
 <div class="video-embed"><iframe src="https://player.vimeo.com/video/927790169?app_id=122963" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
 
-*Ooo yeah. Goo being live-rendered at 60fps!*
+_Ooo yeah. Goo being live-rendered at 60fps!_
 
 We’re only doing two things in this sketch. 1) Making a wobbly shape and 2) applying a texture to it. So let’s start with our wobbly shape. There are a billion ways to make wobbly geometry in TD, but this is one of my favorites.
 
@@ -27,7 +28,7 @@ The idea for making this shape comes from what’s happening in this image.
 
 ![You ever play with a parachute in school? Was it just me?](/images/blog/super-gooey-plastic-in-touchdesigner/02.jpg)
 
-*You ever play with a parachute in school? Was it just me?*
+_You ever play with a parachute in school? Was it just me?_
 
 Imagine the parachute is our shape. Since we want that shape to wobble, we ask some kids to hold the edges of the shape and move their arms up and down randomly. This is barely even an analogy because that’s almost exactly what we’re going to do in Touch Designer.
 
