@@ -1,7 +1,5 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE_TITLE } from '../../consts';
 import { getCollection } from 'astro:content';
 
@@ -10,14 +8,7 @@ const projects = (await getCollection('projects')).sort((a, b) =>
 );
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={`Projects | ${SITE_TITLE}`} description="A selection of projects by Chris Riebschlager." />
-	</head>
-	<body>
-		<Header />
-		<main>
+<BaseLayout title={`Projects | ${SITE_TITLE}`} description="A selection of projects by Chris Riebschlager.">
 			<header class="page-intro">
 				<p class="eyebrow">Selected work</p>
 				<h1>Projects</h1>
@@ -37,10 +28,7 @@ const projects = (await getCollection('projects')).sort((a, b) =>
 					))
 				}
 			</ul>
-		</main>
-		<Footer />
-	</body>
-</html>
+</BaseLayout>
 
 <style>
 	.page-intro {

@@ -1,12 +1,11 @@
 ---
 import AboutHeroImage from "../assets/chris-projection.jpg";
-import Layout from "../layouts/BlogPost.astro";
+import ContentLayout from "../layouts/ContentLayout.astro";
 ---
 
-<Layout
+<ContentLayout
   title="About Me"
   description="All About Chris Riebschlager"
-  pubDate={new Date("July 12 2026")}
   heroImage={AboutHeroImage}
 >
   <p>
@@ -75,4 +74,4 @@ import Layout from "../layouts/BlogPost.astro";
       >.</strong
     >
   </p>
-</Layout>
+</ContentLayout>

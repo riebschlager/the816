@@ -1,20 +1,11 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import ChrisAtThundergong from "../assets/chris-at-thundergong.jpg";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header />
-    <main>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
       <h1>Hello, I'm Chris.</h1>
       <div class="intro">
         <figure class="portrait">
@@ -42,10 +33,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         doing the work have what they need to do it well. I learned from
         generous mentors. I try to be one.
       </p>
-    </main>
-    <Footer />
-  </body>
-</html>
+</BaseLayout>
 
 <style>
   .intro {
