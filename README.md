@@ -113,3 +113,12 @@ sitemap, and feed metadata.
 No deployment-provider configuration is stored in this repository. Configure
 the hosting platform to install with `npm ci`, build with `npm run build`, and
 publish `dist/`.
+
+## LLM-readable content
+
+The build generates `/llms.txt` from the blog and project content collections.
+Each collection entry also gets a clean Markdown companion at
+`/blog/<slug>/index.html.md` or `/projects/<slug>/index.html.md`. Titles,
+descriptions, dates, statuses, and links therefore update automatically whenever
+collection content changes. Keep the concise site-level context in
+`src/pages/llms.txt.ts` curated as the site's focus evolves.
