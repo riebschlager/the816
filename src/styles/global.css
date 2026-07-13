@@ -135,59 +135,25 @@ hr {
 }
 
 .sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
+	position: absolute;
 	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
 	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
-	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
+	clip: rect(0, 0, 0, 0);
 	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+	border: 0;
 	white-space: nowrap;
 }
 
-/* Reusable text colors derived from the site palette. */
-.text-default {
-	color: var(--text);
-}
-
-.text-muted {
-	color: var(--text-muted);
-}
-
-.text-accent {
-	color: var(--accent);
-}
-
-.text-accent-dark {
-	color: var(--accent-dark);
-}
-
-.text-accent-blue {
-	color: var(--accent-blue);
-}
-
-.mt-1 {
-	margin-top: 1rem;
-}
-.mt-2 {
-	margin-top: 2rem;
-}
-.mt-3 {
-	margin-top: 3rem;
-}
-.mt-4 {		
-	margin-top: 4rem;
-}
-.mt-5 {
-	margin-top: 5rem;
-}
-.mt-6 {
-	margin-top: 6rem;
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+	}
 }

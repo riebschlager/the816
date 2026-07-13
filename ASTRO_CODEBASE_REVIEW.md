@@ -105,6 +105,10 @@ Reference: [Astro components](https://docs.astro.build/en/basics/astro-component
 
 **Priority: medium**
 
+**Status: Complete — July 12, 2026**
+
+Removed the sparse global text-color and margin utilities and replaced their About-page usage with semantic, page-scoped styles. Simplified the global visually-hidden helper, added a reduced-motion safeguard, and kept the global stylesheet focused on tokens, base elements, responsive foundations, and accessibility utilities.
+
 Limit `src/styles/global.css` to design tokens, reset/base element rules, accessibility utilities, and genuinely global prose defaults.
 
 The current `.text-*` and `.mt-*` utilities are used sparsely and make editorial markup carry presentation details (`about.astro` is the main example). Prefer semantic classes within a page/content component, or establish a deliberate utility system if utility classes are meant to be a project-wide convention. Remove unused utilities after confirming they are not referenced by generated Markdown.
