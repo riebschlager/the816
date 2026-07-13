@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { SITE_TITLE } from '../consts';
 import BaseLayout from './BaseLayout.astro';
 
 type Props = CollectionEntry<'projects'>['data'];
@@ -8,7 +7,7 @@ type Props = CollectionEntry<'projects'>['data'];
 const { title, description, order, status } = Astro.props;
 ---
 
-<BaseLayout title={`${title} | ${SITE_TITLE}`} {description}>
+<BaseLayout {title} {description}>
 	<a class="back" href="/projects">← All projects</a>
 	<article>
 		<p class="eyebrow">Project {String(order).padStart(2, '0')}</p>

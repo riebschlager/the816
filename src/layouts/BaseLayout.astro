@@ -9,16 +9,18 @@ interface Props {
 	description: string;
 	image?: ImageMetadata;
 	type?: 'website' | 'article';
+	publishedDate?: Date;
+	updatedDate?: Date;
 	mainClass?: string;
 }
 
-const { title, description, image, type = 'website', mainClass } = Astro.props;
+const { title, description, image, type = 'website', publishedDate, updatedDate, mainClass } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead {title} {description} {image} {type} />
+		<BaseHead {title} {description} {image} {type} {publishedDate} {updatedDate} />
 	</head>
 	<body>
 		<Header />

@@ -9,7 +9,15 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<BaseLayout {title} {description} type="article" mainClass="blog-post">
+<BaseLayout
+	{title}
+	{description}
+	image={heroImage}
+	type="article"
+	publishedDate={pubDate}
+	{updatedDate}
+	mainClass="blog-post"
+>
 	<article>
 		{heroImage && (
 			<div class="hero-image">

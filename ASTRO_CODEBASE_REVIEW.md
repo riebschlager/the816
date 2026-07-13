@@ -64,9 +64,13 @@ Blog hero images currently live in `public/images` and are passed as string path
 
 References: [Content collections](https://docs.astro.build/en/guides/content-collections/), [Images in Astro](https://docs.astro.build/en/guides/images/), [Project structure and `public`](https://docs.astro.build/en/basics/project-structure/)
 
-### 3. Make metadata consistent and page-specific
+### 3. Make metadata consistent and page-specific ✅
 
 **Priority: high**
+
+**Status: Complete — July 12, 2026**
+
+Page titles now use one `Page | The816` convention, the blog index has its own title and description, and Open Graph and Twitter metadata share canonical site-origin URLs and a dedicated default social image. Blog posts emit article metadata, optimized hero images, and publication/modified dates. Typed navigation and social data now drive the header and footer, including a consistent external-link policy.
 
 Keep `BaseHead.astro` as the metadata component, but clarify and extend its contract:
 

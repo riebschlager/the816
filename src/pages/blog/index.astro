@@ -3,14 +3,17 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION} mainClass="blog-index">
+<BaseLayout
+	title="Blog"
+	description="Writing by Chris Riebschlager about creative technology, interactive experiences, and the work behind them."
+	mainClass="blog-index"
+>
 	<section>
 		<ul>
 			{posts.map((post) => (
