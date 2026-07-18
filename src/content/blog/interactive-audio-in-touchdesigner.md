@@ -1,7 +1,7 @@
 ---
 title: "Interactive Audio in TouchDesigner"
 description: "A standout feature in TouchDesigner is its capability to function as a VST host, opening up a world of creative possibilities for…"
-pubDate: "2024-03-30T21:14:01.221Z"
+pubDate: "2025-03-30T21:14:01.221Z"
 heroImage: "./heroes/interactive-audio-in-touchdesigner.gif"
 heroImageAlt: "A TouchDesigner network for an interactive audio project"
 ---
