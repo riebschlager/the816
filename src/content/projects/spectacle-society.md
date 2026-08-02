@@ -34,7 +34,7 @@ This is probably the most fun a 22" LG commercial signage display ever had!
 
 ![Mirror Project](/images/project/spectacle-society/mirror-1.jpg)
 
-I would never call myself a real woodworker, but I really do enjoy it. 
+I would never call myself a real woodworker, but I really do enjoy it.
 
 ![Mirror Project](/images/project/spectacle-society/mirror-2.jpg)
 
@@ -42,6 +42,6 @@ This is the entire gallery on the day we started loading in the show. It was a c
 
 ![Mirror Project](/images/project/spectacle-society/mirror-4.jpg)
 
-And here is Miragia at her home on the living room wall. I kept it simple and used a Raspberry Pi for video playback. 
+And here is Miragia at her home on the living room wall. I kept it simple and used a Raspberry Pi for video playback.
 
 ![Mirror Project](/images/project/spectacle-society/mirror-5.jpg)
