@@ -2,7 +2,10 @@
 title: "Atlas9"
 description: "An immersive entertainment project by Chris Riebschlager."
 order: 1
-status: "In progress"
+mediums:
+  - "Immersive entertainment"
+  - "Software development"
+  - "AV engineering"
 ---
 
 Atlas9 is the most demanding project I've ever been part of. It's 46,000 square feet of immersive art built on a single strange premise: a 90s movie theater where a mysterious event caused the movies to become real.

@@ -19,7 +19,7 @@ export const GET: APIRoute = ({ props, site }) => {
   const { project } = props;
   const pagePath = `/projects/${project.id}/`;
   const content = cleanMarkdownForLlms(project.body, site, pagePath);
-  const body = `# ${project.data.title}\n\n> ${project.data.description}\n\nCanonical page: ${new URL(pagePath, site).href}\nStatus: ${project.data.status}\n\n${content}\n`;
+  const body = `# ${project.data.title}\n\n> ${project.data.description}\n\nCanonical page: ${new URL(pagePath, site).href}\nMediums: ${project.data.mediums.join(", ")}\n\n${content}\n`;
 
   return new Response(body, {
     headers: { "Content-Type": "text/markdown; charset=utf-8" },

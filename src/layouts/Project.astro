@@ -5,7 +5,7 @@ import Prose from "../components/Prose.astro";
 
 type Props = CollectionEntry<"projects">["data"];
 
-const { title, description, order, status } = Astro.props;
+const { title, description, order, mediums } = Astro.props;
 ---
 
 <BaseLayout {title} {description}>
@@ -13,10 +13,9 @@ const { title, description, order, status } = Astro.props;
   <article>
     <p class="eyebrow">Project {String(order).padStart(2, "0")}</p>
     <h1>{title}</h1>
-    <div class="status">
-      <span aria-hidden="true"></span>
-      {status}
-    </div>
+    <ul class="mediums">
+      {mediums.map((medium) => <li>{medium}</li>)}
+    </ul>
     <Prose variant="project"><slot /></Prose>
   </article>
 </BaseLayout>
@@ -43,12 +42,15 @@ const { title, description, order, status } = Astro.props;
   h1 {
     margin-bottom: 1.25rem;
   }
-  .status {
+  .mediums {
     display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    width: fit-content;
-    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0 0 2.5rem;
+    padding: 0;
+    list-style: none;
+  }
+  .mediums li {
     padding: 0.35rem 0.75rem;
     border: 1px solid var(--border);
     border-radius: 999px;
@@ -56,11 +58,5 @@ const { title, description, order, status } = Astro.props;
     color: var(--text);
     font-size: 0.8rem;
     font-weight: 700;
-  }
-  .status span {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background: var(--accent);
   }
 </style>

@@ -25,7 +25,7 @@ const projects = defineCollection({
       title: z.string(),
       description: z.string(),
       order: z.number().int().positive(),
-      status: z.enum(["In progress", "Complete"]),
+      mediums: z.array(z.string().trim().min(1)).nonempty(),
     }),
 });
 

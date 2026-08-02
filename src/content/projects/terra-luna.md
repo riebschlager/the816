@@ -2,7 +2,9 @@
 title: "Terra Luna"
 description: "A project by Chris Riebschlager."
 order: 3
-status: "Complete"
+mediums:
+  - "Projection mapping"
+  - "TouchDesigner"
 ---
 
 <a href="https://artsandrec-op.org/arboretum/terra-luna/">Terra Luna</a> is an annual event by <a href="https://www.quixoticfusion.com/">Quixotic</a> that transforms the Overland Park, Kansas Arboretum into a magical forest full of musicians, performers as well as light and art installations.

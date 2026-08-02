@@ -2,7 +2,10 @@
 title: "Spectacle Society"
 description: "A project by Chris Riebschlager."
 order: 4
-status: "In progress"
+mediums:
+  - "Interactive installation"
+  - "Fabrication"
+  - "TouchDesigner"
 ---
 
 There are few things better in this world than getting to make art with people you enjoy hanging out with. In 2023 and again in 2024, I got the chance to do two immersive and interactive art shows with this crew.

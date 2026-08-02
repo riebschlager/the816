@@ -62,7 +62,7 @@ export const GET: APIRoute = async ({ site }) => {
       link(
         project.data.title,
         `/projects/${project.id}/index.html.md`,
-        `${project.data.description} Status: ${project.data.status}.`,
+        `${project.data.description} Mediums: ${project.data.mediums.join(", ")}.`,
       ),
     ),
     "",

@@ -2,7 +2,10 @@
 title: "Thundergong"
 description: "Interactive visuals created for the annual Thundergong benefit concert."
 order: 2
-status: "In progress"
+mediums:
+  - "Live visuals"
+  - "Music-reactive"
+  - "TouchDesigner"
 ---
 
 Thundergong! is an annual star-studded rock-and-roll variety and comedy benefit show. Hosted by actor and Kansas City native Jason Sudeikis, the event raises money for the <a href="https://www.stepsoffaithfoundation.org/">Steps of Faith Foundation</a> to provide prosthetic limbs and care for uninsured and underinsured amputees.
