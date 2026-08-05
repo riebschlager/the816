@@ -1,3 +1,10 @@
+export const markdownResponse = (body: string) =>
+  new Response(body, {
+    headers: {
+      "Content-Type": "text/markdown; charset=utf-8",
+    },
+  });
+
 const iframePattern =
   /<div class="video-embed">\s*<iframe[^>]+src="([^"]+)"[^>]*>\s*<\/iframe>\s*<\/div>/g;
 const imagePattern = /!\[([^\]]*)\]\(([^)]+)\)/g;

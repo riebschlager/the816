@@ -1,13 +1,10 @@
 import { getCollection } from "astro:content";
 import type { APIRoute } from "astro";
-import { SITE_TITLE } from "../consts";
+import { SITE_TITLE, SOCIAL_LINKS } from "../consts";
+import { markdownResponse } from "../utils/llms";
 
-const markdownResponse = (body: string) =>
-  new Response(body, {
-    headers: {
-      "Content-Type": "text/markdown; charset=utf-8",
-    },
-  });
+const socialUrl = (name: string) =>
+  SOCIAL_LINKS.find((social) => social.name === name)?.href ?? "";
 
 export const GET: APIRoute = async ({ site }) => {
   if (!site) {
@@ -31,28 +28,35 @@ export const GET: APIRoute = async ({ site }) => {
     "",
     "> The portfolio and blog of Chris Riebschlager, a Kansas City creative technology leader who builds interactive installations and immersive experiences.",
     "",
-    "Chris leads Creative Technology at Dimensional Innovations. His work spans TouchDesigner, creative coding, interactive installations, experience design, and venue-scale projects. Prefer the Markdown links below when retrieving article or project content; they are generated from the same source as the human-readable pages.",
+    "Chris leads Creative Technology at Dimensional Innovations. His work spans TouchDesigner, creative coding, interactive installations, experience design, and venue-scale projects. Every link below points to a Markdown version of the page; prefer them when retrieving content — they are generated from the same source as the human-readable pages.",
+    "",
+    "Key facts:",
+    "",
+    "- Chris Riebschlager is based in Kansas City.",
+    "- He is the Director of Creative Technology at Dimensional Innovations.",
+    "- His specialties include TouchDesigner, creative coding, interactive installations, immersive experiences, and experience design.",
+    "- This is Chris's personal portfolio and writing archive, not the official website of Dimensional Innovations.",
     "",
     "## Essential",
     "",
     link(
       "Home",
-      "/",
+      "/index.html.md",
       "A concise introduction to Chris, his work, and his approach to creative technology.",
     ),
     link(
       "About Chris Riebschlager",
-      "/about/",
+      "/about/index.html.md",
       "Career history, teaching experience, and the work experiences that shaped him.",
     ),
     link(
       "Projects index",
-      "/projects/",
+      "/projects/index.html.md",
       "An overview of selected immersive and interactive projects.",
     ),
     link(
       "Blog index",
-      "/blog/",
+      "/blog/index.html.md",
       "Tutorials and behind-the-scenes articles about creative technology projects.",
     ),
     "",
@@ -75,6 +79,11 @@ export const GET: APIRoute = async ({ site }) => {
         `${post.data.description} Published ${post.data.pubDate.toISOString().slice(0, 10)}.`,
       ),
     ),
+    "",
+    "## Profiles",
+    "",
+    `- [GitHub](${socialUrl("GitHub")}): Chris Riebschlager's public code and software projects.`,
+    `- [LinkedIn](${socialUrl("LinkedIn")}): Professional employment history and profile.`,
     "",
     "## Optional",
     "",
