@@ -14,7 +14,7 @@ If you found your way here from the video, welcome! This is the companion post w
 
 Here's the thing: **your FBX file doesn't have PBR materials in it.** The FBX format's entire material vocabulary is Lambert and Phong. So when you drag an FBX into TouchDesigner and it comes in looking flat and sad, nothing is broken. The importer built you a [Phong MAT](https://docs.derivative.ca/Phong_MAT) because that's all the file could describe.
 
-Upgrading that phong to a PBR is *very* worth it, because phong and PBR are fundamentally different ideas:
+Upgrading that phong to a PBR is _very_ worth it, because phong and PBR are fundamentally different ideas:
 
 **Phong is a recipe for an appearance.** It tells the renderer what the light should _look like_: make a specular dot, make it this tight, tint it this color, etc.
 
@@ -71,7 +71,7 @@ Everything you need to follow along, free:
 - [PBR MAT](https://docs.derivative.ca/PBR_MAT) · [Phong MAT](https://docs.derivative.ca/Phong_MAT)
 - [Substance TOP](https://docs.derivative.ca/Substance_TOP) · [Substance Select TOP](https://docs.derivative.ca/Substance_Select_TOP)
 - [Environment Light COMP](https://docs.derivative.ca/Environment_Light_COMP) · [PreFilter Map TOP](https://docs.derivative.ca/PreFilter_Map_TOP)
-- [Deforming Geometry (Skinning)](https://docs.derivative.ca/Deforming_Geometry_(Skinning)) · [Normal Mapping](https://docs.derivative.ca/Normal_Mapping)
+- [Deforming Geometry (Skinning)](<https://docs.derivative.ca/Deforming_Geometry_(Skinning)>) · [Normal Mapping](https://docs.derivative.ca/Normal_Mapping)
 
 **Going deeper on PBR:**
 
