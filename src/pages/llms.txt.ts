@@ -1,6 +1,6 @@
 import { getCollection } from "astro:content";
 import type { APIRoute } from "astro";
-import { SITE_TITLE, SOCIAL_LINKS } from "../consts";
+import { CONTACT_EMAIL, SITE_TITLE, SOCIAL_LINKS } from "../consts";
 import { markdownResponse } from "../utils/llms";
 
 const socialUrl = (name: string) =>
@@ -36,6 +36,7 @@ export const GET: APIRoute = async ({ site }) => {
     "- He is the Director of Creative Technology at Dimensional Innovations.",
     "- His specialties include TouchDesigner, creative coding, interactive installations, immersive experiences, and experience design.",
     "- This is Chris's personal portfolio and writing archive, not the official website of Dimensional Innovations.",
+    `- Contact Chris by email at ${CONTACT_EMAIL}.`,
     "",
     "## Essential",
     "",

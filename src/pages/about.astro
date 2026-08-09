@@ -1,6 +1,7 @@
 ---
 import AboutHeroImage from "../assets/chris-projection.jpg";
 import ContentLayout from "../layouts/ContentLayout.astro";
+import { CONTACT_EMAIL } from "../consts";
 ---
 
 <ContentLayout
@@ -63,6 +64,13 @@ import ContentLayout from "../layouts/ContentLayout.astro";
     <strong
       >Want to see what we've built? Check out my <a href="/projects"
         >projects</a
+      >.</strong
+    >
+  </p>
+  <p>
+    <strong
+      >Want to get in touch? Email me at <a href={`mailto:${CONTACT_EMAIL}`}
+        >{CONTACT_EMAIL}</a
       >.</strong
     >
   </p>

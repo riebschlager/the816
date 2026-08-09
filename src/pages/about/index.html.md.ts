@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+import { CONTACT_EMAIL } from "../../consts";
 import { markdownResponse } from "../../utils/llms";
 
 // Keep this in sync with the copy in src/pages/about.astro.
@@ -44,6 +45,8 @@ I joined DI as the first on-staff software developer. Within a couple months of 
 ---
 
 **Want to see what we've built? Check out my [projects](${new URL("/projects/", site).href}).**
+
+**Want to get in touch? Email me at [${CONTACT_EMAIL}](mailto:${CONTACT_EMAIL}).**
 `;
 
   return markdownResponse(body);
