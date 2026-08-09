@@ -6,7 +6,7 @@ heroImage: "./heroes/make-milhouse-gorgeous-in-touchdesigner.png"
 heroImageAlt: "Milhouse rendered with a shiny PBR material in TouchDesigner"
 ---
 
-<div class="video-embed"><iframe src="https://www.youtube.com/embed/Jssz2cwNSBs" title="Make Milhouse Gorgeous in TouchDesigner" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+<div class="video-embed"><iframe width="426" height="758" src="https://www.youtube.com/embed/U0tFuGJPVnA" title="Make Milhouse Gorgeous with TouchDesigner" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 
 If you found your way here from the video, welcome! This is the companion post with all the detail that doesn't fit in a two minute video, plus every link you need to go do this yourself.
 
