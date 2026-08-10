@@ -41,7 +41,7 @@ The Environment Light fills the room. It's a light with no position, it wraps ar
 A couple of practical HDRI notes:
 
 - Get **unclipped** HDRIs (everything on Poly Haven is). A clipped HDRI stores the sun at the same brightness as a white wall, so your lighting comes out flat and disappointing no matter how good your materials are. If you ever download a random HDRI and your render looks worse than the tutorial, this is very likely why.
-- For lighting a character, **2K resolution is plenty**. The map gets blurred into diffuse lighting and reflections anyway — a 16K HDRI is just wasted VRAM unless it's also your visible background.
+- For lighting a character, **2K resolution is plenty**. The map gets blurred into diffuse lighting and reflections anyway, a 16K HDRI is just wasted VRAM unless it's also your visible background.
 
 ## Gotchas that will eat your life
 
@@ -55,13 +55,13 @@ A couple of practical HDRI notes:
 
 Everything you need to follow along, free:
 
-- **[Poly Haven](https://polyhaven.com/hdris)** — HDRIs for your Environment Light. CC0, unclipped, no account needed. The default answer.
-- **[ambientCG](https://ambientcg.com/list?type=SBSAR)** — free `.sbsar` Substance materials (plus HDRIs and regular texture sets). All CC0. One-stop shop for materials _and_ lighting.
-- **[Adobe Substance 3D Community Assets](https://substance3d.adobe.com/community-assets?format=sbsar)** — free community `.sbsar` files with a free Adobe account. Check individual asset licenses.
-- **[Mixamo](https://www.mixamo.com/)** — free rigged, animated characters as FBX. Upload your own model and it auto-rigs it, then pick from a big library of mocap animations.
-- **[Quaternius](https://quaternius.com/)** / **[Poly Pizza](https://poly.pizza/)** — CC0 low-poly character packs, many rigged and animated.
-- **[Kenney](https://kenney.nl/)** — thousands of CC0 game assets, great for filler geometry.
-- **[Sketchfab](https://sketchfab.com/)** — a huge library of free downloadable models. Filter by Downloadable and check the license — most are CC-BY, which just means credit the creator.
+- **[Poly Haven](https://polyhaven.com/hdris)** - HDRIs for your Environment Light. CC0, unclipped, no account needed. The default answer.
+- **[ambientCG](https://ambientcg.com/list?type=SBSAR)** - free `.sbsar` Substance materials (plus HDRIs and regular texture sets). All CC0. One-stop shop for materials _and_ lighting.
+- **[Adobe Substance 3D Community Assets](https://substance3d.adobe.com/community-assets?format=sbsar)** - free community `.sbsar` files with a free Adobe account. Check individual asset licenses.
+- **[Mixamo](https://www.mixamo.com/)** - free rigged, animated characters as FBX. Upload your own model and it auto-rigs it, then pick from a big library of mocap animations.
+- **[Quaternius](https://quaternius.com/)** / **[Poly Pizza](https://poly.pizza/)** - CC0 low-poly character packs, many rigged and animated.
+- **[Kenney](https://kenney.nl/)** - thousands of CC0 game assets, great for filler geometry.
+- **[Sketchfab](https://sketchfab.com/)** - a huge library of free downloadable models. Filter by Downloadable and check the license. Most are CC-BY, which just means credit the creator.
 
 ## Learn more
 
