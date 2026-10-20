@@ -2,7 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import Button from "../components/Button.astro";
+import FeatureBug from "../components/FeatureBug.astro";
 import ChrisAtThundergong from "../assets/chris-at-thundergong.jpg";
+import Milhouse from "../assets/milhouse.png";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
@@ -57,6 +59,21 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         </Button>
       </div>
     </section>
+
+    <section class="feature">
+      <FeatureBug
+        href="https://drive.google.com/drive/folders/1zmYG7JC9HLzIEXmGAdlLm5JjUioFBIuH?usp=sharing"
+        image={Milhouse}
+        alt="A glossy 3D Milhouse surrounded by rainbow feedback trails"
+        eyebrow="Free download"
+        title="Steal my Instagram files."
+        cta="Open the Google Drive"
+      >
+        Many of you have asked if you can use these files in your own projects.
+        The answer is YES! Use these files for whatever you want. A link to my
+        website or my Instagram is appreciated!
+      </FeatureBug>
+    </section>
   </div>
 </BaseLayout>
 
@@ -88,6 +105,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   }
   .more p {
     margin: 0 0 var(--space-4);
+  }
+  .feature {
+    margin-top: var(--space-8);
   }
   .actions {
     display: flex;
