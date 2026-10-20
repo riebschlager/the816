@@ -18,43 +18,42 @@ const { title, description, heroImage, heroImageAlt = "" } = Astro.props;
   <article>
     {
       heroImage && (
-        <div class="hero-image">
-          <Image width={1020} height={510} src={heroImage} alt={heroImageAlt} />
+        <div class="container">
+          <div class="media-frame hero">
+            <Image
+              width={1120}
+              height={490}
+              src={heroImage}
+              alt={heroImageAlt}
+              loading="eager"
+            />
+          </div>
         </div>
       )
     }
-    <Prose>
-      <header class="title">
-        <h1>{title}</h1>
-        <hr />
-      </header>
-      <slot />
-    </Prose>
+    <div class="container-prose body">
+      <h1 class="display">{title}</h1>
+      <Prose><slot /></Prose>
+    </div>
   </article>
 </BaseLayout>
 
 <style>
   :global(main.content-page) {
-    width: calc(100% - 2em);
-    max-width: 100%;
-    margin: 0;
+    padding-top: var(--space-7);
   }
-  .hero-image {
-    width: 100%;
+  .hero {
+    aspect-ratio: 16 / 7;
   }
-  .hero-image img {
-    display: block;
-    margin: 0 auto;
-    border-radius: 12px;
-    box-shadow: var(--box-shadow);
+  @media (max-width: 560px) {
+    .hero {
+      aspect-ratio: 3 / 2;
+    }
   }
-  .title {
-    margin-bottom: 1em;
-    padding: 1em 0;
-    text-align: center;
-    line-height: 1;
+  .body {
+    margin-top: var(--space-8);
   }
-  .title h1 {
-    margin: 0 0 0.5em;
+  h1 {
+    margin-bottom: var(--space-5);
   }
 </style>

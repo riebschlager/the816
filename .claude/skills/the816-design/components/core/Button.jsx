@@ -7,8 +7,18 @@ const SIZES = {
   lg: { height: 54, padding: "0 26px", fontSize: 18, gap: 10, icon: 20 },
 };
 
-const GLOW = { pink: "var(--glow-pink)", cyan: "var(--glow-cyan)", lime: "var(--glow-lime)", orange: "var(--glow-orange)" };
-const NEON = { pink: "var(--neon-pink)", cyan: "var(--neon-cyan)", lime: "var(--neon-lime)", orange: "var(--neon-orange)" };
+const GLOW = {
+  pink: "var(--glow-pink)",
+  cyan: "var(--glow-cyan)",
+  lime: "var(--glow-lime)",
+  orange: "var(--glow-orange)",
+};
+const NEON = {
+  pink: "var(--neon-pink)",
+  cyan: "var(--neon-cyan)",
+  lime: "var(--neon-lime)",
+  orange: "var(--neon-orange)",
+};
 
 export function Button({
   children,
@@ -46,7 +56,8 @@ export function Button({
     cursor: disabled ? "not-allowed" : "pointer",
     opacity: disabled ? 0.4 : 1,
     transform: press && !disabled ? "scale(0.97)" : "none",
-    transition: "background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), transform var(--dur-fast) var(--ease-out)",
+    transition:
+      "background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), transform var(--dur-fast) var(--ease-out)",
     whiteSpace: "nowrap",
   };
 
@@ -77,7 +88,10 @@ export function Button({
       disabled={Tag === "button" ? disabled : undefined}
       onClick={disabled ? undefined : onClick}
       onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => { setHover(false); setPress(false); }}
+      onMouseLeave={() => {
+        setHover(false);
+        setPress(false);
+      }}
       onMouseDown={() => setPress(true)}
       onMouseUp={() => setPress(false)}
       style={{ ...base, ...variants[variant], ...style }}
@@ -88,7 +102,10 @@ export function Button({
         <Icon
           name={iconRight}
           size={s.icon}
-          style={{ transition: "transform var(--dur-base) var(--ease-snap)", transform: on ? "translate(2px,-2px)" : "none" }}
+          style={{
+            transition: "transform var(--dur-base) var(--ease-snap)",
+            transform: on ? "translate(2px,-2px)" : "none",
+          }}
         />
       )}
     </Tag>

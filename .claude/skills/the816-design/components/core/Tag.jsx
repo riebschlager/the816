@@ -26,13 +26,26 @@ export function Tag({ children, tone = "neutral", dot = false, style }) {
         color: fg,
         background: bg,
         border: "1px solid",
-        borderColor: tone === "neutral" ? "var(--border-strong)" : "color-mix(in srgb, " + fg + " 45%, transparent)",
+        borderColor:
+          tone === "neutral"
+            ? "var(--border-strong)"
+            : "color-mix(in srgb, " + fg + " 45%, transparent)",
         borderRadius: "var(--radius-pill)",
         whiteSpace: "nowrap",
         ...style,
       }}
     >
-      {dot && <span style={{ width: 6, height: 6, borderRadius: 99, background: fg, boxShadow: "0 0 8px " + fg }} />}
+      {dot && (
+        <span
+          style={{
+            width: 6,
+            height: 6,
+            borderRadius: 99,
+            background: fg,
+            boxShadow: "0 0 8px " + fg,
+          }}
+        />
+      )}
       {children}
     </span>
   );

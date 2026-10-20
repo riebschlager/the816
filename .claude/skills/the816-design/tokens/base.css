@@ -8,27 +8,109 @@ body {
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
 }
-h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; color: var(--text-primary); letter-spacing: var(--tracking-tight); line-height: var(--leading-snug); margin: 0 0 0.5em; }
-h1 { font-size: var(--text-display-lg); line-height: var(--leading-tight); }
-h2 { font-size: var(--text-h2); }
-h3 { font-size: var(--text-h3); font-weight: 700; letter-spacing: -0.01em; }
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-snug);
+  margin: 0 0 0.5em;
+}
+h1 {
+  font-size: var(--text-display-lg);
+  line-height: var(--leading-tight);
+}
+h2 {
+  font-size: var(--text-h2);
+}
+h3 {
+  font-size: var(--text-h3);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
 a {
   color: var(--link);
   text-decoration-color: color-mix(in srgb, currentColor 55%, transparent);
   text-underline-offset: 0.18em;
-  transition: color var(--dur-fast) var(--ease-out), text-decoration-color var(--dur-fast) var(--ease-out);
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    text-decoration-color var(--dur-fast) var(--ease-out);
 }
-a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
-:focus-visible { outline: var(--focus-outline); outline-offset: 3px; border-radius: var(--radius-xs); }
-::selection { background: var(--neon-pink); color: var(--text-on-neon); }
-strong { font-weight: 700; color: var(--text-primary); }
-img { max-width: 100%; height: auto; }
-code { font-family: var(--font-mono); font-size: 0.88em; padding: 2px 6px; color: var(--neon-lime-hi); background: var(--surface-raised); border: 1px solid var(--border-default); border-radius: var(--radius-xs); }
-pre { font-family: var(--font-mono); font-size: 0.85em; padding: var(--space-5); background: var(--surface-sunken); border: 1px solid var(--border-default); border-radius: var(--radius-md); overflow-x: auto; }
-pre > code { all: unset; }
-blockquote { margin: 0; padding-left: var(--space-5); border-left: 3px solid var(--neon-pink); font-size: var(--text-lead); color: var(--text-secondary); }
-hr { border: 0; border-top: 1px solid var(--border-default); }
-.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); clip-path: inset(50%); border: 0; white-space: nowrap; }
+a:hover {
+  color: var(--link-hover);
+  text-decoration-color: currentColor;
+}
+:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
+}
+::selection {
+  background: var(--neon-pink);
+  color: var(--text-on-neon);
+}
+strong {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  padding: 2px 6px;
+  color: var(--neon-lime-hi);
+  background: var(--surface-raised);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xs);
+}
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  padding: var(--space-5);
+  background: var(--surface-sunken);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+}
+pre > code {
+  all: unset;
+}
+blockquote {
+  margin: 0;
+  padding-left: var(--space-5);
+  border-left: 3px solid var(--neon-pink);
+  font-size: var(--text-lead);
+  color: var(--text-secondary);
+}
+hr {
+  border: 0;
+  border-top: 1px solid var(--border-default);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
+}
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

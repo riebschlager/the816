@@ -1,29 +1,54 @@
 <!-- @dsCard group="Components" viewport="700x400" name="Content" subtitle="ProjectRow, PostCard, ExperienceItem" -->
 <!doctype html>
-<html><head><meta charset="utf-8">
-<link rel="stylesheet" href="../../styles.css">
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
-<script src="../../_ds_bundle.js"></script>
-</head><body style="padding:24px">
-<div id="root"></div>
-<script type="text/babel">
-const NS = (() => { for (const k of Object.keys(window)) { try { const v = window[k]; if (v && typeof v === "object" && v.Button && v.Tag) return v; } catch (e) {} } return {}; })();
-const { ProjectRow, PostCard, ExperienceItem } = NS;
-function Demo() {
-  return (
-    <div style={{ display: "grid", gridTemplateColumns: "minmax(0,1.3fr) minmax(0,1fr)", gap: 32 }}>
-      <div>
-        <ProjectRow index={1} title="Atlas9" tone="pink" />
-        <ProjectRow index={2} title="Thundergong" tone="cyan" />
-        <ProjectRow index={3} title="Terra Luna" tone="lime" />
-        <ExperienceItem org="Dimensional Innovations" year="2015">I joined DI as the first on-staff software developer.</ExperienceItem>
-      </div>
-      <PostCard image="../../assets/images/thundergong-crowd.jpg" alt="The crowd at Thundergong" date="Nov 17, 2024" title="Thundergong 2024!" />
-    </div>
-  );
-}
-ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
-</script>
-</body></html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+    <script src="../../_ds_bundle.js"></script>
+  </head>
+  <body style="padding: 24px">
+    <div id="root"></div>
+    <script type="text/babel">
+      const NS = (() => {
+        for (const k of Object.keys(window)) {
+          try {
+            const v = window[k];
+            if (v && typeof v === "object" && v.Button && v.Tag) return v;
+          } catch (e) {}
+        }
+        return {};
+      })();
+      const { ProjectRow, PostCard, ExperienceItem } = NS;
+      function Demo() {
+        return (
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "minmax(0,1.3fr) minmax(0,1fr)",
+              gap: 32,
+            }}
+          >
+            <div>
+              <ProjectRow index={1} title="Atlas9" tone="pink" />
+              <ProjectRow index={2} title="Thundergong" tone="cyan" />
+              <ProjectRow index={3} title="Terra Luna" tone="lime" />
+              <ExperienceItem org="Dimensional Innovations" year="2015">
+                I joined DI as the first on-staff software developer.
+              </ExperienceItem>
+            </div>
+            <PostCard
+              image="../../assets/images/thundergong-crowd.jpg"
+              alt="The crowd at Thundergong"
+              date="Nov 17, 2024"
+              title="Thundergong 2024!"
+            />
+          </div>
+        );
+      }
+      ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+    </script>
+  </body>
+</html>

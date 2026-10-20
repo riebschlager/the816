@@ -1,7 +1,11 @@
 :root {
-  --font-display: "Bricolage Grotesque", "Atkinson Hyperlegible", system-ui, sans-serif;
-  --font-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "Atkinson Hyperlegible Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-display:
+    "Bricolage Grotesque", "Atkinson Hyperlegible", system-ui, sans-serif;
+  --font-body:
+    "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:
+    "Atkinson Hyperlegible Mono", ui-monospace, "SFMono-Regular", Menlo,
+    monospace;
   --font-atkinson: var(--font-body);
 
   --text-display-xl: clamp(3rem, 7vw, 5.5rem);

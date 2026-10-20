@@ -1,0 +1,51 @@
+---
+interface Props {
+  tone?: "neutral" | "pink" | "cyan" | "lime" | "orange";
+}
+
+const { tone = "neutral" } = Astro.props;
+---
+
+<span class:list={["tag", tone]}><slot /></span>
+
+<style>
+  .tag {
+    --fg: var(--ink-300);
+    display: inline-flex;
+    align-items: center;
+    height: 26px;
+    padding: 0 10px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--fg);
+    background: var(--ink-850);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-pill);
+  }
+  .pink,
+  .cyan,
+  .lime,
+  .orange {
+    border-color: color-mix(in srgb, var(--fg) 45%, transparent);
+  }
+  .pink {
+    --fg: var(--neon-pink);
+    background: var(--tint-pink);
+  }
+  .cyan {
+    --fg: var(--neon-cyan);
+    background: var(--tint-cyan);
+  }
+  .lime {
+    --fg: var(--neon-lime);
+    background: var(--tint-lime);
+  }
+  .orange {
+    --fg: var(--neon-orange);
+    background: var(--tint-orange);
+  }
+</style>

@@ -4,7 +4,9 @@ export interface InputProps {
   placeholder?: string;
   value?: string;
   defaultValue?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onChange?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => void;
   type?: string;
   hint?: string;
   error?: string;

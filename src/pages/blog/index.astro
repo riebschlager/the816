@@ -12,100 +12,123 @@ const posts = (await getCollection("blog")).sort(
 <BaseLayout
   title="Blog"
   description="Writing by Chris Riebschlager about creative technology, interactive experiences, and the work behind them."
-  mainClass="blog-index"
 >
-  <section>
-    <ul>
+  <div class="container">
+    <header>
+      <p class="eyebrow">Writing</p>
+      <h1 class="display">Blog</h1>
+    </header>
+    <ul class="posts">
       {
-        posts.map((post) => (
-          <li>
+        posts.map((post, i) => (
+          <li class:list={[i % 2 ? "pink" : "cyan"]}>
             <a href={`/blog/${post.id}/`}>
-              {post.data.heroImage && (
-                <Image
-                  width={720}
-                  height={360}
-                  src={post.data.heroImage}
-                  alt={post.data.heroImageAlt ?? ""}
-                />
-              )}
-              <h4 class="title">{post.data.title}</h4>
-              <p class="date">
+              <div class="thumb">
+                {post.data.heroImage ? (
+                  <Image
+                    width={720}
+                    height={450}
+                    src={post.data.heroImage}
+                    alt={post.data.heroImageAlt ?? ""}
+                    loading={i < 3 ? "eager" : "lazy"}
+                  />
+                ) : (
+                  <span class="placeholder">{post.data.heroImageAlt}</span>
+                )}
+              </div>
+              <span class="date">
                 <FormattedDate date={post.data.pubDate} />
-              </p>
+              </span>
+              <span class="title">{post.data.title}</span>
             </a>
           </li>
         ))
       }
     </ul>
-  </section>
+  </div>
 </BaseLayout>
 
 <style>
-  :global(main.blog-index) {
-    width: 960px;
+  .eyebrow {
+    color: var(--neon-cyan);
   }
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    list-style-type: none;
-    margin: 0;
+  h1 {
+    margin-top: var(--space-4);
+  }
+  .posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+    gap: var(--space-7) var(--space-6);
+    margin: var(--space-7) 0 0;
     padding: 0;
+    list-style: none;
   }
-  ul li {
-    width: calc(50% - 1rem);
+  .cyan {
+    --tone: var(--neon-cyan);
+    --tone-glow: var(--glow-cyan);
   }
-  ul li * {
+  .pink {
+    --tone: var(--neon-pink);
+    --tone-glow: var(--glow-pink);
+  }
+  a {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: inherit;
     text-decoration: none;
-    transition: 0.2s ease;
   }
-  ul li:first-child {
+  .thumb {
+    aspect-ratio: 16 / 10;
+    margin-bottom: var(--space-3);
+    overflow: hidden;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    background: var(--surface-raised);
+    transition: box-shadow var(--dur-base) var(--ease-out);
+  }
+  .thumb img {
+    display: block;
     width: 100%;
-    margin-bottom: 1rem;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+  .placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: var(--space-5);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-faint);
     text-align: center;
   }
-  ul li:first-child img {
-    width: 100%;
-  }
-  ul li:first-child .title {
-    font-size: 2.369rem;
-  }
-  ul li img {
-    margin-bottom: 0.5rem;
-    border-radius: 12px;
-  }
-  ul li a {
-    display: block;
-  }
-  .title {
-    margin: 0;
-    color: var(--text);
-    line-height: 1;
-  }
   .date {
-    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--text-muted);
   }
-  ul li a:hover h4,
-  ul li a:hover .date {
-    color: var(--accent);
+  .title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    text-wrap: balance;
+    transition: color var(--dur-base);
   }
-  ul a:hover img {
-    box-shadow: var(--box-shadow);
+  a:hover .thumb {
+    box-shadow: var(--tone-glow);
   }
-  @media (max-width: 720px) {
-    ul {
-      gap: 0.5em;
-    }
-    ul li {
-      width: 100%;
-      text-align: center;
-    }
-    ul li:first-child {
-      margin-bottom: 0;
-    }
-    ul li:first-child .title {
-      font-size: 1.563em;
-    }
+  a:hover .thumb img {
+    transform: scale(1.03);
+  }
+  a:hover .title {
+    color: var(--tone);
   }
 </style>

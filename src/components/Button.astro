@@ -1,0 +1,109 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import Icon from "./Icon.astro";
+
+type IconName = "arrow-up-right" | "arrow-left";
+
+interface Props extends HTMLAttributes<"a"> {
+  href: string;
+  variant?: "primary" | "secondary" | "ghost";
+  size?: "sm" | "md";
+  tone?: "pink" | "cyan" | "lime" | "orange";
+  icon?: IconName;
+  iconRight?: IconName;
+}
+
+const {
+  variant = "primary",
+  size = "md",
+  tone = "pink",
+  icon,
+  iconRight,
+  class: className,
+  ...props
+} = Astro.props;
+---
+
+<a
+  class:list={["button", variant, size, className]}
+  style={`--neon: var(--neon-${tone}); --glow: var(--glow-${tone});`}
+  {...props}
+>
+  {icon && <Icon name={icon} size={size === "sm" ? 16 : 18} />}
+  <slot />
+  {
+    iconRight && (
+      <Icon
+        name={iconRight}
+        size={size === "sm" ? 16 : 18}
+        class="icon-right"
+      />
+    )
+  }
+</a>
+
+<style>
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    height: 44px;
+    padding: 0 20px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    transition:
+      background var(--dur-base) var(--ease-out),
+      color var(--dur-base) var(--ease-out),
+      box-shadow var(--dur-base) var(--ease-out),
+      border-color var(--dur-base) var(--ease-out),
+      transform var(--dur-fast) var(--ease-out);
+  }
+  .button:active {
+    transform: scale(0.97);
+  }
+  .sm {
+    gap: 6px;
+    height: 34px;
+    padding: 0 14px;
+    font-size: 0.875rem;
+  }
+  .primary,
+  .primary:hover {
+    background: var(--neon);
+    color: var(--text-on-neon);
+  }
+  .primary:hover {
+    box-shadow: var(--glow);
+  }
+  .secondary {
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+  }
+  .secondary:hover {
+    color: var(--neon);
+    border-color: var(--neon);
+    background: var(--surface-hover);
+    box-shadow: var(--glow);
+  }
+  .ghost {
+    padding-inline: 8px;
+    color: var(--text-secondary);
+  }
+  .ghost:hover {
+    color: var(--neon);
+    background: var(--surface-raised);
+  }
+  .button :global(.icon-right) {
+    transition: transform var(--dur-base) var(--ease-snap);
+  }
+  .button:hover :global(.icon-right) {
+    transform: translate(2px, -2px);
+  }
+</style>

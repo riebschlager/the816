@@ -1,14 +1,47 @@
 import React from "react";
 
-export function Input({ label, placeholder, value, defaultValue, onChange, type = "text", hint, error, multiline = false, rows = 4, id, style }) {
+export function Input({
+  label,
+  placeholder,
+  value,
+  defaultValue,
+  onChange,
+  type = "text",
+  hint,
+  error,
+  multiline = false,
+  rows = 4,
+  id,
+  style,
+}) {
   const [focus, setFocus] = React.useState(false);
-  const fid = id || (label ? "in-" + String(label).toLowerCase().replace(/\W+/g, "-") : undefined);
+  const fid =
+    id ||
+    (label
+      ? "in-" + String(label).toLowerCase().replace(/\W+/g, "-")
+      : undefined);
   const Field = multiline ? "textarea" : "input";
-  const ring = error ? "var(--danger)" : focus ? "var(--focus-ring)" : "var(--border-strong)";
+  const ring = error
+    ? "var(--danger)"
+    : focus
+      ? "var(--focus-ring)"
+      : "var(--border-strong)";
   return (
-    <label htmlFor={fid} style={{ display: "flex", flexDirection: "column", gap: 8, ...style }}>
+    <label
+      htmlFor={fid}
+      style={{ display: "flex", flexDirection: "column", gap: 8, ...style }}
+    >
       {label && (
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase", color: focus ? "var(--neon-cyan)" : "var(--text-muted)", transition: "color var(--dur-base)" }}>
+        <span
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: 12,
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            color: focus ? "var(--neon-cyan)" : "var(--text-muted)",
+            transition: "color var(--dur-base)",
+          }}
+        >
           {label}
         </span>
       )}
@@ -35,12 +68,23 @@ export function Input({ label, placeholder, value, defaultValue, onChange, type 
           borderRadius: "var(--radius-md)",
           outline: "none",
           resize: multiline ? "vertical" : undefined,
-          boxShadow: focus && !error ? "0 0 0 3px var(--tint-cyan), 0 0 20px rgba(41,240,255,0.15)" : "none",
-          transition: "border-color var(--dur-base), box-shadow var(--dur-base)",
+          boxShadow:
+            focus && !error
+              ? "0 0 0 3px var(--tint-cyan), 0 0 20px rgba(41,240,255,0.15)"
+              : "none",
+          transition:
+            "border-color var(--dur-base), box-shadow var(--dur-base)",
         }}
       />
       {(error || hint) && (
-        <span style={{ fontSize: 13, color: error ? "var(--danger)" : "var(--text-muted)" }}>{error || hint}</span>
+        <span
+          style={{
+            fontSize: 13,
+            color: error ? "var(--danger)" : "var(--text-muted)",
+          }}
+        >
+          {error || hint}
+        </span>
       )}
     </label>
   );

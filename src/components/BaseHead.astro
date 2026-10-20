@@ -34,6 +34,7 @@ const socialImageURL = new URL(image.src, Astro.site);
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#0a0a0f" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" href="/favicon.ico" />
 <link rel="sitemap" href="/sitemap-index.xml" />
@@ -46,6 +47,8 @@ const socialImageURL = new URL(image.src, Astro.site);
 <meta name="generator" content={Astro.generator} />
 
 <Font cssVariable="--font-atkinson" preload />
+<Font cssVariable="--font-bricolage" preload />
+<Font cssVariable="--font-atkinson-mono" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />

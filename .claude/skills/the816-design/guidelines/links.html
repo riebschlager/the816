@@ -1,5 +1,47 @@
 <!-- @dsCard group="Brand" viewport="700x140" name="Link behaviour" subtitle="Pink underline → lime on hover; cyan focus ring" -->
 <!doctype html>
-<html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
-<style>body{padding:24px;margin:0;background:var(--bg-page)} .mono{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--text-muted)}</style>
-</head><body><div style="display:flex;gap:28px;align-items:center;flex-wrap:wrap;font-size:20px"><a href="#">Default</a><a href="#" style="color:var(--link-hover);text-decoration-color:currentColor">Hover</a><a href="#" style="outline:var(--focus-outline);outline-offset:3px;border-radius:4px">Focus</a><span class="mono">--dur-fast 120ms · --ease-out</span></div></body></html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      body {
+        padding: 24px;
+        margin: 0;
+        background: var(--bg-page);
+      }
+      .mono {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        gap: 28px;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: 20px;
+      "
+    >
+      <a href="#">Default</a
+      ><a
+        href="#"
+        style="color: var(--link-hover); text-decoration-color: currentColor"
+        >Hover</a
+      ><a
+        href="#"
+        style="
+          outline: var(--focus-outline);
+          outline-offset: 3px;
+          border-radius: 4px;
+        "
+        >Focus</a
+      ><span class="mono">--dur-fast 120ms · --ease-out</span>
+    </div>
+  </body>
+</html>

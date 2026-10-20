@@ -1,5 +1,67 @@
 <!-- @dsCard group="Colors" viewport="700x170" name="Text" subtitle="Four text levels on ink" -->
 <!doctype html>
-<html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
-<style>body{padding:24px;margin:0;background:var(--bg-page)} .mono{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--text-muted)}</style>
-</head><body><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px"><div><div style="font-size:20px;font-weight:700;color:var(--text-primary)">Primary · headings, body</div><div class="mono">--text-primary</div></div><div><div style="font-size:20px;font-weight:700;color:var(--text-secondary)">Secondary · lead, quotes</div><div class="mono">--text-secondary</div></div><div><div style="font-size:20px;font-weight:700;color:var(--text-muted)">Muted · dates, meta</div><div class="mono">--text-muted</div></div><div><div style="font-size:20px;font-weight:700;color:var(--text-faint)">Faint · numbers, disabled</div><div class="mono">--text-faint</div></div></div></body></html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      body {
+        padding: 24px;
+        margin: 0;
+        background: var(--bg-page);
+      }
+      .mono {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px 24px;
+      "
+    >
+      <div>
+        <div
+          style="font-size: 20px; font-weight: 700; color: var(--text-primary)"
+        >
+          Primary · headings, body
+        </div>
+        <div class="mono">--text-primary</div>
+      </div>
+      <div>
+        <div
+          style="
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-secondary);
+          "
+        >
+          Secondary · lead, quotes
+        </div>
+        <div class="mono">--text-secondary</div>
+      </div>
+      <div>
+        <div
+          style="font-size: 20px; font-weight: 700; color: var(--text-muted)"
+        >
+          Muted · dates, meta
+        </div>
+        <div class="mono">--text-muted</div>
+      </div>
+      <div>
+        <div
+          style="font-size: 20px; font-weight: 700; color: var(--text-faint)"
+        >
+          Faint · numbers, disabled
+        </div>
+        <div class="mono">--text-faint</div>
+      </div>
+    </div>
+  </body>
+</html>

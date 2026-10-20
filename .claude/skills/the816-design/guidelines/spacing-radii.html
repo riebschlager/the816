@@ -1,5 +1,85 @@
 <!-- @dsCard group="Spacing" viewport="700x150" name="Radii" subtitle="Soft corners; pills for buttons and tags" -->
 <!doctype html>
-<html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
-<style>body{padding:24px;margin:0} .mono{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--text-muted)}</style>
-</head><body><div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px"><div style="display:flex;flex-direction:column;gap:8px"><div style="height:64px;background:var(--surface-raised);border:1px solid var(--border-strong);border-radius:var(--radius-xs)"></div><span class="mono">--radius-xs · 4</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="height:64px;background:var(--surface-raised);border:1px solid var(--border-strong);border-radius:var(--radius-sm)"></div><span class="mono">--radius-sm · 6</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="height:64px;background:var(--surface-raised);border:1px solid var(--border-strong);border-radius:var(--radius-md)"></div><span class="mono">--radius-md · 10</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="height:64px;background:var(--surface-raised);border:1px solid var(--border-strong);border-radius:var(--radius-lg)"></div><span class="mono">--radius-lg · 16</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="height:64px;background:var(--surface-raised);border:1px solid var(--border-strong);border-radius:var(--radius-pill)"></div><span class="mono">--radius-pill · 999</span></div></div></body></html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      body {
+        padding: 24px;
+        margin: 0;
+      }
+      .mono {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+      "
+    >
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div
+          style="
+            height: 64px;
+            background: var(--surface-raised);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-xs);
+          "
+        ></div>
+        <span class="mono">--radius-xs · 4</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div
+          style="
+            height: 64px;
+            background: var(--surface-raised);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-sm);
+          "
+        ></div>
+        <span class="mono">--radius-sm · 6</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div
+          style="
+            height: 64px;
+            background: var(--surface-raised);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-md);
+          "
+        ></div>
+        <span class="mono">--radius-md · 10</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div
+          style="
+            height: 64px;
+            background: var(--surface-raised);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-lg);
+          "
+        ></div>
+        <span class="mono">--radius-lg · 16</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div
+          style="
+            height: 64px;
+            background: var(--surface-raised);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-pill);
+          "
+        ></div>
+        <span class="mono">--radius-pill · 999</span>
+      </div>
+    </div>
+  </body>
+</html>

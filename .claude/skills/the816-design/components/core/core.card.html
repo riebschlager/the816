@@ -1,40 +1,101 @@
 <!-- @dsCard group="Components" viewport="700x300" name="Core" subtitle="Button, Tag, Input, Icon" -->
 <!doctype html>
-<html><head><meta charset="utf-8">
-<link rel="stylesheet" href="../../styles.css">
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
-<script src="../../_ds_bundle.js"></script>
-</head><body style="padding:24px">
-<div id="root"></div>
-<script type="text/babel">
-const NS = (() => { for (const k of Object.keys(window)) { try { const v = window[k]; if (v && typeof v === "object" && v.Button && v.Tag) return v; } catch (e) {} } return {}; })();
-const { Button, Tag, Input, Icon } = NS;
-const Row = ({ children }) => <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>{children}</div>;
-function Demo() {
-  return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-      <Row>
-        <Button iconRight="arrow-up-right">See the projects</Button>
-        <Button variant="secondary" tone="cyan" icon="youtube">Watch the video</Button>
-        <Button variant="ghost" icon="arrow-left">All projects</Button>
-        <Button size="sm" tone="lime">Small</Button>
-        <Button disabled>Disabled</Button>
-      </Row>
-      <Row>
-        <Tag>TouchDesigner</Tag><Tag tone="pink">Live visuals</Tag><Tag tone="cyan">Music-reactive</Tag><Tag tone="lime" dot>In progress</Tag><Tag tone="orange">Installation</Tag>
-      </Row>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-        <Input label="Your email" placeholder="you@somewhere.com" />
-        <Input label="Email" defaultValue="chris@" error="That doesn't look like an email." />
-      </div>
-      <Row>
-        {["arrow-up-right","arrow-left","linkedin","instagram","youtube","github","mail","play"].map(n => <Icon key={n} name={n} size={22} color="var(--text-secondary)" />)}
-      </Row>
-    </div>
-  );
-}
-ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
-</script>
-</body></html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+    <script src="../../_ds_bundle.js"></script>
+  </head>
+  <body style="padding: 24px">
+    <div id="root"></div>
+    <script type="text/babel">
+      const NS = (() => {
+        for (const k of Object.keys(window)) {
+          try {
+            const v = window[k];
+            if (v && typeof v === "object" && v.Button && v.Tag) return v;
+          } catch (e) {}
+        }
+        return {};
+      })();
+      const { Button, Tag, Input, Icon } = NS;
+      const Row = ({ children }) => (
+        <div
+          style={{
+            display: "flex",
+            gap: 12,
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          {children}
+        </div>
+      );
+      function Demo() {
+        return (
+          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+            <Row>
+              <Button iconRight="arrow-up-right">See the projects</Button>
+              <Button variant="secondary" tone="cyan" icon="youtube">
+                Watch the video
+              </Button>
+              <Button variant="ghost" icon="arrow-left">
+                All projects
+              </Button>
+              <Button size="sm" tone="lime">
+                Small
+              </Button>
+              <Button disabled>Disabled</Button>
+            </Row>
+            <Row>
+              <Tag>TouchDesigner</Tag>
+              <Tag tone="pink">Live visuals</Tag>
+              <Tag tone="cyan">Music-reactive</Tag>
+              <Tag tone="lime" dot>
+                In progress
+              </Tag>
+              <Tag tone="orange">Installation</Tag>
+            </Row>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 16,
+              }}
+            >
+              <Input label="Your email" placeholder="you@somewhere.com" />
+              <Input
+                label="Email"
+                defaultValue="chris@"
+                error="That doesn't look like an email."
+              />
+            </div>
+            <Row>
+              {[
+                "arrow-up-right",
+                "arrow-left",
+                "linkedin",
+                "instagram",
+                "youtube",
+                "github",
+                "mail",
+                "play",
+              ].map((n) => (
+                <Icon
+                  key={n}
+                  name={n}
+                  size={22}
+                  color="var(--text-secondary)"
+                />
+              ))}
+            </Row>
+          </div>
+        );
+      }
+      ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+    </script>
+  </body>
+</html>

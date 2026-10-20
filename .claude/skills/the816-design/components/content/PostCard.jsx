@@ -1,6 +1,15 @@
 import React from "react";
 
-export function PostCard({ image, alt = "", title, date, excerpt, href = "#", tone = "cyan", onClick }) {
+export function PostCard({
+  image,
+  alt = "",
+  title,
+  date,
+  excerpt,
+  href = "#",
+  tone = "cyan",
+  onClick,
+}) {
   const [hover, setHover] = React.useState(false);
   const glow = tone === "pink" ? "var(--glow-pink)" : "var(--glow-cyan)";
   const c = tone === "pink" ? "var(--neon-pink)" : "var(--neon-cyan)";
@@ -10,7 +19,13 @@ export function PostCard({ image, alt = "", title, date, excerpt, href = "#", to
       onClick={onClick}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)", textDecoration: "none", color: "inherit" }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "var(--space-4)",
+        textDecoration: "none",
+        color: "inherit",
+      }}
     >
       <div
         style={{
@@ -24,19 +39,49 @@ export function PostCard({ image, alt = "", title, date, excerpt, href = "#", to
         }}
       >
         {!image && (
-          <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: 24, textAlign: "center", fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--text-faint)" }}>{alt || "Image"}</div>
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: 24,
+              textAlign: "center",
+              fontFamily: "var(--font-mono)",
+              fontSize: 12,
+              color: "var(--text-faint)",
+            }}
+          >
+            {alt || "Image"}
+          </div>
         )}
         {image && (
           <img
             src={image}
             alt={alt}
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transform: hover ? "scale(1.03)" : "none", transition: "transform var(--dur-slow) var(--ease-out)" }}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+              transform: hover ? "scale(1.03)" : "none",
+              transition: "transform var(--dur-slow) var(--ease-out)",
+            }}
           />
         )}
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
         {date && (
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-muted)" }}>
+          <span
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: 12,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "var(--text-muted)",
+            }}
+          >
             {date}
           </span>
         )}
@@ -54,7 +99,17 @@ export function PostCard({ image, alt = "", title, date, excerpt, href = "#", to
         >
           {title}
         </span>
-        {excerpt && <span style={{ fontSize: 15, lineHeight: 1.5, color: "var(--text-muted)" }}>{excerpt}</span>}
+        {excerpt && (
+          <span
+            style={{
+              fontSize: 15,
+              lineHeight: 1.5,
+              color: "var(--text-muted)",
+            }}
+          >
+            {excerpt}
+          </span>
+        )}
       </div>
     </a>
   );

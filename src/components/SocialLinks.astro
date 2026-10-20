@@ -13,11 +13,12 @@ const { placement } = Astro.props;
     SOCIAL_LINKS.map(({ href, label, iconPath }) => (
       <a
         {href}
+        title={label}
         target={href.startsWith("mailto:") ? undefined : "_blank"}
         rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
       >
         <span class="sr-only">{label}</span>
-        <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32">
+        <svg viewBox="0 0 16 16" aria-hidden="true" width="17" height="17">
           <path fill="currentColor" d={iconPath} />
         </svg>
       </a>
@@ -26,23 +27,26 @@ const { placement } = Astro.props;
 </div>
 
 <style>
-  .social-links,
-  .social-links a {
-    display: flex;
-  }
   .social-links {
-    gap: 1em;
+    display: flex;
+    align-items: center;
+    gap: 2px;
   }
-  .footer {
+  .social-links a {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    margin-top: 1em;
-  }
-  .footer a {
+    width: 37px;
+    height: 37px;
+    border-radius: var(--radius-pill);
     color: var(--text-muted);
-    text-decoration: none;
+    transition:
+      color var(--dur-base),
+      background var(--dur-base);
   }
-  .footer a:hover {
-    color: var(--accent-blue);
+  .social-links a:hover {
+    color: var(--neon-pink);
+    background: var(--tint-pink);
   }
   @media (max-width: 720px) {
     .header {

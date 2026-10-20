@@ -5,24 +5,42 @@
   --blur-header: 14px;
 
   /* Neon glows — hover/focus only, never at rest */
-  --glow-pink: 0 0 0 1px color-mix(in srgb, var(--neon-pink) 55%, transparent), 0 0 24px color-mix(in srgb, var(--neon-pink) 40%, transparent);
-  --glow-cyan: 0 0 0 1px color-mix(in srgb, var(--neon-cyan) 55%, transparent), 0 0 24px color-mix(in srgb, var(--neon-cyan) 35%, transparent);
-  --glow-lime: 0 0 0 1px color-mix(in srgb, var(--neon-lime) 55%, transparent), 0 0 24px color-mix(in srgb, var(--neon-lime) 35%, transparent);
-  --glow-orange: 0 0 0 1px color-mix(in srgb, var(--neon-orange) 55%, transparent), 0 0 24px color-mix(in srgb, var(--neon-orange) 35%, transparent);
-  --text-glow-pink: 0 0 14px color-mix(in srgb, var(--neon-pink) 60%, transparent);
-  --text-glow-cyan: 0 0 14px color-mix(in srgb, var(--neon-cyan) 55%, transparent);
+  --glow-pink:
+    0 0 0 1px color-mix(in srgb, var(--neon-pink) 55%, transparent),
+    0 0 24px color-mix(in srgb, var(--neon-pink) 40%, transparent);
+  --glow-cyan:
+    0 0 0 1px color-mix(in srgb, var(--neon-cyan) 55%, transparent),
+    0 0 24px color-mix(in srgb, var(--neon-cyan) 35%, transparent);
+  --glow-lime:
+    0 0 0 1px color-mix(in srgb, var(--neon-lime) 55%, transparent),
+    0 0 24px color-mix(in srgb, var(--neon-lime) 35%, transparent);
+  --glow-orange:
+    0 0 0 1px color-mix(in srgb, var(--neon-orange) 55%, transparent),
+    0 0 24px color-mix(in srgb, var(--neon-orange) 35%, transparent);
+  --text-glow-pink: 0 0 14px
+    color-mix(in srgb, var(--neon-pink) 60%, transparent);
+  --text-glow-cyan: 0 0 14px
+    color-mix(in srgb, var(--neon-cyan) 55%, transparent);
 
   --focus-outline: 2px solid var(--focus-ring);
 
   /* Page atmosphere: cyan haze top-left, pink haze top-right */
   --bg-atmosphere:
-    radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--neon-cyan) 8%, transparent), transparent 30rem),
-    radial-gradient(circle at 100% 8rem, color-mix(in srgb, var(--neon-pink) 8%, transparent), transparent 32rem),
+    radial-gradient(
+      circle at 0% 0%,
+      color-mix(in srgb, var(--neon-cyan) 8%, transparent),
+      transparent 30rem
+    ),
+    radial-gradient(
+      circle at 100% 8rem,
+      color-mix(in srgb, var(--neon-pink) 8%, transparent),
+      transparent 32rem
+    ),
     var(--bg-page);
 
   --dur-fast: 120ms;
   --dur-base: 200ms;
   --dur-slow: 420ms;
-  --ease-out: cubic-bezier(.2, .8, .2, 1);
-  --ease-snap: cubic-bezier(.3, 1.4, .5, 1);
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-snap: cubic-bezier(0.3, 1.4, 0.5, 1);
 }

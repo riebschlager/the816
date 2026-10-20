@@ -1,7 +1,7 @@
 ---
 title: "Mixtapes and Network Effects"
 description: "Hearing someone tell the story of how their post went viral feels the same as them describing a dream they had."
-pubDate: "2026-08-30T17:30:50.944Z"
+pubDate: "2026-10-19T17:30:50.944Z"
 heroImage: "./heroes/mixtapes-and-network-effects.png"
 heroImageAlt: "Kermit vibing."
 ---
@@ -12,10 +12,10 @@ Many people have a story about how something they posted went viral. Hearing the
 
 As a sign of good faith, dear reader, I will compress the boring "virality story" parts into a bulleted list:
 
-* I started the year with around 1,000 Instagram followers
-* Today I have nearly 13,000
-* My content has earned over 4.5 million views in the last 90 days
-* What have I been posting? [I dunno. You tell me.](https://www.instagram.com/riebschlager)
+- I started the year with around 1,000 Instagram followers
+- Today I have nearly 20,000
+- My content has earned over 5.5 million views in the last 90 days
+- What have I been posting? [I dunno. You tell me.](https://www.instagram.com/riebschlager)
 
 #### That's Out of the Way, Now the Good Stuff
 
@@ -33,7 +33,7 @@ Here's the thing: I post weird shit. I've always loved chaotic and colorful visu
 
 <div class="video-embed"><iframe width="973" height="737" src="https://www.youtube.com/embed/ev4e2JRkX1k" title="Even More Assorted MTV Idents (1990s - 2006)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 
-I've spent my whole adult life trying to make things that match that same energy. I'm a mediocre artist, but I'm a slightly-above-average programmer. So naturally, creative coding frameworks like [Processing](https://processing.org/) and [openFrameworks](https://openframeworks.cc/) gave me a platform to express myself visually through code. 
+I've spent my whole adult life trying to make things that match that same energy. I'm a mediocre artist, but I'm a slightly-above-average programmer. So naturally, creative coding frameworks like [Processing](https://processing.org/) and [openFrameworks](https://openframeworks.cc/) gave me a platform to express myself visually through code.
 
 Making and posting my experiments has become a near-daily art practice for me. I couldn't tell you why I feel compelled to do this. It's just...fun?
 
@@ -45,4 +45,4 @@ But I've always had a modest following online. And that's totally fine, I sincer
 
 This is where the wave started for me. This is essentially a gif I found of Ned Flanders that I added some video feedback effects to in TouchDesigner. On Instagram, you'd hear Chemical Brother's "Block Rockin' Beats" under this.
 
-Is this video objectively better than the thousands of things I posted before it? Certainly not. But something different happened
+Is this video objectively better than the thousands of things I posted before it? Certainly not. But something different happened. It started finding people who liked it. Those people liked other things I made.

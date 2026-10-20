@@ -31,5 +31,21 @@ export default defineConfig({
         ],
       },
     },
+    {
+      provider: fontProviders.google(),
+      name: "Bricolage Grotesque",
+      cssVariable: "--font-bricolage",
+      weights: [700, 800],
+      styles: ["normal"],
+      fallbacks: ["sans-serif"],
+    },
+    {
+      provider: fontProviders.google(),
+      name: "Atkinson Hyperlegible Mono",
+      cssVariable: "--font-atkinson-mono",
+      weights: [400, 700],
+      styles: ["normal"],
+      fallbacks: ["monospace"],
+    },
   ],
 });
