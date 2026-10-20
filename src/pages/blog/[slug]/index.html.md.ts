@@ -1,9 +1,9 @@
-import { getCollection } from "astro:content";
+import { getPublishedPosts } from "../../../utils/posts";
 import type { APIRoute, GetStaticPaths } from "astro";
 import { cleanMarkdownForLlms } from "../../../utils/llms";
 
 export const getStaticPaths = (async () => {
-  const posts = await getCollection("blog");
+  const posts = await getPublishedPosts();
 
   return posts.map((post) => ({
     params: { slug: post.id },

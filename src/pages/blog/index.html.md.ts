@@ -1,4 +1,4 @@
-import { getCollection } from "astro:content";
+import { getPublishedPosts } from "../../utils/posts";
 import type { APIRoute } from "astro";
 import { markdownResponse } from "../../utils/llms";
 
@@ -7,7 +7,7 @@ export const GET: APIRoute = async ({ site }) => {
     throw new Error("The site URL must be configured to generate Markdown");
   }
 
-  const posts = await getCollection("blog");
+  const posts = await getPublishedPosts();
   posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
   const body = [

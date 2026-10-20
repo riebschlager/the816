@@ -2,6 +2,7 @@ import { getCollection } from "astro:content";
 import type { APIRoute } from "astro";
 import { CONTACT_EMAIL, SITE_TITLE, SOCIAL_LINKS } from "../consts";
 import { markdownResponse } from "../utils/llms";
+import { getPublishedPosts } from "../utils/posts";
 
 const socialUrl = (name: string) =>
   SOCIAL_LINKS.find((social) => social.name === name)?.href ?? "";
@@ -12,7 +13,7 @@ export const GET: APIRoute = async ({ site }) => {
   }
 
   const [posts, projects] = await Promise.all([
-    getCollection("blog"),
+    getPublishedPosts(),
     getCollection("projects"),
   ]);
 

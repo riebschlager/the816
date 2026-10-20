@@ -4,6 +4,7 @@ description: "Hearing someone tell the story of how their post went viral feels 
 pubDate: "2026-10-19T17:30:50.944Z"
 heroImage: "./heroes/mixtapes-and-network-effects.png"
 heroImageAlt: "Kermit vibing."
+draft: true
 ---
 
 Many people have a story about how something they posted went viral. Hearing these stories can feel like someone describing their dreams. "So it was your mom, but NOT your mom? Ok. And she didn't have a face? But you still knew it was her? Wow... Cool."
