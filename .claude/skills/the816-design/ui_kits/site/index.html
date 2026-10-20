@@ -1,0 +1,27 @@
+<!-- @dsCard group="the816.com" viewport="1280x800" name="Site" subtitle="Clickable recreation: Home, Projects, Project, Blog, Post, About" -->
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The816 — UI kit</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>article p { margin: 0 0 var(--space-4); } article li { line-height: var(--leading-relaxed); }</style>
+</head><body>
+<div id="root"></div>
+<script type="text/babel" src="screens.jsx"></script>
+<script type="text/babel">
+const NS = (() => { for (const k of Object.keys(window)) { try { const v = window[k]; if (v && typeof v === "object" && v.SiteHeader) return v; } catch (e) {} } return {}; })();
+const { SiteHeader, SiteFooter } = NS;
+const SCREENS = { Home: HomeScreen, Projects: ProjectsScreen, Thundergong: ProjectDetailScreen, Blog: BlogScreen, Post: PostScreen, About: AboutScreen };
+const NAV_OF = { Thundergong: "Projects", Post: "Blog" };
+function App() {
+  const [page, setPage] = React.useState(() => localStorage.getItem("the816-kit-page") || "Home");
+  const go = (p) => { setPage(p); localStorage.setItem("the816-kit-page", p); window.scrollTo(0, 0); };
+  const Screen = SCREENS[page] || HomeScreen;
+  return (<div><SiteHeader active={NAV_OF[page] || page} onNavigate={go} /><Screen go={go} /><SiteFooter /></div>);
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body></html>
