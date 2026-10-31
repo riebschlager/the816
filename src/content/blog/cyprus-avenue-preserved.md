@@ -4,7 +4,6 @@ description: "An algorithm wants to play you something you want to hear. Bill Sh
 pubDate: "2026-10-31T12:00:00.000Z"
 heroImage: "./heroes/cyprus-avenue-preserved.jpg"
 heroImageAlt: "A record spinning on a turntable with an orange Cyprus Avenue, KCUR-FM 89.3 label."
-draft: false
 ---
 
 If you live in Kansas City and love music, then you know who Bill Shapiro was. Bill hosted [Cyprus Avenue on KCUR](https://www.kcur.org/show/cyprus-avenue) from October 1978 until the show ended its 40-year run in 2018. He was a brilliant musicologist, and I'd been listening since I moved to KC in 2000.
