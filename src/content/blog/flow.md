@@ -3,7 +3,7 @@ title: "Flow: Make a Little Room to Unwind"
 description: "A free ambient music instrument for your browser. Drop some color into moving water, pick a few chords and let the music keep you company."
 pubDate: "2026-11-01T12:00:00.000Z"
 heroImage: "./heroes/flow.jpg"
-heroImageAlt: "A Flow session titled \"Floating\": a plume of sea-green ink drifts through dark water while droplets fall and ripple rings circle the canvas."
+heroImageAlt: 'A Flow session titled "Floating": a plume of sea-green ink drifts through dark water while droplets fall and ripple rings circle the canvas.'
 ---
 
 I made a thing! It's called **[Flow](https://flow.the816.com)**, and it's an instrument for making visualized ambient music in your browser.
