@@ -62,7 +62,7 @@ A few design decisions did most of the work:
 
 - **TouchDesigner is authoritative.** The browser only sends intents ("set this to 0.42", "go to cue `verse_2`") and never sends state. TD applies the change and broadcasts the full resulting state back. It's the authoritative-server model from game networking, and it means a browser refresh mid-show is a five-second annoyance, not the end of the set. Reconnect, get a snapshot, and you're correct again.
 - **Full snapshots, never deltas.** About 30 controls serialize to well under a kilobyte. Sending everything every tick removes a whole class of "the UI missed an update and is now slightly wrong" bugs. It also means the broadcast deliberately has no "only send when something changed" check, so the state stream doubles as a heartbeat. If the browser stops hearing from TD, TD is in trouble, and the UI says so.
-- **Clicking never changes the stage.** Clicking a cue only *arms* it. GO fires it, and blackout has its own dedicated button that fires immediately. That's the standard lighting-console model, and it means no stray click anywhere in the cue list can change what the audience sees.
+- **Clicking never changes the stage.** Clicking a cue only _arms_ it. GO fires it, and blackout has its own dedicated button that fires immediately. That's the standard lighting-console model, and it means no stray click anywhere in the cue list can change what the audience sees.
 - **One cue file shared by both sides.** The UI imports `cues.json` and TD reads the same file. When the browser connects, TD sends the cue IDs it has loaded, and the UI shows a red banner if they don't match. That catches the case where someone is running stale code and would otherwise silently fire the wrong cue.
 
 ![The web control surface: a cue stack on the left, parameter faders on the right, and GO, Idle and Blackout in a fixed transport bar along the bottom](./thundergong-2026/build/control-surface.png)
@@ -125,7 +125,7 @@ Luckily, Will made it before showtime and killed it, nailing his performances wi
 
 ## Effects you can play: td-fxblox
 
-The background loops set the mood for each song. To make the walls feel *live*, I wanted effects I could play on the nanoKEY like an instrument, hitting a pad to slam a burst across the wall right on the snare. In TouchDesigner, I tend to reinvent the same wheels on every project. This time I wanted a kit I could pull off the shelf and mix and match.
+The background loops set the mood for each song. To make the walls feel _live_, I wanted effects I could play on the nanoKEY like an instrument, hitting a pad to slam a burst across the wall right on the snare. In TouchDesigner, I tend to reinvent the same wheels on every project. This time I wanted a kit I could pull off the shelf and mix and match.
 
 So I wrote a Claude Code skill specifically for building composable TouchDesigner effect blocks. Every block follows the same contract:
 
