@@ -1,6 +1,8 @@
 ---
 title: "Thundergong 2024!"
-description: "For the last three years, I’ve had the opportunity to contribute some fun interactive visual work to Thundergong, an annual benefit concert…"
+description: "Corita Kent-inspired visuals across 18 square meters of LED wall, with drum triggers that let the band's drummer fire visual and lighting effects straight from the kit."
+project: thundergong
+projectLabel: "Drum-triggered walls"
 pubDate: "2024-11-17T15:56:04.480Z"
 heroImage: "./heroes/thundergong-2024.png"
 heroImageAlt: "ThunderGong 2024 performers and audience under bright stage lighting"

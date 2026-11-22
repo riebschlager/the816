@@ -5,11 +5,26 @@ import Button from "../components/Button.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Prose from "../components/Prose.astro";
 import BaseLayout from "./BaseLayout.astro";
+import type { NeonTone } from "../utils/tones";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & {
+  series?: {
+    id: string;
+    title: string;
+    tone: NeonTone;
+    posts: { id: string; year: number; current: boolean }[];
+  };
+};
 
-const { title, description, pubDate, updatedDate, heroImage, heroImageAlt } =
-  Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  heroImageAlt,
+  series,
+} = Astro.props;
 ---
 
 <BaseLayout
@@ -54,6 +69,32 @@ const { title, description, pubDate, updatedDate, heroImage, heroImageAlt } =
         </p>
         <h1 class="display">{title}</h1>
       </header>
+      {
+        series && (
+          <nav
+            class="series"
+            aria-label={`${series.title} project`}
+            style={`--tone: var(--neon-${series.tone});`}
+          >
+            <a class="series-project" href={`/projects/${series.id}`}>
+              Part of the {series.title} project
+            </a>
+            {series.posts.length > 1 && (
+              <ol>
+                {series.posts.map((sibling) => (
+                  <li>
+                    {sibling.current ? (
+                      <span aria-current="page">{sibling.year}</span>
+                    ) : (
+                      <a href={`/blog/${sibling.id}/`}>{sibling.year}</a>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            )}
+          </nav>
+        )
+      }
       <hr />
       <Prose><slot /></Prose>
     </div>
@@ -82,5 +123,42 @@ const { title, description, pubDate, updatedDate, heroImage, heroImageAlt } =
   }
   hr {
     margin: var(--space-6) 0;
+  }
+  .series {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3) var(--space-5);
+    margin-top: var(--space-5);
+    padding: var(--space-3) var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-label);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid color-mix(in srgb, var(--tone) 45%, transparent);
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--tone) 8%, transparent);
+  }
+  .series a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--dur-base);
+  }
+  .series a:hover {
+    color: var(--tone);
+  }
+  .series .series-project {
+    color: var(--tone);
+  }
+  .series ol {
+    display: flex;
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .series [aria-current] {
+    color: var(--text-primary);
+    font-weight: 700;
   }
 </style>

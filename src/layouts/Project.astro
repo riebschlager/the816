@@ -4,11 +4,15 @@ import BaseLayout from "./BaseLayout.astro";
 import Button from "../components/Button.astro";
 import Prose from "../components/Prose.astro";
 import Tag from "../components/Tag.astro";
+import ProjectTimeline from "../components/ProjectTimeline.astro";
+import type { TimelineEntry } from "../utils/projects";
 import { projectTone } from "../utils/tones";
 
-type Props = CollectionEntry<"projects">["data"];
+type Props = CollectionEntry<"projects">["data"] & {
+  timeline?: TimelineEntry[];
+};
 
-const { title, description, order, mediums } = Astro.props;
+const { title, description, order, mediums, timeline = [] } = Astro.props;
 const tone = projectTone(order);
 ---
 
@@ -31,6 +35,7 @@ const tone = projectTone(order);
       }
     </ul>
     <Prose><slot /></Prose>
+    {timeline.length > 0 && <ProjectTimeline entries={timeline} {tone} />}
   </article>
 </BaseLayout>
 

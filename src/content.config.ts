@@ -1,4 +1,4 @@
-import { defineCollection } from "astro:content";
+import { defineCollection, reference } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
@@ -16,6 +16,11 @@ const blog = defineCollection({
       heroImage: image().optional(),
       heroImageAlt: z.string().trim().min(1).optional(),
       draft: z.boolean().default(false),
+      // Ties a post to a project: it shows up on that project's timeline and
+      // gets a series bar linking its sibling posts.
+      project: reference("projects").optional(),
+      // Short name for this post on the project timeline (e.g. "Hatrick Swayze").
+      projectLabel: z.string().trim().min(1).optional(),
     }),
 });
 
@@ -27,6 +32,17 @@ const projects = defineCollection({
       description: z.string(),
       order: z.number().int().positive(),
       mediums: z.array(z.string().trim().min(1)).nonempty(),
+      // Timeline entries for years that don't have a full blog post.
+      recaps: z
+        .array(
+          z.object({
+            year: z.number().int(),
+            title: z.string().trim().min(1),
+            summary: z.string().trim().min(1),
+            youtubeId: z.string().trim().min(1),
+          }),
+        )
+        .default([]),
     }),
 });
 

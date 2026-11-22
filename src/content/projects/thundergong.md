@@ -6,22 +6,21 @@ mediums:
   - "Live visuals"
   - "Music-reactive"
   - "TouchDesigner"
+recaps:
+  - year: 2023
+    title: "The pinball year"
+    summary: "We mounted a big chrome half-sphere to one of the displays as the show's pinball and built the graphics around that physical element. For interstitial moments, we cut to a photoreal pinball table built in Unreal Engine to reveal donation totals during the show."
+    youtubeId: "pTCEQ1E7YYc"
+  - year: 2025
+    title: "Going 4K"
+    summary: "The first year with the Uptown's new 4K center screen. The big challenge was working it efficiently into LOUD Production Group's Resolume setup. We settled on NDI to move our visuals across the network quickly."
+    youtubeId: "xQtDevuaEGs"
 ---
 
-Thundergong! is an annual star-studded rock-and-roll variety and comedy benefit show. Hosted by actor and Kansas City native Jason Sudeikis, the event raises money for the <a href="https://www.stepsoffaithfoundation.org/">Steps of Faith Foundation</a> to provide prosthetic limbs and care for uninsured and underinsured amputees.
+THUNDERGONG! is an annual star-studded rock-and-roll variety and comedy benefit show. Hosted by actor and Kansas City native Jason Sudeikis, the event raises money for the <a href="https://www.stepsoffaithfoundation.org/">Steps of Faith Foundation</a> to provide prosthetic limbs and care for uninsured and underinsured amputees.
 
-For the last several years, I've had the opportunity to develop music-reactive visuals, interactive characters and other fun stuff for the show. Here's a video that gives you a taste of what it's all about.
+Since 2022, a few of us from Dimensional Innovations have volunteered to build the visuals for the show: music-reactive LED walls, live-puppeted characters, previsualization tools and whatever other fun stuff the show needs that year. I build and perform most of it in TouchDesigner, and every year gets a little more ambitious than the last.
 
-<div class="video-embed"><iframe src="https://www.youtube.com/embed/clFJxZny8Hc" title="Thundergong! 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+Here's Jason opening the 10th anniversary show in 2026 with "Kansas City" by The New Basement Tapes.
 
-The very first Thundergong that I was a part of, we developed a character named Hatrick Swayze. He was voiced by an actor back stage and his movements were controlled by a MIDI control surface. You can see us working side-stage at 0:23 in this video.
-
-<div class="video-embed"><iframe src="https://www.youtube.com/embed/2CqYOeccrPk" title="Thunder Gong 2022 - Hatrick Swayze" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-
-One of the most fun things I get to do is create and perform the music-reactive visuals for the LED walls on stage. I do all this work in TouchDesigner and create previsualization tools so that the show team can get an idea of how everything will look on the night.
-
-<div class="video-embed"><iframe src="https://www.youtube.com/embed/-q-r05jQ-NI" title="Thundergong 2024 - Interactive Visuals Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-
-And since you've made it down to the bottom of this page, you deserve a little treat. Here's Will Forte and Weird Al Yankovic covering Chappell Roan's HOT TO GO!
-
-<div class="video-embed"><iframe src="https://www.youtube.com/embed/KaiyQ7jJMaI?list=RDKaiyQ7jJMaI" title="&quot;HOT TO GO!&quot; (Chappell Roan cover) • &quot;Weird Al&quot; Yankovic &amp; Will Forte • THUNDERGONG! 2024" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<div class="video-embed"><iframe src="https://www.youtube.com/embed/z3xv17fS-yg" title="Jason Sudeikis performs Kansas City at THUNDERGONG! 2026" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>

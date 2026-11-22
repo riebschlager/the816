@@ -1,0 +1,194 @@
+---
+import { Image } from "astro:assets";
+import Button from "./Button.astro";
+import type { TimelineEntry } from "../utils/projects";
+import type { NeonTone } from "../utils/tones";
+
+interface Props {
+  entries: TimelineEntry[];
+  tone: NeonTone;
+}
+
+const { entries, tone } = Astro.props;
+---
+
+<section
+  class="timeline"
+  aria-labelledby="timeline-heading"
+  style={`--tone: var(--neon-${tone}); --tone-glow: var(--glow-${tone});`}
+>
+  <h2 id="timeline-heading" class="eyebrow">Year by year</h2>
+  <ol>
+    {
+      entries.map((entry) => (
+        <li class="entry">
+          <p class="year">{entry.year}</p>
+          <div class="body">
+            {entry.kind === "post" ? (
+              <>
+                <a
+                  class="media-frame thumb"
+                  href={`/blog/${entry.post.id}/`}
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  {entry.post.data.heroImage && (
+                    <Image
+                      src={entry.post.data.heroImage}
+                      alt=""
+                      width={720}
+                      height={405}
+                      loading="lazy"
+                    />
+                  )}
+                </a>
+                <h3>
+                  <a href={`/blog/${entry.post.id}/`}>{entry.title}</a>
+                </h3>
+                <p>{entry.summary}</p>
+                <Button
+                  href={`/blog/${entry.post.id}/`}
+                  variant="secondary"
+                  size="sm"
+                  {tone}
+                  iconRight="arrow-up-right"
+                >
+                  Read the write-up
+                </Button>
+              </>
+            ) : (
+              <>
+                <div class="video-embed">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${entry.youtubeId}`}
+                    title={`THUNDERGONG! ${entry.year} recap`}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  />
+                </div>
+                <h3>{entry.title}</h3>
+                <p>{entry.summary}</p>
+              </>
+            )}
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</section>
+
+<style>
+  .timeline {
+    margin-top: var(--space-8);
+  }
+  .timeline > .eyebrow {
+    color: var(--tone);
+  }
+  ol {
+    margin: var(--space-6) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .entry {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: var(--space-5);
+    position: relative;
+    padding-bottom: var(--space-8);
+  }
+  /* The rail connecting each year. */
+  .entry::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    left: 10px;
+    width: 1px;
+    background: var(--border-default);
+  }
+  .entry:last-child {
+    padding-bottom: 0;
+  }
+  .entry:last-child::before {
+    display: none;
+  }
+  .year {
+    position: sticky;
+    top: var(--space-5);
+    align-self: start;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: var(--tracking-tight);
+    color: var(--tone);
+    font-variant-numeric: tabular-nums;
+  }
+  .thumb,
+  .video-embed {
+    display: block;
+    aspect-ratio: 16 / 9;
+    margin-bottom: var(--space-5);
+  }
+  .thumb {
+    transition: box-shadow var(--dur-base) var(--ease-out);
+  }
+  .thumb :global(img) {
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+  .thumb:hover {
+    box-shadow: var(--tone-glow);
+  }
+  .thumb:hover :global(img) {
+    transform: scale(1.03);
+  }
+  .video-embed {
+    overflow: hidden;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    background: #000;
+  }
+  .video-embed iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    text-wrap: balance;
+  }
+  h3 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--dur-base);
+  }
+  h3 a:hover {
+    color: var(--tone);
+  }
+  .body p {
+    margin: var(--space-3) 0 var(--space-4);
+    color: var(--text-secondary);
+  }
+  @media (max-width: 560px) {
+    .entry {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-3);
+    }
+    .entry::before {
+      display: none;
+    }
+    .year {
+      position: static;
+    }
+  }
+</style>

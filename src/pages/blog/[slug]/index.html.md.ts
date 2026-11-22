@@ -21,8 +21,11 @@ export const GET: APIRoute = ({ props, site }) => {
   const updated = post.data.updatedDate
     ? `\nUpdated: ${post.data.updatedDate.toISOString().slice(0, 10)}`
     : "";
+  const project = post.data.project
+    ? `\nProject: ${new URL(`/projects/${post.data.project.id}/index.html.md`, site).href}`
+    : "";
   const content = cleanMarkdownForLlms(post.body, site, pagePath);
-  const body = `# ${post.data.title}\n\n> ${post.data.description}\n\nCanonical page: ${new URL(pagePath, site).href}\nPublished: ${post.data.pubDate.toISOString().slice(0, 10)}${updated}\n\n${content}\n`;
+  const body = `# ${post.data.title}\n\n> ${post.data.description}\n\nCanonical page: ${new URL(pagePath, site).href}\nPublished: ${post.data.pubDate.toISOString().slice(0, 10)}${updated}${project}\n\n${content}\n`;
 
   return new Response(body, {
     headers: { "Content-Type": "text/markdown; charset=utf-8" },

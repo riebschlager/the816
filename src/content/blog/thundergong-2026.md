@@ -4,6 +4,8 @@ description: "Ten days, 27 songs, and a 10th anniversary show: how a web control
 pubDate: "2026-11-21T12:00:00.000Z"
 heroImage: "./heroes/thundergong-2026.png"
 heroImageAlt: "The THUNDERGONG! logo on the center LED wall at the Uptown Theater, flanked by TG! monograms on the logo-shaped side walls"
+project: thundergong
+projectLabel: "The 10th anniversary"
 ---
 
 This year was the 10th anniversary of [THUNDERGONG!](https://thundergong.org), the benefit concert for the [Steps of Faith Foundation](https://www.stepsoffaithfoundation.org/) hosted by Jason Sudeikis. It's also the fifth year that a few of us from [Dimensional Innovations](https://dimin.com) have volunteered to make the visuals for it. So, no pressure.

@@ -1,6 +1,8 @@
 ---
 title: "ThunderGong 2022 and Hatrick Swayze"
-description: "Last month I was sitting behind my computer, side-stage at the Uptown Theater here in Kansas City. Just a few feet away, Jason Sudeikis…"
+description: "Hatrick Swayze, a live-puppeted animated mascot voiced backstage and driven by a touchscreen control center we built in TouchDesigner."
+project: thundergong
+projectLabel: "Hatrick Swayze"
 pubDate: "2022-12-04T17:08:12.834Z"
 heroImage: "./heroes/thundergong-2022-and-hatrick-swayze.jpeg"
 heroImageAlt: "Performers onstage at ThunderGong 2022 beneath colorful concert lighting"

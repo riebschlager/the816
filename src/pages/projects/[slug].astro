@@ -1,6 +1,7 @@
 ---
 import Project from "../../layouts/Project.astro";
 import { type CollectionEntry, getCollection, render } from "astro:content";
+import { getProjectTimeline } from "../../utils/projects";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -14,8 +15,9 @@ type Props = CollectionEntry<"projects">;
 
 const project = Astro.props;
 const { Content } = await render(project);
+const timeline = await getProjectTimeline(project);
 ---
 
-<Project {...project.data}>
+<Project {...project.data} {timeline}>
   <Content />
 </Project>
