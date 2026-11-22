@@ -9,9 +9,17 @@ interface Props {
   description: string;
   heroImage?: ImageMetadata;
   heroImageAlt?: string;
+  /** Optional mono caption laid over the bottom of the hero image. */
+  heroLabel?: string;
 }
 
-const { title, description, heroImage, heroImageAlt = "" } = Astro.props;
+const {
+  title,
+  description,
+  heroImage,
+  heroImageAlt = "",
+  heroLabel,
+} = Astro.props;
 ---
 
 <BaseLayout {title} {description} image={heroImage} mainClass="content-page">
@@ -19,14 +27,44 @@ const { title, description, heroImage, heroImageAlt = "" } = Astro.props;
     {
       heroImage && (
         <div class="container">
-          <div class="media-frame hero">
-            <Image
-              width={1120}
-              height={490}
-              src={heroImage}
-              alt={heroImageAlt}
-              loading="eager"
-            />
+          <div class="hero">
+            <span class="hero-frame" aria-hidden="true" />
+            <div class="hero-media">
+              <Image
+                width={1120}
+                height={490}
+                src={heroImage}
+                alt={heroImageAlt}
+                loading="eager"
+              />
+              {/* Same src/size as above, so the browser fetches the file once. */}
+              <span class="hero-duo" aria-hidden="true">
+                <Image
+                  width={1120}
+                  height={490}
+                  src={heroImage}
+                  alt=""
+                  loading="eager"
+                />
+              </span>
+              <svg class="svg-defs" aria-hidden="true" focusable="false">
+                {/* Blue-weighted grayscale, matching the home page portrait. */}
+                <filter id="hero-mono" color-interpolation-filters="sRGB">
+                  <feColorMatrix
+                    type="matrix"
+                    values="0.3 0.2 0.5 0 0  0.3 0.2 0.5 0 0  0.3 0.2 0.5 0 0  0 0 0 1 0"
+                  />
+                </filter>
+              </svg>
+              <span class="hero-grid" aria-hidden="true" />
+              {heroLabel && (
+                <span class="hero-label" aria-hidden="true">
+                  {heroLabel}
+                </span>
+              )}
+            </div>
+            <span class="crop crop-tl" aria-hidden="true" />
+            <span class="crop crop-br" aria-hidden="true" />
           </div>
         </div>
       )
@@ -42,14 +80,142 @@ const { title, description, heroImage, heroImageAlt = "" } = Astro.props;
   :global(main.content-page) {
     padding-top: var(--space-7);
   }
+
+  /* Hero: duotone + projection grid, color returns on hover ---------- */
   .hero {
+    position: relative;
     aspect-ratio: 16 / 7;
+    margin: 0 var(--space-4) var(--space-4) 0;
   }
   @media (max-width: 560px) {
     .hero {
       aspect-ratio: 3 / 2;
     }
   }
+  .hero-frame {
+    position: absolute;
+    inset: 0;
+    transform: translate(var(--space-4), var(--space-4));
+    border: 2px solid var(--neon-cyan);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glow-cyan);
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+  .hero-media {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: var(--ink-1000);
+    isolation: isolate;
+  }
+  .hero-media :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+  .svg-defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+  /* Duotone copy stacked over the color original; fades out on hover. */
+  .hero-duo {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    isolation: isolate;
+    transition: opacity var(--dur-slow) var(--ease-out);
+  }
+  .hero-duo :global(img) {
+    filter: url(#hero-mono) brightness(1.15) contrast(1.1);
+  }
+  .hero-duo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      var(--neon-cyan) 0%,
+      color-mix(in srgb, var(--neon-cyan) 40%, var(--neon-pink)) 55%,
+      var(--neon-pink) 100%
+    );
+    mix-blend-mode: color;
+  }
+  /* Projector calibration grid, like a mapping test pattern. */
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.14) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.14) 1px, transparent 1px),
+      radial-gradient(
+        circle closest-side at 50% 50%,
+        transparent 70%,
+        rgb(255 255 255 / 0.18) 70.6%,
+        transparent 71.6%
+      );
+    background-size:
+      40px 40px,
+      40px 40px,
+      100% 100%;
+    background-position: center;
+    mask-image: radial-gradient(
+      ellipse at 50% 45%,
+      black 30%,
+      transparent 80%
+    );
+    transition: opacity var(--dur-slow) var(--ease-out);
+  }
+  .hero-label {
+    position: absolute;
+    left: var(--space-4);
+    right: var(--space-4);
+    bottom: var(--space-4);
+    z-index: 3;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: rgb(255 255 255 / 0.85);
+    text-shadow: 0 1px 6px rgb(0 0 0 / 0.6);
+  }
+  /* Crop marks hanging off two corners. */
+  .crop {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-color: var(--text-faint);
+    border-style: solid;
+    border-width: 0;
+  }
+  .crop-tl {
+    top: calc(var(--space-3) * -1);
+    left: calc(var(--space-3) * -1);
+    border-top-width: 1px;
+    border-left-width: 1px;
+  }
+  .crop-br {
+    bottom: calc(var(--space-6) * -1 + 2px);
+    right: calc(var(--space-6) * -1 + 2px);
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+  }
+  .hero:hover .hero-media :global(img) {
+    transform: scale(1.03);
+  }
+  .hero:hover .hero-duo {
+    opacity: 0;
+  }
+  .hero:hover .hero-grid {
+    opacity: 0.35;
+  }
+  .hero:hover .hero-frame {
+    transform: translate(var(--space-3), var(--space-3));
+  }
+
   .body {
     margin-top: var(--space-8);
   }
