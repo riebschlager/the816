@@ -1,0 +1,502 @@
+---
+import { getImage, Image } from "astro:assets";
+import RockFactsTweet from "../components/RockFactsTweet.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import logo from "../assets/rockfacts/rockfacts-logo.jpg";
+import invoice from "../assets/rockfacts/nikki-sixx-invoice.jpg";
+import { rockFacts, splitHashtags } from "../utils/rockfacts";
+
+const PAGE_SIZE = 8;
+
+const avatar = await getImage({ src: logo, width: 96, height: 96 });
+
+// The card at the top starts on a fixed favorite; the button shuffles.
+const featured =
+  rockFacts.find((t) => t.text.startsWith("Despite their insistence")) ??
+  rockFacts[0];
+
+const first = rockFacts[rockFacts.length - 1];
+const firstMonth = new Date(first.date).toLocaleDateString("en-US", {
+  month: "short",
+  year: "numeric",
+  timeZone: "America/Chicago",
+});
+---
+
+<BaseLayout
+  title="Rock Facts"
+  description="True facts about rock. A Twitter account I ran in 2009, before Nikki Sixx bought it for $500."
+  image={logo}
+  mainClass="rockfacts"
+>
+  <script is:inline>
+    document.documentElement.classList.add("rf-js");
+  </script>
+
+  <header class="container-prose intro">
+    <p class="eyebrow">Twitter · 2009–2010</p>
+    <h1 class="display">Rock Facts</h1>
+    <p class="lead">
+      In 2009 I ran a Twitter account called <strong>@rockfacts</strong>. The
+      name came from the Rock Facts segment on <em>Sifl &amp; Olly</em>, MTV's
+      sock puppet show, and so did the idea: confidently stated facts about
+      bands, every one of them made up.
+    </p>
+    <p>
+      Then Nikki Sixx's management got in touch. They wanted the account so they
+      could post <em>real</em> facts about rock. <a href="#the-sale"
+        >That part's at the bottom.</a
+      >
+    </p>
+  </header>
+
+  <section class="container-prose shuffle" aria-labelledby="shuffle-heading">
+    <h2 id="shuffle-heading" class="sr-only">Random fact</h2>
+    <figure class="card" aria-live="polite">
+      <div class="card-head">
+        <Image
+          src={logo}
+          alt=""
+          width={56}
+          height={56}
+          densities={[1, 2]}
+          class="card-avatar"
+        />
+        <div>
+          <span class="card-name">Rock Facts</span>
+          <span class="card-handle">@rockfacts</span>
+        </div>
+      </div>
+      <blockquote class="card-text" data-card-text>
+        {
+          splitHashtags(featured.text).map((part) =>
+            part.hashtag ? (
+              <span class="hashtag">{part.value}</span>
+            ) : (
+              part.value
+            ),
+          )
+        }
+      </blockquote>
+      <figcaption class="card-meta">
+        <time datetime={featured.date} data-card-time>{featured.stamp}</time>
+        <span data-card-count>{140 - featured.text.length}</span>
+      </figcaption>
+    </figure>
+    <button type="button" class="shuffle-button" data-shuffle hidden>
+      Another fact
+    </button>
+  </section>
+
+  <section class="container-prose profile" aria-labelledby="profile-heading">
+    <div class="profile-head">
+      <Image
+        src={logo}
+        alt="The Rock Facts logo: ROCK in white and FACTS in red over a grey flourish"
+        width={112}
+        height={112}
+        densities={[1, 2]}
+        class="profile-avatar"
+      />
+      <div>
+        <h2 id="profile-heading">Rock Facts</h2>
+        <p class="handle">@rockfacts</p>
+        <p class="bio">True facts about rock.</p>
+      </div>
+    </div>
+    <dl class="stats">
+      <div><dt>Tweets</dt><dd>{rockFacts.length}</dd></div>
+      <div><dt>First tweet</dt><dd>{firstMonth}</dd></div>
+      <div><dt>Sold for</dt><dd>$500</dd></div>
+    </dl>
+
+    <p class="tab" aria-hidden="true"><span>Tweets</span></p>
+    <ol class="timeline" data-timeline>
+      <li class="notice">
+        <p>
+          <strong>This account changed hands in 2010.</strong> The new owners posted
+          real facts about rock. These are the fake ones. <a href="#the-sale"
+            >Read about the sale ↓</a
+          >
+        </p>
+      </li>
+      {
+        rockFacts.map((tweet, i) => (
+          <RockFactsTweet
+            id={tweet.id}
+            text={tweet.text}
+            stamp={tweet.stamp}
+            date={tweet.date}
+            avatar={avatar.src}
+            later={i >= PAGE_SIZE}
+          />
+        ))
+      }
+    </ol>
+    <button type="button" class="more" data-more hidden>
+      more <span aria-hidden="true">↓</span>
+    </button>
+    <p class="end" data-end>
+      That's the first one. Posted {first.stamp}.
+    </p>
+  </section>
+
+  <section id="the-sale" class="container-prose sale" aria-labelledby="sale">
+    <p class="eyebrow">The sale</p>
+    <h2 id="sale">Client: Nikki Sixx</h2>
+    <p>
+      In 2010, Nikki Sixx's management reached out. Nikki wanted a Twitter
+      account where he could post actual facts about rock, and @rockfacts was
+      the obvious handle. They offered to buy it. I sold it for $500.
+    </p>
+    <figure>
+      <div class="media-frame">
+        <Image
+          src={invoice}
+          alt="A printed invoice with the client listed as Nikki Sixx and the payee as Chris Riebschlager. The rest is pixelated."
+          width={1280}
+        />
+      </div>
+      <figcaption>The invoice. Client: Nikki Sixx. Payee: me.</figcaption>
+    </figure>
+    <p>
+      <strong
+        >It's the only time a member of Mötley Crüe has paid me for anything.</strong
+      >
+    </p>
+  </section>
+
+  <script
+    is:inline
+    type="application/json"
+    id="rockfacts-data"
+    set:html={JSON.stringify(rockFacts).replace(/</g, "\\u003c")}
+  />
+
+  <script>
+    interface Fact {
+      id: string;
+      date: string;
+      text: string;
+      stamp: string;
+    }
+
+    const PAGE_SIZE = 8;
+
+    function renderText(el: HTMLElement, text: string) {
+      el.replaceChildren(
+        ...text
+          .split(/(#\w+)/)
+          .filter(Boolean)
+          .map((value) => {
+            if (!/^#\w+$/.test(value)) return document.createTextNode(value);
+            const span = document.createElement("span");
+            span.className = "hashtag";
+            span.textContent = value;
+            return span;
+          }),
+      );
+    }
+
+    function shuffled<T>(items: T[]): T[] {
+      const out = [...items];
+      for (let i = out.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [out[i], out[j]] = [out[j], out[i]];
+      }
+      return out;
+    }
+
+    // "Another fact": deal from a shuffled deck so nothing repeats until
+    // every fact has been seen.
+    const dataEl = document.getElementById("rockfacts-data");
+    const facts: Fact[] = dataEl ? JSON.parse(dataEl.textContent ?? "[]") : [];
+    const shuffleButton =
+      document.querySelector<HTMLButtonElement>("[data-shuffle]");
+    const cardText = document.querySelector<HTMLElement>("[data-card-text]");
+    const cardTime =
+      document.querySelector<HTMLTimeElement>("[data-card-time]");
+    const cardCount = document.querySelector<HTMLElement>("[data-card-count]");
+
+    if (facts.length && shuffleButton && cardText && cardTime && cardCount) {
+      let current = cardTime.dateTime;
+      let deck: Fact[] = [];
+      shuffleButton.hidden = false;
+      shuffleButton.addEventListener("click", () => {
+        if (!deck.length)
+          deck = shuffled(facts.filter((f) => f.date !== current));
+        const next = deck.pop()!;
+        current = next.date;
+        renderText(cardText, next.text);
+        cardTime.dateTime = next.date;
+        cardTime.textContent = next.stamp;
+        cardCount.textContent = String(140 - next.text.length);
+      });
+    }
+
+    // "more": reveal the timeline a page at a time, like 2009.
+    const timeline = document.querySelector<HTMLElement>("[data-timeline]");
+    const more = document.querySelector<HTMLButtonElement>("[data-more]");
+    const end = document.querySelector<HTMLElement>("[data-end]");
+
+    if (timeline && more && end) {
+      const hiddenTweets = () =>
+        timeline.querySelectorAll<HTMLElement>(".later:not(.revealed)");
+      const sync = () => {
+        const remaining = hiddenTweets().length > 0;
+        more.hidden = !remaining;
+        end.hidden = remaining;
+      };
+      sync();
+      more.addEventListener("click", () => {
+        const batch = [...hiddenTweets()].slice(0, PAGE_SIZE);
+        batch.forEach((li) => li.classList.add("revealed"));
+        batch[0]?.focus({ preventScroll: true });
+        sync();
+      });
+    }
+  </script>
+</BaseLayout>
+
+<style>
+  .intro {
+    margin-bottom: var(--space-7);
+  }
+  .intro h1 {
+    margin: var(--space-3) 0 var(--space-5);
+    font-size: var(--text-display-xl);
+  }
+  .intro p:last-child {
+    margin-bottom: 0;
+    color: var(--text-secondary);
+  }
+
+  /* Random fact card */
+  .shuffle {
+    margin-bottom: var(--space-9);
+  }
+  .card {
+    margin: 0;
+    padding: var(--space-6);
+    background: var(--surface-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    line-height: 1.3;
+  }
+  .card-head :global(.card-avatar) {
+    display: block;
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-sm);
+  }
+  .card-name {
+    display: block;
+    font-weight: 700;
+  }
+  .card-handle {
+    font-size: var(--text-small);
+    color: var(--text-muted);
+  }
+  .card-text {
+    min-height: 3lh;
+    margin: var(--space-5) 0;
+    padding: 0;
+    border: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3.4vw, 2rem);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    text-wrap: pretty;
+  }
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-label);
+    color: var(--text-muted);
+  }
+  .card-meta span {
+    color: var(--text-faint);
+  }
+  .shuffle-button {
+    display: block;
+    margin: var(--space-5) auto 0;
+    padding: var(--space-3) var(--space-6);
+    font: 700 var(--text-body) / 1 var(--font-body);
+    color: var(--text-on-neon);
+    background: var(--neon-pink);
+    border: 0;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: box-shadow var(--dur-base) var(--ease-out);
+  }
+  .shuffle-button:hover {
+    box-shadow: var(--glow-pink);
+  }
+  .shuffle-button:active {
+    transform: scale(0.97);
+  }
+  .shuffle-button[hidden] {
+    display: none;
+  }
+  .rockfacts :global(.hashtag) {
+    color: var(--neon-pink-hi);
+  }
+
+  /* Profile + timeline */
+  .profile {
+    margin-bottom: var(--space-9);
+  }
+  .profile-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+  }
+  .profile-head :global(.profile-avatar) {
+    flex: none;
+    display: block;
+    width: 112px;
+    height: 112px;
+    border-radius: var(--radius-md);
+  }
+  .profile-head h2 {
+    margin: 0;
+    line-height: 1;
+  }
+  .handle {
+    margin: var(--space-1) 0 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--text-muted);
+  }
+  .bio {
+    margin: var(--space-2) 0 0;
+    color: var(--text-secondary);
+  }
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    margin: var(--space-6) 0;
+  }
+  .stats div {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .stats dt {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-label);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .stats dd {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  .tab {
+    margin: 0;
+    font-size: var(--text-small);
+    font-weight: 700;
+  }
+  .tab span {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background: var(--surface-card);
+    border: 1px solid var(--border-default);
+    border-bottom: 0;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  }
+  .timeline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-bottom: 1px solid var(--border-default);
+  }
+  .notice {
+    padding: var(--space-4);
+    font-size: var(--text-small);
+    line-height: 1.5;
+    color: var(--text-secondary);
+    background: var(--tint-orange);
+    border-top: 1px solid var(--border-default);
+  }
+  .notice p {
+    margin: 0;
+  }
+  :global(.rf-js) .timeline :global(.later:not(.revealed)) {
+    display: none;
+  }
+  .more {
+    display: block;
+    width: 100%;
+    margin-top: var(--space-4);
+    padding: var(--space-3);
+    font: 700 var(--text-body) / 1.2 var(--font-body);
+    color: var(--text-secondary);
+    background: var(--surface-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition:
+      background-color var(--dur-fast) var(--ease-out),
+      color var(--dur-fast) var(--ease-out);
+  }
+  .more:hover {
+    color: var(--text-primary);
+    background: var(--surface-hover);
+  }
+  .more[hidden],
+  .end[hidden] {
+    display: none;
+  }
+  .end {
+    margin: var(--space-4) 0 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-label);
+    text-align: center;
+    color: var(--text-muted);
+  }
+
+  /* The sale */
+  .sale {
+    scroll-margin-top: calc(var(--header-height) + var(--space-5));
+  }
+  .sale h2 {
+    margin-top: var(--space-3);
+  }
+  .sale figure {
+    margin: var(--space-6) 0;
+  }
+  .sale figcaption {
+    margin-top: var(--space-3);
+    font-size: var(--text-small);
+    font-style: italic;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 480px) {
+    .card {
+      padding: var(--space-5);
+    }
+    .profile-head {
+      align-items: flex-start;
+    }
+    .profile-head :global(.profile-avatar) {
+      width: 80px;
+      height: 80px;
+    }
+  }
+</style>

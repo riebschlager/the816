@@ -1,0 +1,76 @@
+---
+/*
+  A single @rockfacts tweet, laid out like a 2009 timeline entry:
+  square avatar, bold screen name running into the text, grey timestamp.
+ */
+import { splitHashtags } from "../utils/rockfacts";
+
+interface Props {
+  id: string;
+  text: string;
+  stamp: string;
+  date: string;
+  avatar: string;
+  later?: boolean;
+}
+
+const { id, text, stamp, date, avatar, later = false } = Astro.props;
+---
+
+<li class:list={["tweet", { later }]} id={`status-${id}`} tabindex="-1">
+  <img class="avatar" src={avatar} alt="" width="48" height="48" />
+  <div class="body">
+    <p class="text">
+      <strong class="screen-name">rockfacts</strong>
+      {
+        splitHashtags(text).map((part) =>
+          part.hashtag ? <span class="hashtag">{part.value}</span> : part.value,
+        )
+      }
+    </p>
+    <p class="meta">
+      <time datetime={date}>{stamp}</time>
+    </p>
+  </div>
+</li>
+
+<style>
+  .tweet {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-3);
+    border-top: 1px solid var(--border-default);
+    transition: background-color var(--dur-fast) var(--ease-out);
+  }
+  .tweet:hover {
+    background: var(--surface-card);
+  }
+  .tweet:focus-visible {
+    outline-offset: -2px;
+  }
+  .avatar {
+    display: block;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-xs);
+  }
+  .text {
+    margin: 0;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+  .screen-name {
+    margin-right: 0.3em;
+    color: var(--neon-pink);
+  }
+  .hashtag {
+    color: var(--neon-pink-hi);
+  }
+  .meta {
+    margin: var(--space-1) 0 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-label);
+    color: var(--text-muted);
+  }
+</style>
