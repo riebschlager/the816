@@ -51,6 +51,10 @@ A couple of practical HDRI notes:
 - **Env Light Quality lives in two places.** The PBR MAT's Env Light Quality is _multiplied_ by the Environment Light's Environment Map Quality. Two knobs, one result. Now you know, and you can stop hunting for the "real" one.
 - **Reusing the FBX's color map** works great on a cartoon character, but know that an old-style diffuse map often has lighting and shadow baked in, which PBR base color isn't supposed to have. Fine for Milhouse, wrong for photorealism.
 
+## Steal my Instagram files
+
+Many of you have asked if you can use the files from my Instagram posts in your own projects. The answer is YES! **[Grab them from this Google Drive folder](https://drive.google.com/drive/folders/1zmYG7JC9HLzIEXmGAdlLm5JjUioFBIuH?usp=sharing)** and use them for whatever you want. A link to my website or my [Instagram](https://www.instagram.com/riebschlager/) is appreciated!
+
 ## Get the goods: assets to download
 
 Everything you need to follow along, free:

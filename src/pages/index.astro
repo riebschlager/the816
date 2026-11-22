@@ -1,17 +1,28 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import Button from "../components/Button.astro";
-import FeatureBug from "../components/FeatureBug.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import Icon from "../components/Icon.astro";
 import ChrisAtThundergong from "../assets/chris-at-thundergong.jpg";
-import Milhouse from "../assets/milhouse.png";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { getPublishedPosts } from "../utils/posts";
+import { projectTone } from "../utils/tones";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const posts = (await getPublishedPosts())
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <div class="container">
     <section class="hero">
-      <div class="intro">
+      <div class="hero-copy">
         <span class="eyebrow">Creative technologist · Kansas City</span>
         <h1 class="display">Hello, I'm Chris.</h1>
         <p class="lead">
@@ -22,97 +33,520 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
           >, where my teams build interactive installations and immersive
           experiences for stadiums, museums, and entertainment venues.
         </p>
+        <p class="sub">
+          Twenty-plus years in, the through-line has always been the same:
+          knowing what an experience should feel like, and building until it
+          does.
+        </p>
       </div>
-      <div class="media-frame portrait">
-        <Image
-          src={ChrisAtThundergong}
-          alt="Chris at Thundergong"
-          widths={[400, 640, 960]}
-          sizes="(max-width: 720px) 100vw, 520px"
-          loading="eager"
-        />
-      </div>
+
+      <a class="portrait" href="/projects/thundergong">
+        <span class="portrait-frame" aria-hidden="true"></span>
+        <span class="portrait-media">
+          <Image
+            src={ChrisAtThundergong}
+            alt="Chris backstage at Thundergong, LED walls glowing behind him"
+            widths={[400, 640, 880]}
+            sizes="(max-width: 900px) 80vw, 440px"
+            loading="eager"
+          />
+          <!-- Same srcset as above, so the browser fetches the file once. -->
+          <span class="portrait-duo" aria-hidden="true">
+            <Image
+              src={ChrisAtThundergong}
+              alt=""
+              widths={[400, 640, 880]}
+              sizes="(max-width: 900px) 80vw, 440px"
+              loading="eager"
+            />
+          </span>
+          <svg class="svg-defs" aria-hidden="true" focusable="false">
+            <!--
+              Blue-weighted grayscale. The photo is lit in saturated stage
+              blue, which standard luminance (~7% blue) renders nearly black,
+              leaving a dark patch on the forehead. Weighting blue at 50%
+              keeps blue-lit and warm-lit skin at similar brightness.
+            -->
+            <filter id="portrait-mono" color-interpolation-filters="sRGB">
+              <feColorMatrix
+                type="matrix"
+                values="0.3 0.2 0.5 0 0  0.3 0.2 0.5 0 0  0.3 0.2 0.5 0 0  0 0 0 1 0"
+              ></feColorMatrix>
+            </filter>
+          </svg>
+          <span class="portrait-grid" aria-hidden="true"></span>
+          <span class="portrait-label" aria-hidden="true">
+            THUNDERGONG! · UPTOWN THEATER
+          </span>
+        </span>
+        <span class="crop crop-tl" aria-hidden="true"></span>
+        <span class="crop crop-br" aria-hidden="true"></span>
+      </a>
     </section>
 
-    <section class="more">
-      <p>
-        Twenty-plus years in, my work has run the gamut from web applications to
-        venue-scale projects like <a href="/projects/atlas9">Atlas9</a>. The
-        through-line has always been the same: knowing what an experience should
-        feel like, and building until it does.
-      </p>
+    <section class="work" aria-labelledby="work-heading">
+      <header class="section-head">
+        <h2 id="work-heading" class="eyebrow">Selected work</h2>
+        <a class="more-link" href="/projects">
+          All projects
+          <Icon name="arrow-up-right" size={16} />
+        </a>
+      </header>
+      <ul class="work-grid">
+        {
+          projects.map((project, i) => {
+            const tone = projectTone(project.data.order);
+            return (
+              <li>
+                <a
+                  class="work-card"
+                  href={`/projects/${project.id}`}
+                  style={`--tone: var(--neon-${tone}); --tone-glow: var(--glow-${tone});`}
+                >
+                  <div class="media-frame thumb">
+                    {project.data.thumbnail && (
+                      <Image
+                        src={project.data.thumbnail}
+                        alt={project.data.thumbnailAlt ?? ""}
+                        widths={[480, 720, 1080]}
+                        sizes="(max-width: 720px) 100vw, 540px"
+                        loading={i < 2 ? "eager" : "lazy"}
+                      />
+                    )}
+                  </div>
+                  <div class="work-meta">
+                    <h3 class="work-title">{project.data.title}</h3>
+                    <span class="work-medium">{project.data.mediums[0]}</span>
+                  </div>
+                  <p class="work-desc">{project.data.description}</p>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+
+    <section class="writing" aria-labelledby="writing-heading">
+      <header class="section-head">
+        <h2 id="writing-heading" class="eyebrow">Latest writing</h2>
+        <a class="more-link" href="/blog">
+          All posts
+          <Icon name="arrow-up-right" size={16} />
+        </a>
+      </header>
+      <ul class="post-grid">
+        {
+          posts.map((post, i) => (
+            <li class:list={[i % 2 ? "pink" : "cyan"]}>
+              <a class="post-card" href={`/blog/${post.id}/`}>
+                <div class="media-frame post-thumb">
+                  {post.data.heroImage && (
+                    <Image
+                      src={post.data.heroImage}
+                      alt={post.data.heroImageAlt ?? ""}
+                      width={720}
+                      height={450}
+                      loading="lazy"
+                    />
+                  )}
+                </div>
+                <span class="post-date">
+                  <FormattedDate date={post.data.pubDate} />
+                </span>
+                <span class="post-title">{post.data.title}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="closer">
       <p>
         I came up through creative coding (TouchDesigner, Processing,
         openFrameworks) and taught interactive installation and interaction
         design at the collegiate level. These days most of my energy goes into
         building teams of artists and technologists, and making sure the people
-        doing the work have what they need to do it well. <strong
-          >I learned from generous mentors. I try to be one.</strong
-        >
+        doing the work have what they need to do it well.
+      </p>
+      <p class="mentor display">
+        I learned from generous mentors. I try to be one.
       </p>
       <div class="actions">
-        <Button href="/projects" iconRight="arrow-up-right">
-          See the projects
-        </Button>
-        <Button href="/blog" variant="secondary" tone="cyan">
-          Read the blog
+        <Button href="/about" variant="secondary" tone="cyan">
+          More about me
         </Button>
       </div>
-    </section>
-
-    <section class="feature">
-      <FeatureBug
-        href="https://drive.google.com/drive/folders/1zmYG7JC9HLzIEXmGAdlLm5JjUioFBIuH?usp=sharing"
-        image={Milhouse}
-        alt="A glossy 3D Milhouse surrounded by rainbow feedback trails"
-        eyebrow="Free download"
-        title="Steal my Instagram files."
-        cta="Open the Google Drive"
-      >
-        Many of you have asked if you can use these files in your own projects.
-        The answer is YES! Use these files for whatever you want. A link to my
-        website or my Instagram is appreciated!
-      </FeatureBug>
     </section>
   </div>
 </BaseLayout>
 
 <style>
+  /* Hero ------------------------------------------------------------ */
   .hero {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
     gap: var(--space-8);
     align-items: center;
+    padding-block: var(--space-8) var(--space-7);
   }
-  .intro {
+  .hero-copy {
     display: flex;
     flex-direction: column;
-    gap: var(--space-6);
+    gap: var(--space-5);
   }
-  .intro h1 {
+
+  /* Portrait: duotone + projection grid, color returns on hover ----- */
+  .portrait {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 440px;
+    justify-self: end;
+    aspect-ratio: 4 / 5;
+    margin: 0 var(--space-4) var(--space-4) 0;
+  }
+  .portrait-frame {
+    position: absolute;
+    inset: 0;
+    transform: translate(var(--space-4), var(--space-4));
+    border: 2px solid var(--neon-cyan);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glow-cyan);
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+  .portrait-media {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: var(--ink-1000);
+    isolation: isolate;
+  }
+  .portrait-media :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+  .svg-defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+  /* Duotone copy stacked over the color original; fades out on hover. */
+  .portrait-duo {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    isolation: isolate;
+    transition: opacity var(--dur-slow) var(--ease-out);
+  }
+  .portrait-duo :global(img) {
+    filter: url(#portrait-mono) brightness(1.15) contrast(1.1);
+  }
+  /* Duotone wash: keeps the photo's light, swaps its hue for the neons. */
+  .portrait-duo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      var(--neon-cyan) 0%,
+      color-mix(in srgb, var(--neon-cyan) 40%, var(--neon-pink)) 55%,
+      var(--neon-pink) 100%
+    );
+    mix-blend-mode: color;
+    transition: opacity var(--dur-slow) var(--ease-out);
+  }
+  /* Projector calibration grid, like a mapping test pattern. */
+  .portrait-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.14) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.14) 1px, transparent 1px),
+      radial-gradient(
+        circle at 50% 50%,
+        transparent 34%,
+        rgb(255 255 255 / 0.18) 34.3%,
+        transparent 34.8%
+      );
+    background-size:
+      40px 40px,
+      40px 40px,
+      100% 100%;
+    background-position: center;
+    mask-image: radial-gradient(circle at 50% 45%, black 30%, transparent 85%);
+    transition: opacity var(--dur-slow) var(--ease-out);
+  }
+  .portrait-label {
+    position: absolute;
+    left: var(--space-4);
+    right: var(--space-4);
+    bottom: var(--space-4);
+    z-index: 3;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: rgb(255 255 255 / 0.85);
+    text-shadow: 0 1px 6px rgb(0 0 0 / 0.6);
+  }
+  /* Crop marks hanging off two corners. */
+  .crop {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-color: var(--text-faint);
+    border-style: solid;
+    border-width: 0;
+  }
+  .crop-tl {
+    top: calc(var(--space-3) * -1);
+    left: calc(var(--space-3) * -1);
+    border-top-width: 1px;
+    border-left-width: 1px;
+  }
+  .crop-br {
+    bottom: calc(var(--space-6) * -1 + 2px);
+    right: calc(var(--space-6) * -1 + 2px);
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+  }
+  .portrait:hover .portrait-media :global(img) {
+    transform: scale(1.03);
+  }
+  .portrait:hover .portrait-duo {
+    opacity: 0;
+  }
+  .portrait:hover .portrait-grid {
+    opacity: 0.35;
+  }
+  .portrait:hover .portrait-frame {
+    transform: translate(var(--space-3), var(--space-3));
+  }
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-7);
+    }
+    .portrait {
+      justify-self: start;
+      max-width: min(360px, calc(100% - var(--space-4)));
+    }
+  }
+  .hero h1 {
     font-size: var(--text-display-xl);
   }
   .lead {
+    max-width: 42ch;
     margin: 0;
   }
-  .portrait {
-    aspect-ratio: 4 / 5;
-  }
-  .more {
-    max-width: var(--measure);
-    margin-top: var(--space-8);
+  .sub {
+    max-width: 52ch;
+    margin: 0;
     color: var(--text-secondary);
   }
-  .more p {
-    margin: 0 0 var(--space-4);
-  }
-  .feature {
+
+  /* Section scaffolding -------------------------------------------- */
+  .work,
+  .writing {
     margin-top: var(--space-8);
+  }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding-bottom: var(--space-4);
+    margin-bottom: var(--space-6);
+    border-bottom: 1px solid var(--border-default);
+  }
+  .section-head h2 {
+    font-weight: inherit;
+  }
+  .more-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .more-link :global(svg) {
+    transition: transform var(--dur-base) var(--ease-snap);
+  }
+  .more-link:hover {
+    color: var(--neon-pink);
+  }
+  .more-link:hover :global(svg) {
+    transform: translate(2px, -2px);
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Selected work --------------------------------------------------- */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr));
+    gap: var(--space-7) var(--space-6);
+  }
+  .work-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .thumb {
+    aspect-ratio: 16 / 9;
+    margin-bottom: var(--space-2);
+    transition: box-shadow var(--dur-base) var(--ease-out);
+  }
+  .thumb :global(img),
+  .post-thumb :global(img) {
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+  .work-meta {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+  .work-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-display-md);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: var(--tracking-tight);
+    transition: color var(--dur-base) var(--ease-out);
+  }
+  .work-medium {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-label);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--tone);
+  }
+  .work-desc {
+    margin: 0;
+    color: var(--text-secondary);
+    text-wrap: pretty;
+  }
+  .work-card:hover .thumb {
+    box-shadow: var(--tone-glow);
+  }
+  .work-card:hover .thumb :global(img) {
+    transform: scale(1.03);
+  }
+  .work-card:hover .work-title {
+    color: var(--tone);
+  }
+
+  /* Latest writing -------------------------------------------------- */
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+    gap: var(--space-7) var(--space-6);
+  }
+  .cyan {
+    --tone: var(--neon-cyan);
+    --tone-glow: var(--glow-cyan);
+  }
+  .pink {
+    --tone: var(--neon-pink);
+    --tone-glow: var(--glow-pink);
+  }
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: inherit;
+    text-decoration: none;
+  }
+  .post-thumb {
+    aspect-ratio: 16 / 10;
+    margin-bottom: var(--space-3);
+    border-radius: var(--radius-md);
+    transition: box-shadow var(--dur-base) var(--ease-out);
+  }
+  .post-date {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .post-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    text-wrap: balance;
+    transition: color var(--dur-base);
+  }
+  .post-card:hover .post-thumb {
+    box-shadow: var(--tone-glow);
+  }
+  .post-card:hover .post-thumb :global(img) {
+    transform: scale(1.03);
+  }
+  .post-card:hover .post-title {
+    color: var(--tone);
+  }
+
+  /* Closer ---------------------------------------------------------- */
+  .closer {
+    max-width: var(--measure);
+    margin-top: var(--space-9);
+    padding-top: var(--space-7);
+    border-top: 1px solid var(--border-default);
+    color: var(--text-secondary);
+  }
+  .closer p {
+    margin: 0 0 var(--space-5);
+  }
+  .mentor {
+    font-size: var(--text-display-md);
+    line-height: 1.1;
+    color: var(--text-primary);
+    text-wrap: balance;
   }
   .actions {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-3);
-    margin-top: var(--space-6);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .portrait-frame,
+    .portrait-media :global(img),
+    .portrait-duo,
+    .portrait-grid {
+      transition: none;
+    }
+    .portrait:hover .portrait-media :global(img),
+    .portrait:hover .portrait-frame {
+      transform: none;
+    }
+    .thumb :global(img),
+    .post-thumb :global(img),
+    .more-link :global(svg) {
+      transition: none;
+    }
+    .work-card:hover .thumb :global(img),
+    .post-card:hover .post-thumb :global(img) {
+      transform: none;
+    }
   }
 </style>
