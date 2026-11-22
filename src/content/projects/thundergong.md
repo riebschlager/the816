@@ -1,6 +1,9 @@
 ---
 title: "Thundergong"
-description: "Interactive visuals created for the annual Thundergong benefit concert."
+description: "Music-reactive visuals for Jason Sudeikis' annual rock-and-roll benefit show, raising money for uninsured amputees."
+role: "Volunteer visuals lead since 2022, building and performing the show's LED walls and characters live in TouchDesigner."
+thumbnail: "../../assets/projects/thundergong.png"
+thumbnailAlt: "The THUNDERGONG! logo on the big screen above the band at the Uptown Theater"
 order: 2
 mediums:
   - "Live visuals"

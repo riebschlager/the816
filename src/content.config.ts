@@ -26,10 +26,14 @@ const blog = defineCollection({
 
 const projects = defineCollection({
   loader: glob({ base: "./src/content/projects", pattern: "**/*.{md,mdx}" }),
-  schema: () =>
+  schema: ({ image }) =>
     z.object({
       title: z.string(),
       description: z.string(),
+      // One line on what Chris did on the project, shown on the projects index.
+      role: z.string().trim().min(1).optional(),
+      thumbnail: image().optional(),
+      thumbnailAlt: z.string().trim().min(1).optional(),
       order: z.number().int().positive(),
       mediums: z.array(z.string().trim().min(1)).nonempty(),
       // Timeline entries for years that don't have a full blog post.

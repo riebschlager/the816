@@ -1,6 +1,9 @@
 ---
 title: "Spectacle Society"
-description: "A project by Chris Riebschlager."
+description: "Two pop-up immersive art shows in Kansas City, from a brewery lot to a full gallery takeover in the Crossroads."
+role: "Built FRENS, a bouncing-creature music toy, and Miragia, a talking magic mirror: fabrication, design and software."
+thumbnail: "../../assets/projects/spectacle-society.jpg"
+thumbnailAlt: "The Spectacle Society crew inside a cozy crocheted installation"
 order: 4
 mediums:
   - "Interactive installation"

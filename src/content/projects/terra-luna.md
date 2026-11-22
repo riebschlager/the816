@@ -1,6 +1,9 @@
 ---
 title: "Terra Luna"
-description: "A project by Chris Riebschlager."
+description: "Projection-mapped visuals on the trees and banks of a pond at Quixotic's annual night-time arboretum experience."
+role: "Designed the visuals and mapped two- and three-projector outdoor setups, year after year."
+thumbnail: "../../assets/projects/terra-luna.jpg"
+thumbnailAlt: "Trees and rocks on the bank of a pond projection-mapped in neon pink, blue and green, reflected in the water at night"
 order: 3
 mediums:
   - "Projection mapping"

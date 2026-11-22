@@ -1,6 +1,9 @@
 ---
 title: "Atlas9"
-description: "An immersive entertainment project by Chris Riebschlager."
+description: "46,000 square feet of immersive art set in a 90s movie theater where a mysterious anomaly made the movies real."
+role: "Led software development and AV engineering from day-one concept to ribbon cutting."
+thumbnail: "../../assets/projects/atlas9.jpg"
+thumbnailAlt: "The Atlas9 marquee glowing at night above the box office"
 order: 1
 mediums:
   - "Immersive entertainment"

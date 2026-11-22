@@ -21,7 +21,7 @@ export const GET: APIRoute = async ({ site }) => {
     "",
     ...projects.map(
       (project) =>
-        `- [${project.data.title}](${new URL(`/projects/${project.id}/index.html.md`, site).href}): ${project.data.description} Mediums: ${project.data.mediums.join(", ")}.`,
+        `- [${project.data.title}](${new URL(`/projects/${project.id}/index.html.md`, site).href}): ${project.data.description}${project.data.role ? ` Chris's role: ${project.data.role}` : ""} Mediums: ${project.data.mediums.join(", ")}.`,
     ),
     "",
   ].join("\n");

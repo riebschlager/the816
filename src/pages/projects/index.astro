@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Icon from "../../components/Icon.astro";
+import Tag from "../../components/Tag.astro";
 import { getCollection } from "astro:content";
 import { projectTone } from "../../utils/tones";
 
@@ -11,31 +13,67 @@ const projects = (await getCollection("projects")).sort(
 
 <BaseLayout
   title="Projects"
-  description="A selection of projects by Chris Riebschlager."
+  description="Immersive, interactive and live-visual projects by Chris Riebschlager."
 >
   <div class="container">
     <header class="page-intro">
       <p class="eyebrow">Selected work</p>
       <h1 class="display">Projects</h1>
-      <p class="lead">A few things taking shape. More to come.</p>
+      <p class="lead">
+        Immersive spaces, live visuals and interactive installations, from
+        ground-up builds to weekend art shows with friends.
+      </p>
     </header>
 
     <ul class="project-list">
       {
-        projects.map((project) => (
-          <li>
-            <a
-              href={`/projects/${project.id}`}
-              style={`--tone: var(--neon-${projectTone(project.data.order)}); --tone-glow: var(--text-glow-${projectTone(project.data.order)});`}
-            >
-              <span class="number">
-                {String(project.data.order).padStart(2, "0")}
-              </span>
-              <span class="project-name">{project.data.title}</span>
-              <Icon name="arrow-up-right" size={32} class="arrow" />
-            </a>
-          </li>
-        ))
+        projects.map((project, i) => {
+          const tone = projectTone(project.data.order);
+          const number = String(project.data.order).padStart(2, "0");
+          return (
+            <li>
+              <a
+                href={`/projects/${project.id}`}
+                style={`--tone: var(--neon-${tone}); --tone-glow: var(--glow-${tone}); --tone-text-glow: var(--text-glow-${tone});`}
+              >
+                <div class="media-frame thumb">
+                  {project.data.thumbnail ? (
+                    <Image
+                      src={project.data.thumbnail}
+                      alt={project.data.thumbnailAlt ?? ""}
+                      width={1280}
+                      height={720}
+                      loading={i < 2 ? "eager" : "lazy"}
+                    />
+                  ) : (
+                    <span class="placeholder" aria-hidden="true">
+                      {number}
+                    </span>
+                  )}
+                </div>
+                <div class="details">
+                  <div class="heading">
+                    <span class="number">{number}</span>
+                    <Icon name="arrow-up-right" size={28} class="arrow" />
+                  </div>
+                  <h2 class="project-name">{project.data.title}</h2>
+                  <p class="description">{project.data.description}</p>
+                  {project.data.role && (
+                    <p class="role">
+                      <span class="role-label">My role</span>
+                      {project.data.role}
+                    </p>
+                  )}
+                  <span class="mediums">
+                    {project.data.mediums.map((medium, m) => (
+                      <Tag tone={m === 0 ? tone : "neutral"}>{medium}</Tag>
+                    ))}
+                  </span>
+                </div>
+              </a>
+            </li>
+          );
+        })
       }
     </ul>
   </div>
@@ -46,6 +84,7 @@ const projects = (await getCollection("projects")).sort(
     margin-top: var(--space-4);
   }
   .page-intro .lead {
+    max-width: 40ch;
     margin: var(--space-4) 0 0;
     color: var(--text-secondary);
   }
@@ -57,22 +96,51 @@ const projects = (await getCollection("projects")).sort(
   }
   .project-list a {
     display: grid;
-    grid-template-columns: 56px minmax(0, 1fr) auto;
-    gap: var(--space-5);
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--space-7);
     align-items: center;
-    padding: var(--space-5) 0;
+    padding: var(--space-6) 0;
     border-top: 1px solid var(--border-default);
     color: var(--text-primary);
     text-decoration: none;
   }
+  .thumb {
+    aspect-ratio: 16 / 9;
+    transition: box-shadow var(--dur-base) var(--ease-out);
+  }
+  .thumb :global(img) {
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+  .placeholder {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 800;
+    letter-spacing: var(--tracking-tight);
+    color: var(--tone);
+    text-shadow: var(--tone-text-glow);
+    background: radial-gradient(
+      circle at 50% 120%,
+      color-mix(in srgb, var(--tone) 28%, transparent),
+      transparent 70%
+    );
+  }
+  .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   .number {
     font-family: var(--font-mono);
     font-size: 14px;
-    color: var(--text-faint);
+    color: var(--tone);
     font-variant-numeric: tabular-nums;
-    transition: color var(--dur-base);
   }
   .project-name {
+    margin: var(--space-2) 0 0;
     font-family: var(--font-display);
     font-size: var(--text-display-md);
     font-weight: 700;
@@ -82,27 +150,63 @@ const projects = (await getCollection("projects")).sort(
       color var(--dur-base) var(--ease-out),
       text-shadow var(--dur-base) var(--ease-out);
   }
+  .description,
+  .role {
+    line-height: 1.55;
+  }
+  .description {
+    margin: var(--space-4) 0 0;
+    color: var(--text-secondary);
+    text-wrap: pretty;
+  }
+  .role {
+    margin: var(--space-4) 0 0;
+    padding-left: var(--space-4);
+    border-left: 2px solid var(--tone);
+    color: var(--text-primary);
+    text-wrap: pretty;
+  }
+  .role-label {
+    display: block;
+    margin-bottom: var(--space-1);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .mediums {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-5);
+  }
   .project-list :global(.arrow) {
     color: var(--text-faint);
     transition:
       transform var(--dur-base) var(--ease-snap),
       color var(--dur-base);
   }
-  .project-list a:hover .number,
+  .project-list a:hover .thumb {
+    box-shadow: var(--tone-glow);
+  }
+  .project-list a:hover .thumb :global(img) {
+    transform: scale(1.03);
+  }
   .project-list a:hover .project-name,
   .project-list a:hover :global(.arrow) {
     color: var(--tone);
   }
   .project-list a:hover .project-name {
-    text-shadow: var(--tone-glow);
+    text-shadow: var(--tone-text-glow);
   }
   .project-list a:hover :global(.arrow) {
     transform: translate(4px, -4px);
   }
-  @media (max-width: 560px) {
+  @media (max-width: 900px) {
     .project-list a {
-      grid-template-columns: 32px minmax(0, 1fr) auto;
-      gap: var(--space-4);
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-5);
     }
   }
 </style>
