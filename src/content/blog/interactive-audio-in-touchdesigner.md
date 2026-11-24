@@ -1,9 +1,11 @@
 ---
 title: "Interactive Audio in TouchDesigner"
-description: "A standout feature in TouchDesigner is its capability to function as a VST host, opening up a world of creative possibilities for…"
+description: "Use TouchDesigner as a VST host to drive synths from a physics simulation: a step-by-step tutorial with project files, based on my FRENS installation."
 pubDate: "2025-03-30T21:14:01.221Z"
 heroImage: "./heroes/interactive-audio-in-touchdesigner.gif"
 heroImageAlt: "A TouchDesigner network for an interactive audio project"
+socialImage: "./social/interactive-audio-in-touchdesigner.png"
+socialImageAlt: "The Surge XT synthesizer plugin, hosted as a VST inside TouchDesigner"
 ---
 
 A standout feature in TouchDesigner is its capability to function as a VST host, opening up a world of creative possibilities for integrating audio into your projects. VST, short for Virtual Studio Technology, empowers you to seamlessly incorporate synthesizers and effects processors, treating them as you would any other node in your project.

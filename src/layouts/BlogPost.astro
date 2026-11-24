@@ -6,6 +6,8 @@ import FormattedDate from "../components/FormattedDate.astro";
 import Prose from "../components/Prose.astro";
 import BaseLayout from "./BaseLayout.astro";
 import type { NeonTone } from "../utils/tones";
+import { blogPostingSchema } from "../utils/schema";
+import { getSocialImageURL } from "../utils/socialImage";
 
 type Props = CollectionEntry<"blog">["data"] & {
   series?: {
@@ -23,17 +25,35 @@ const {
   updatedDate,
   heroImage,
   heroImageAlt,
+  socialImage,
+  socialImageAlt,
   series,
 } = Astro.props;
+
+const shareImage = socialImage ?? heroImage;
+const shareImageAlt = socialImage ? socialImageAlt : heroImageAlt;
+const tags = series ? [series.title] : [];
+const schema = blogPostingSchema({
+  title,
+  description,
+  url: new URL(Astro.url.pathname, Astro.site).href,
+  image: await getSocialImageURL(shareImage),
+  pubDate,
+  updatedDate,
+  tags,
+});
 ---
 
 <BaseLayout
   {title}
   {description}
-  image={heroImage}
+  image={shareImage}
+  imageAlt={shareImageAlt}
   type="article"
   publishedDate={pubDate}
   {updatedDate}
+  {tags}
+  {schema}
   mainClass="blog-post"
 >
   <article>

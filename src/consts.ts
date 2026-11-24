@@ -2,9 +2,18 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_TITLE = "The816";
-export const SITE_DESCRIPTION = "The Portfolio of Chris Riebschlager";
+export const SITE_URL = "https://the816.com";
+export const SITE_DESCRIPTION =
+  "Chris Riebschlager leads Creative Technology at Dimensional Innovations in Kansas City, building interactive installations, immersive experiences and live visuals.";
 
 export const CONTACT_EMAIL = "chris@the816.com";
+
+export const AUTHOR = {
+  name: "Chris Riebschlager",
+  jobTitle: "Director of Creative Technology",
+  tagline: "Creative Technologist · Kansas City",
+  employer: { name: "Dimensional Innovations", url: "https://dimin.com" },
+} as const;
 
 export const NAVIGATION = [
   { href: "/", label: "Home" },

@@ -2,11 +2,17 @@
 import AboutHeroImage from "../assets/chris-projection.jpg";
 import ContentLayout from "../layouts/ContentLayout.astro";
 import { CONTACT_EMAIL } from "../consts";
+import { personSchema } from "../utils/schema";
+import { getSocialImageURL } from "../utils/socialImage";
+
+const schema = personSchema(await getSocialImageURL(AboutHeroImage));
 ---
 
 <ContentLayout
   title="About Me"
-  description="All About Chris Riebschlager"
+  socialTitle="About Chris Riebschlager"
+  description="Web developer in 2000, inventor at an innovation lab, now Director of Creative Technology at Dimensional Innovations. A Kansas City career spent building things people can touch, play and feel."
+  {schema}
   heroImage={AboutHeroImage}
   heroImageAlt="Chris Riebschlager performing in front of a colorful projected backdrop"
 >

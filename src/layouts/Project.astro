@@ -7,16 +7,45 @@ import Tag from "../components/Tag.astro";
 import ProjectTimeline from "../components/ProjectTimeline.astro";
 import type { TimelineEntry } from "../utils/projects";
 import { projectTone } from "../utils/tones";
+import { creativeWorkSchema } from "../utils/schema";
+import { getSocialImageURL } from "../utils/socialImage";
 
 type Props = CollectionEntry<"projects">["data"] & {
   timeline?: TimelineEntry[];
 };
 
-const { title, description, order, mediums, timeline = [] } = Astro.props;
+const {
+  title,
+  description,
+  order,
+  mediums,
+  thumbnail,
+  thumbnailAlt,
+  socialImage,
+  socialImageAlt,
+  timeline = [],
+} = Astro.props;
 const tone = projectTone(order);
+
+const shareImage = socialImage ?? thumbnail;
+const shareImageAlt = socialImage ? socialImageAlt : thumbnailAlt;
+const schema = creativeWorkSchema({
+  title,
+  description,
+  url: new URL(Astro.url.pathname, Astro.site).href,
+  image: await getSocialImageURL(shareImage),
+  mediums,
+});
 ---
 
-<BaseLayout {title} {description} mainClass="project">
+<BaseLayout
+  {title}
+  {description}
+  image={shareImage}
+  imageAlt={shareImageAlt}
+  {schema}
+  mainClass="project"
+>
   <article class="container-prose">
     <Button href="/projects" variant="ghost" size="sm" icon="arrow-left">
       All projects

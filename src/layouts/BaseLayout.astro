@@ -7,35 +7,24 @@ import Header from "../components/Header.astro";
 interface Props {
   title: string;
   description: string;
+  socialTitle?: string;
   image?: ImageMetadata;
+  imageAlt?: string;
   type?: "website" | "article";
   publishedDate?: Date;
   updatedDate?: Date;
+  tags?: string[];
+  schema?: Record<string, unknown> | Record<string, unknown>[];
   mainClass?: string;
 }
 
-const {
-  title,
-  description,
-  image,
-  type = "website",
-  publishedDate,
-  updatedDate,
-  mainClass,
-} = Astro.props;
+const { mainClass, ...head } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead
-      {title}
-      {description}
-      {image}
-      {type}
-      {publishedDate}
-      {updatedDate}
-    />
+    <BaseHead {...head} />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>

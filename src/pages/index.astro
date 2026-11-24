@@ -6,7 +6,9 @@ import Button from "../components/Button.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Icon from "../components/Icon.astro";
 import ChrisAtThundergong from "../assets/chris-at-thundergong.jpg";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { AUTHOR, SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { personSchema, websiteSchema } from "../utils/schema";
+import { getSocialImageURL } from "../utils/socialImage";
 import { getPublishedPosts } from "../utils/posts";
 import { projectTone } from "../utils/tones";
 
@@ -17,9 +19,16 @@ const projects = (await getCollection("projects")).sort(
 const posts = (await getPublishedPosts())
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
+
+const schema = [websiteSchema(), personSchema(await getSocialImageURL())];
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+<BaseLayout
+  title={SITE_TITLE}
+  socialTitle={`${AUTHOR.name}, Creative Technologist`}
+  description={SITE_DESCRIPTION}
+  {schema}
+>
   <div class="container">
     <section class="hero">
       <div class="hero-copy">

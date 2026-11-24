@@ -11,6 +11,10 @@ interface Props {
   heroImageAlt?: string;
   /** Optional mono caption laid over the bottom of the hero image. */
   heroLabel?: string;
+  socialTitle?: string;
+  socialImage?: ImageMetadata;
+  socialImageAlt?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
@@ -19,10 +23,22 @@ const {
   heroImage,
   heroImageAlt = "",
   heroLabel,
+  socialTitle,
+  socialImage,
+  socialImageAlt,
+  schema,
 } = Astro.props;
 ---
 
-<BaseLayout {title} {description} image={heroImage} mainClass="content-page">
+<BaseLayout
+  {title}
+  {description}
+  {socialTitle}
+  image={socialImage ?? heroImage}
+  imageAlt={socialImage ? socialImageAlt : heroImageAlt}
+  {schema}
+  mainClass="content-page"
+>
   <article>
     {
       heroImage && (

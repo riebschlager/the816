@@ -15,6 +15,10 @@ const blog = defineCollection({
       updatedDate: z.coerce.date().optional(),
       heroImage: image().optional(),
       heroImageAlt: z.string().trim().min(1).optional(),
+      // Share-card override for when the hero crops badly to 1.91:1
+      // (portrait, tiny, or animated). Falls back to heroImage.
+      socialImage: image().optional(),
+      socialImageAlt: z.string().trim().min(1).optional(),
       draft: z.boolean().default(false),
       // Ties a post to a project: it shows up on that project's timeline and
       // gets a series bar linking its sibling posts.
@@ -34,6 +38,9 @@ const projects = defineCollection({
       role: z.string().trim().min(1).optional(),
       thumbnail: image().optional(),
       thumbnailAlt: z.string().trim().min(1).optional(),
+      // Share-card override; falls back to thumbnail.
+      socialImage: image().optional(),
+      socialImageAlt: z.string().trim().min(1).optional(),
       order: z.number().int().positive(),
       mediums: z.array(z.string().trim().min(1)).nonempty(),
       // Timeline entries for years that don't have a full blog post.
