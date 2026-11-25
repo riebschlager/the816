@@ -12,7 +12,12 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "preview": "astro preview",
-    "astro": "astro"
+    "verify": "npm run format:check && npm run check && npm run build",
+    "astro": "astro",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.2",
@@ -23,6 +28,8 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.9",
+    "husky": "9.1.7",
+    "lint-staged": "17.6.2",
     "prettier": "3.9.5",
     "prettier-plugin-astro": "0.14.1",
     "typescript": "6.0.3"
