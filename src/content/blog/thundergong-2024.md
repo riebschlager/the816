@@ -16,7 +16,7 @@ We focused this year on developing live interactive visuals for the LED walls on
 
 ![Thundergong 2024!](./heroes/thundergong-2024.png)
 
-![Thundergong 2024!](/images/blog/thundergong-2024/02.png)
+![Thundergong 2024!](./thundergong-2024/02.png)
 
 Our friends at [Loud Productions](https://www.loudproductiongroup.com/) provided us with some amazing LED walls, two at stage right and left, as well as two panels that flank the central 16:9 display. All in all, we had 18 square meters of LED wall to play with.
 
@@ -28,7 +28,7 @@ We wanted to try some new things this year. First off, we wanted to give Billy, 
 
 Using that device, we could then use MIDI information to drive visuals on the LED walls, as well as send DMX control messages to the lighting team’s equipment. In the video above, I have a simple TouchDesigner app translating the MIDI drum trigger notes into DMX control messages that flash the lights.
 
-![See that small red box in the lower left? That’s our MIDI trigger device.](/images/blog/thundergong-2024/03.jpeg)
+![See that small red box in the lower left? That’s our MIDI trigger device.](./thundergong-2024/03.jpeg)
 
 _See that small red box in the lower left? That’s our MIDI trigger device._
 
@@ -36,7 +36,7 @@ In addition to the drum-triggered effects, we used a MIDI control surface to orc
 
 <div class="video-embed"><iframe src="https://www.youtube.com/embed/-q-r05jQ-NI?feature=oembed" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
 
-![Our stage-right workstation just before showtime.](/images/blog/thundergong-2024/04.jpeg)
+![Our stage-right workstation just before showtime.](./thundergong-2024/04.jpeg)
 
 _Our stage-right workstation just before showtime._
 
