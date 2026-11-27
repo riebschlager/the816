@@ -117,9 +117,21 @@ Migrate one post at a time, starting with the posts that have the largest PNGs
 
 Reference: [Images in Markdown files](https://docs.astro.build/en/guides/images/#images-in-markdown-files)
 
-### 3. Remove the unused MDX integration (carried over from July)
+### 3. Remove the unused MDX integration (carried over from July) ✅
 
 **Priority: medium**
+
+**Status: Complete — November 27, 2026**
+
+There were no `.mdx` files anywhere in the repository, and no other package
+depended on `@astrojs/mdx`. `npm uninstall @astrojs/mdx` removed it and 119
+packages that only MDX used. The uninstall also brought the lockfile's root
+`engines` field up to the `>=22.22.0` set in item 1. `mdx()` is gone from
+`astro.config.mjs`, both collection loaders now match `**/*.md`, and the README
+no longer mentions MDX. `sharp` stays a direct dependency. `npm run verify`
+passes with 1 hint. The new build is byte-identical to the previous one: all
+20 pages, the RSS feed, the sitemaps, `llms.txt`, the `.md` page output, and
+every `/_astro/` file name and hash.
 
 There are still no `.mdx` files in `src/content`, but `@astrojs/mdx` is
 installed, registered in `astro.config.mjs`, and accepted by both collection

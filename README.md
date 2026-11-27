@@ -48,8 +48,8 @@ Before submitting a change, run `npm run check`, `npm run format:check`, and
 
 ## Authoring content
 
-Blog posts and projects are Astro content collections. Entries can be Markdown
-or MDX files; their frontmatter is validated by `src/content.config.ts`.
+Blog posts and projects are Astro content collections. Entries are Markdown
+files; their frontmatter is validated by `src/content.config.ts`.
 
 ### Blog posts
 
