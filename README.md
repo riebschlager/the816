@@ -6,7 +6,7 @@ static HTML.
 
 ## Requirements
 
-- Node.js 22.12.0 or newer (use an even-numbered release supported by Astro)
+- Node.js 22.22.0 or newer (use an even-numbered release supported by Astro)
 - npm
 
 Install the locked dependency versions:

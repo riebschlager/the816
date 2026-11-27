@@ -39,9 +39,24 @@ that matter for this site:
 
 ## Recommended roadmap
 
-### 1. Upgrade Astro to 7.4 and raise the Node floor
+### 1. Upgrade Astro to 7.4 and raise the Node floor ✅
 
 **Priority: high**
+
+**Status: Complete — November 27, 2026**
+
+`npm update` moved Astro to 7.4.13, `@astrojs/sitemap` to 3.7.6, `sharp` to
+0.35.5, and `@astrojs/mdx` to 7.0.8 (still within 7.x). `@astrojs/check` is
+pinned exactly, so its pin was moved from 0.9.9 to 0.9.12 by hand.
+`engines.node` and the README now require Node 22.22.0 or newer, and CI stays
+on `node-version: 22`. `npm run verify` passes, and `astro check` now reports
+1 hint instead of 2 (see item 4). The new build has the same 20 pages, and the
+RSS feed, sitemaps, `llms.txt`, and all Markdown page output are byte-identical
+to the 7.0.7 build. The HTML differences are cosmetic: whitespace kept inside
+`Button` links, empty `srcset=""` attributes dropped, `>` escaped as `&gt;` in
+highlighted code, and inch marks after numbers (`22"`) now rendered as closing
+rather than opening curly quotes. The build also no longer emits unreferenced
+copies of original hero images.
 
 Astro 7.4.13 is within the existing `^7.0.7` range, so `npm update` installs it
 along with the patch releases of `@astrojs/sitemap`, `sharp`, and
@@ -103,6 +118,10 @@ you have tested image builds in the real deployment environment without it.
 ### 4. Clear the two `astro check` hints
 
 **Priority: low**
+
+After the item 1 upgrade, `astro check` no longer reports the `BaseHead.astro`
+hint; only the `rockfacts.astro` hint remains. Adding `is:inline` is still
+reasonable for clarity.
 
 - `src/components/BaseHead.astro:134`: the JSON-LD `<script>` is already treated
   as inline because it has a `type` attribute. Add `is:inline` to make that
