@@ -145,9 +145,21 @@ reinstall the current major version at that point.
 The July note on `sharp` still applies: keep it as a direct dependency unless
 you have tested image builds in the real deployment environment without it.
 
-### 4. Clear the two `astro check` hints
+### 4. Clear the two `astro check` hints ✅
 
 **Priority: low**
+
+**Status: Complete — November 27, 2026**
+
+The `BaseHead.astro` hint had already gone away with the item 1 upgrade to
+Astro 7.4. `is:inline` was added to the JSON-LD `<script>` anyway to make its
+inline behavior explicit. In `rockfacts.astro`, the unused `firstMonth` was
+deleted. Its source, `first`, stays because the template still reads
+`first.stamp` for the "Posted …" line at the end of the timeline. `npm run verify`
+passes, and `astro check` reports 0 errors, 0 warnings, and 0 hints. The new
+build is byte-identical to the previous one: all 20 pages with their JSON-LD
+blocks, the RSS feed, the sitemaps, `llms.txt`, the `.md` page output, and
+every `/_astro/` file.
 
 After the item 1 upgrade, `astro check` no longer reports the `BaseHead.astro`
 hint; only the `rockfacts.astro` hint remains. Adding `is:inline` is still
