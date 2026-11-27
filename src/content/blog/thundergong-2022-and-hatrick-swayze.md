@@ -22,7 +22,7 @@ Our setup allowed voice actor Ed Goodman to bring Hatrick to life and be a chara
 
 The entire application was created in [TouchDesigner](https://derivative.ca/). I absolutely love this framework and can’t imagine creating this system with anything else. TouchDesigner’s workflow allowed us to quickly iterate from working prototypes to a final buttoned-up app that performed perfectly.
 
-![ThunderGong 2022 and Hatrick Swayze](/images/blog/thundergong-2022-and-hatrick-swayze/01.jpeg)
+![ThunderGong 2022 and Hatrick Swayze](./thundergong-2022-and-hatrick-swayze/01.jpeg)
 
 The setup was relatively simple. Ed was speaking into a mic and our application analyzed the incoming audio to make Hatrick’s mouth move in a way that matched what Ed was saying. We also gave Ed a MIDI controller that controlled certain elements like what direction Hatrick was looking. Our team had a backstage preview of Hatrick who was then displayed on an LED wall on stage.
 
@@ -32,7 +32,7 @@ The majority of Hatrick’s interactivity was driven by this touchscreen interfa
 
 _L to R: Me, Brandon, Randall, Ed, Guy whose name I didn’t catch :)_
 
-![Ed, Billy, Brandon, Dustin, Randall and Jason plan Hatrick’s segments of the show.](/images/blog/thundergong-2022-and-hatrick-swayze/03.jpeg)
+![Ed, Billy, Brandon, Dustin, Randall and Jason plan Hatrick’s segments of the show.](./thundergong-2022-and-hatrick-swayze/03.jpeg)
 
 _Ed, Billy, Brandon, Dustin, Randall and Jason plan Hatrick’s segments of the show._
 
@@ -42,4 +42,4 @@ _Hatrick has a lil’ blow up._
 
 The project was so fun and the show was an absolute blast. A huge thanks to Billy Brimblecom and Steps of Faith for including us and also thanks to Blake Young at [Loud Productions](https://www.loudproductiongroup.com/) who we couldn’t have done this without.
 
-![ThunderGong 2022 and Hatrick Swayze](/images/blog/thundergong-2022-and-hatrick-swayze/04.jpeg)
+![ThunderGong 2022 and Hatrick Swayze](./thundergong-2022-and-hatrick-swayze/04.jpeg)

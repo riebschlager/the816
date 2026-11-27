@@ -94,10 +94,18 @@ the project's display order. `status` must be either `In progress` or
 - Put images, fonts, and other files that Astro should validate, optimize, or
   bundle under `src/`. Blog hero images belong beside the blog collection in
   `src/content/blog/heroes/`; shared site assets belong in `src/assets/`.
+- Put in-body images for a post or project in a folder named after the entry,
+  next to its Markdown file, and reference them with a relative path. For
+  example, `src/content/blog/my-post.md` uses
+  `![Alt text](./my-post/photo.jpg)` for `src/content/blog/my-post/photo.jpg`.
+  Keep the entry itself as a flat `.md` file so its ID and URL don't change.
+  Astro converts these images to WebP with width and height, and the build
+  fails if one is missing.
 - Put files that must be copied unchanged or keep a stable public URL under
   `public/`. Reference them from content with a root-relative URL such as
-  `/images/blog/my-post/photo.jpg`. Favicons and the existing in-article media
-  use this approach.
+  `/images/blog/my-post/loop.mp4`. Favicons, videos, and video poster images
+  (which are set in raw `<video>` HTML that Astro does not process) use this
+  approach.
 
 Prefer `src/` for new images unless the file specifically needs passthrough
 behavior.
