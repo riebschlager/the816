@@ -9,21 +9,19 @@ const { placement } = Astro.props;
 ---
 
 <div class:list={["social-links", placement]} aria-label="Social links">
-  {
-    SOCIAL_LINKS.map(({ href, label, iconPath }) => (
-      <a
-        {href}
-        title={label}
-        target={href.startsWith("mailto:") ? undefined : "_blank"}
-        rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-      >
-        <span class="sr-only">{label}</span>
-        <svg viewBox="0 0 16 16" aria-hidden="true" width="17" height="17">
-          <path fill="currentColor" d={iconPath} />
-        </svg>
-      </a>
-    ))
-  }
+  {SOCIAL_LINKS.map(({ href, label, iconPath }) => (
+    <a
+      {href}
+      title={label}
+      target={href.startsWith("mailto:") ? undefined : "_blank"}
+      rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+    >
+      <span class="sr-only">{label}</span>
+      <svg viewBox="0 0 16 16" aria-hidden="true" width="17" height="17">
+        <path fill="currentColor" d={iconPath} />
+      </svg>
+    </a>
+  ))}
 </div>
 
 <style>

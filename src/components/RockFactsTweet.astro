@@ -22,11 +22,9 @@ const { id, text, stamp, date, avatar, later = false } = Astro.props;
   <div class="body">
     <p class="text">
       <strong class="screen-name">rockfacts</strong>
-      {
-        splitHashtags(text).map((part) =>
-          part.hashtag ? <span class="hashtag">{part.value}</span> : part.value,
-        )
-      }
+      {splitHashtags(text).map((part) =>
+        part.hashtag ? <span class="hashtag">{part.value}</span> : part.value,
+      )}
     </p>
     <p class="meta">
       <time datetime={date}>{stamp}</time>

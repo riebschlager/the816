@@ -55,15 +55,15 @@ const schema = creativeWorkSchema({
     </p>
     <h1 class="display">{title}</h1>
     <ul class="mediums">
-      {
-        mediums.map((medium, i) => (
-          <li>
-            <Tag tone={i === 0 ? tone : "neutral"}>{medium}</Tag>
-          </li>
-        ))
-      }
+      {mediums.map((medium, i) => (
+        <li>
+          <Tag tone={i === 0 ? tone : "neutral"}>{medium}</Tag>
+        </li>
+      ))}
     </ul>
-    <Prose><slot /></Prose>
+    <Prose>
+      <slot />
+    </Prose>
     {timeline.length > 0 && <ProjectTimeline entries={timeline} {tone} />}
   </article>
 </BaseLayout>

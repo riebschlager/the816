@@ -29,7 +29,9 @@ const { href, image, alt, eyebrow, title, cta, tone = "pink" } = Astro.props;
   <div class="body">
     <span class="eyebrow">{eyebrow}</span>
     <h2 class="display">{title}</h2>
-    <p><slot /></p>
+    <p>
+      <slot />
+    </p>
     <span class="cta">
       {cta}
       <Icon name="arrow-up-right" size={18} class="icon-right" />

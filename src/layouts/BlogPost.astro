@@ -57,21 +57,19 @@ const schema = blogPostingSchema({
   mainClass="blog-post"
 >
   <article>
-    {
-      heroImage && (
-        <div class="container">
-          <div class="media-frame hero">
-            <Image
-              width={1120}
-              height={560}
-              src={heroImage}
-              alt={heroImageAlt ?? ""}
-              loading="eager"
-            />
-          </div>
+    {heroImage && (
+      <div class="container">
+        <div class="media-frame hero">
+          <Image
+            width={1120}
+            height={560}
+            src={heroImage}
+            alt={heroImageAlt ?? ""}
+            loading="eager"
+          />
         </div>
-      )
-    }
+      </div>
+    )}
     <div class="container-prose body">
       <Button href="/blog" variant="ghost" size="sm" icon="arrow-left">
         All posts
@@ -79,44 +77,42 @@ const schema = blogPostingSchema({
       <header>
         <p class="eyebrow date">
           <FormattedDate date={pubDate} />
-          {
-            updatedDate && (
-              <span class="updated">
-                · Updated <FormattedDate date={updatedDate} />
-              </span>
-            )
-          }
+          {updatedDate && (
+            <span class="updated">
+              · Updated <FormattedDate date={updatedDate} />
+            </span>
+          )}
         </p>
         <h1 class="display">{title}</h1>
       </header>
-      {
-        series && (
-          <nav
-            class="series"
-            aria-label={`${series.title} project`}
-            style={`--tone: var(--neon-${series.tone});`}
-          >
-            <a class="series-project" href={`/projects/${series.id}`}>
-              Part of the {series.title} project
-            </a>
-            {series.posts.length > 1 && (
-              <ol>
-                {series.posts.map((sibling) => (
-                  <li>
-                    {sibling.current ? (
-                      <span aria-current="page">{sibling.year}</span>
-                    ) : (
-                      <a href={`/blog/${sibling.id}/`}>{sibling.year}</a>
-                    )}
-                  </li>
-                ))}
-              </ol>
-            )}
-          </nav>
-        )
-      }
+      {series && (
+        <nav
+          class="series"
+          aria-label={`${series.title} project`}
+          style={`--tone: var(--neon-${series.tone});`}
+        >
+          <a class="series-project" href={`/projects/${series.id}`}>
+            Part of the {series.title} project
+          </a>
+          {series.posts.length > 1 && (
+            <ol>
+              {series.posts.map((sibling) => (
+                <li>
+                  {sibling.current ? (
+                    <span aria-current="page">{sibling.year}</span>
+                  ) : (
+                    <a href={`/blog/${sibling.id}/`}>{sibling.year}</a>
+                  )}
+                </li>
+              ))}
+            </ol>
+          )}
+        </nav>
+      )}
       <hr />
-      <Prose><slot /></Prose>
+      <Prose>
+        <slot />
+      </Prose>
     </div>
   </article>
 </BaseLayout>
