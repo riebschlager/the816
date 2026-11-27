@@ -75,9 +75,27 @@ In the same change:
 
 Reference: [astro@7.4.0 release notes](https://github.com/withastro/astro/releases/tag/astro%407.4.0)
 
-### 2. Make in-body editorial images build-managed
+### 2. Make in-body editorial images build-managed ✅
 
 **Priority: high**
+
+**Status: Complete — November 27, 2026**
+
+All 56 Markdown images in eight entries moved from `public/` to a folder next
+to each entry, one commit per entry, using `git mv`. The entries stay flat
+`.md` files, so their IDs and URLs are unchanged, following the
+`thundergong-2026` pattern rather than the `index.md` layout suggested below.
+They now build to `/_astro/` WebP files with width and height, and a missing
+file fails the build with `ImageNotFound`. In-body image weight on those pages
+fell from 28.9 MB to 9.4 MB. Three unreferenced project images were deleted.
+`public/images` now holds only the 15 MP4s and slapchop's 11 video poster
+JPGs, which are set in raw `<video>` HTML that Astro does not process.
+`npm run verify` passes. Page count, `rss.xml`, the sitemap, and `llms.txt`
+are byte-identical to the previous build. In the `.md` page output, these
+images now appear as `[Image: alt](page URL)` links instead of direct image
+URLs, as `thundergong-2026` already did. Markdown images still have no
+`srcset`, so wide images are served at full size; Astro's responsive image
+layout would be the next step.
 
 The July review moved hero images into the content pipeline, but images inside
 post and project bodies still live in `public/images/blog` and
