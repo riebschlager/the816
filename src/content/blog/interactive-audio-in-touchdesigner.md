@@ -127,7 +127,7 @@ MIDI (Musical Instrument Digital Interface) notes are represented by numbers ran
 
 That’s what the chords array in the previous code block is all about. I’m defining the MIDI notes for each triad. I’m then using a Radio Button Widget to make that chord selection.
 
-![Interactive Audio in TouchDesigner](/images/blog/interactive-audio-in-touchdesigner/02.png)
+![Interactive Audio in TouchDesigner](./interactive-audio-in-touchdesigner/02.png)
 
 So what’s happening on that “octaves” line? In music, there isn’t just a single C, there are low C’s and high C’s and some in-between C’s. Since we know there are 12 notes in an octave, we know that all those C’s will be exactly 12 notes apart.
 
@@ -155,7 +155,7 @@ It’s important to keep in mind that the [Audio VST CHOP](https://docs.derivati
 
 When you click the “Display Plugin GUI” button in the Audio VST CHOP, it opens a window that looks a little something like this.
 
-![Interactive Audio in TouchDesigner](/images/blog/interactive-audio-in-touchdesigner/03.png)
+![Interactive Audio in TouchDesigner](./interactive-audio-in-touchdesigner/03.png)
 
 Look at all the knobs and sliders! Each VST has its own UI based on what features and functions it has. One powerful feature of the Audio VST CHOP is that all those knobs and sliders are dynamically controllable by your TouchDesigner project. We’re not doing any of that in this project, we are simply finding a synth patch we like the sound of and then using the Python above to tell this VST to play notes. But the possibilities for dynamically controlling audio are wide open!
 
