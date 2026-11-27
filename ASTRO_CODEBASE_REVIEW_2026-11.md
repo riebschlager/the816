@@ -174,9 +174,49 @@ reasonable for clarity.
 
 A clean `astro check` makes new warnings easy to spot in CI.
 
-### 5. Handle the remaining major-version updates on purpose
+### 5. Handle the remaining major-version updates on purpose ✅
 
 **Priority: low**
+
+**Status: Complete — November 27, 2026 (TypeScript 7 deferred; see below)**
+
+`npm outdated` showed the expected versions and no other package a major
+version behind: `prettier` 3.9.5 → 3.10.1, `prettier-plugin-astro` 0.14.1 →
+1.1.2, and `typescript` 6.0.3 → 7.0.2. `@astrojs/check` 0.9.12 was current.
+
+**Prettier.** Both packages are upgraded and still pinned exactly. The plugin's
+1.0 release is a rewrite on Astro's Rust compiler. Its new `astroCompressHTML`
+option tells it which whitespace Astro's `compressHTML` will collapse. Both
+default to `'jsx'` and this project does not set `compressHTML`, so
+`.prettierrc.mjs` did not change. Prettier 3.10 has no breaking or config
+changes. The dependency bump and the reformat are separate commits. The
+reformat touched 20 `.astro` files and nothing else. It hoists template
+expressions onto their braces (`{cond && (` … `)}`), moves short element
+content onto its own lines, and rewraps prose, writing a space at a line break
+as an explicit `{" "}`. `npm run verify` passes with 0 errors, 0 warnings, and
+0 hints. The build has the same 216 files and is byte-identical except
+`projects/thundergong/index.html`. There, the indentation inside the three
+"Read the write-up" `Button` links is two spaces shorter, because
+`ProjectTimeline` lost one indent level and `Button` passes slot whitespace
+through (see item 1). The whitespace was already there and still collapses to
+the same single space, so nothing renders differently.
+
+**TypeScript 7: still blocked, deferred.** `@astrojs/check` 0.9.12 declares a
+`typescript` peer range of `^5.0.0 || ^6.0.0`. Its dependency `@volar/typescript`
+2.4.31 declares `<7`. Astro 7.4.13 itself refuses to run the check on
+TypeScript 7: "astro check does not currently support TypeScript 7.0. To
+continue using astro check, install TypeScript 6 instead." This came from
+[withastro/astro#18053](https://github.com/withastro/astro/pull/18053), which
+fixed [#17268](https://github.com/withastro/astro/issues/17268); see also
+[#17336](https://github.com/withastro/astro/issues/17336). The same message says
+`astro check` will be deprecated. The supported route is expected to be the
+experimental `@astrojs/ts-content-mapper` (0.2.0) with plain `tsc` on
+TypeScript 7.1 or newer, but 7.1 is still in beta. Editor integration for the
+mapper is in an open PR,
+[withastro/astro#17852](https://github.com/withastro/astro/pull/17852). Stay on
+TypeScript 6. Revisit once TypeScript 7.1 is stable and the content mapper is
+no longer experimental. Expect that to mean replacing `astro check` in
+`npm run verify`, not upgrading it.
 
 These are outside the current version ranges. Update each one in its own change
 rather than together:

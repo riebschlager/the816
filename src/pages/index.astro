@@ -35,11 +35,11 @@ const schema = [websiteSchema(), personSchema(await getSocialImageURL())];
         <span class="eyebrow">Creative technologist · Kansas City</span>
         <h1 class="display">Hello, I'm Chris.</h1>
         <p class="lead">
-          I lead Creative Technology at <a
-            href="https://dimin.com"
-            target="_blank"
-            rel="noopener noreferrer">Dimensional Innovations</a
-          >, where my teams build interactive installations and immersive
+          I lead Creative Technology at{" "}
+          <a href="https://dimin.com" target="_blank" rel="noopener noreferrer">
+            Dimensional Innovations
+          </a>
+          , where my teams build interactive installations and immersive
           experiences for stadiums, museums, and entertainment venues.
         </p>
         <p class="sub">
@@ -96,79 +96,79 @@ const schema = [websiteSchema(), personSchema(await getSocialImageURL())];
 
     <section class="work" aria-labelledby="work-heading">
       <header class="section-head">
-        <h2 id="work-heading" class="eyebrow">Selected work</h2>
+        <h2 id="work-heading" class="eyebrow">
+          Selected work
+        </h2>
         <a class="more-link" href="/projects">
           All projects
           <Icon name="arrow-up-right" size={16} />
         </a>
       </header>
       <ul class="work-grid">
-        {
-          projects.map((project, i) => {
-            const tone = projectTone(project.data.order);
-            return (
-              <li>
-                <a
-                  class="work-card"
-                  href={`/projects/${project.id}`}
-                  style={`--tone: var(--neon-${tone}); --tone-glow: var(--glow-${tone});`}
-                >
-                  <div class="media-frame thumb">
-                    {project.data.thumbnail && (
-                      <Image
-                        src={project.data.thumbnail}
-                        alt={project.data.thumbnailAlt ?? ""}
-                        widths={[480, 720, 1080]}
-                        sizes="(max-width: 720px) 100vw, 540px"
-                        loading={i < 2 ? "eager" : "lazy"}
-                      />
-                    )}
-                  </div>
-                  <div class="work-meta">
-                    <h3 class="work-title">{project.data.title}</h3>
-                    <span class="work-medium">{project.data.mediums[0]}</span>
-                  </div>
-                  <p class="work-desc">{project.data.description}</p>
-                </a>
-              </li>
-            );
-          })
-        }
+        {projects.map((project, i) => {
+          const tone = projectTone(project.data.order);
+          return (
+            <li>
+              <a
+                class="work-card"
+                href={`/projects/${project.id}`}
+                style={`--tone: var(--neon-${tone}); --tone-glow: var(--glow-${tone});`}
+              >
+                <div class="media-frame thumb">
+                  {project.data.thumbnail && (
+                    <Image
+                      src={project.data.thumbnail}
+                      alt={project.data.thumbnailAlt ?? ""}
+                      widths={[480, 720, 1080]}
+                      sizes="(max-width: 720px) 100vw, 540px"
+                      loading={i < 2 ? "eager" : "lazy"}
+                    />
+                  )}
+                </div>
+                <div class="work-meta">
+                  <h3 class="work-title">{project.data.title}</h3>
+                  <span class="work-medium">{project.data.mediums[0]}</span>
+                </div>
+                <p class="work-desc">{project.data.description}</p>
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </section>
 
     <section class="writing" aria-labelledby="writing-heading">
       <header class="section-head">
-        <h2 id="writing-heading" class="eyebrow">Latest writing</h2>
+        <h2 id="writing-heading" class="eyebrow">
+          Latest writing
+        </h2>
         <a class="more-link" href="/blog">
           All posts
           <Icon name="arrow-up-right" size={16} />
         </a>
       </header>
       <ul class="post-grid">
-        {
-          posts.map((post, i) => (
-            <li class:list={[i % 2 ? "pink" : "cyan"]}>
-              <a class="post-card" href={`/blog/${post.id}/`}>
-                <div class="media-frame post-thumb">
-                  {post.data.heroImage && (
-                    <Image
-                      src={post.data.heroImage}
-                      alt={post.data.heroImageAlt ?? ""}
-                      width={720}
-                      height={450}
-                      loading="lazy"
-                    />
-                  )}
-                </div>
-                <span class="post-date">
-                  <FormattedDate date={post.data.pubDate} />
-                </span>
-                <span class="post-title">{post.data.title}</span>
-              </a>
-            </li>
-          ))
-        }
+        {posts.map((post, i) => (
+          <li class:list={[i % 2 ? "pink" : "cyan"]}>
+            <a class="post-card" href={`/blog/${post.id}/`}>
+              <div class="media-frame post-thumb">
+                {post.data.heroImage && (
+                  <Image
+                    src={post.data.heroImage}
+                    alt={post.data.heroImageAlt ?? ""}
+                    width={720}
+                    height={450}
+                    loading="lazy"
+                  />
+                )}
+              </div>
+              <span class="post-date">
+                <FormattedDate date={post.data.pubDate} />
+              </span>
+              <span class="post-title">{post.data.title}</span>
+            </a>
+          </li>
+        ))}
       </ul>
     </section>
 

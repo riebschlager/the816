@@ -17,65 +17,65 @@ const { entries, tone } = Astro.props;
   aria-labelledby="timeline-heading"
   style={`--tone: var(--neon-${tone}); --tone-glow: var(--glow-${tone});`}
 >
-  <h2 id="timeline-heading" class="eyebrow">Year by year</h2>
+  <h2 id="timeline-heading" class="eyebrow">
+    Year by year
+  </h2>
   <ol>
-    {
-      entries.map((entry) => (
-        <li class="entry">
-          <p class="year">{entry.year}</p>
-          <div class="body">
-            {entry.kind === "post" ? (
-              <>
-                <a
-                  class="media-frame thumb"
-                  href={`/blog/${entry.post.id}/`}
-                  tabindex="-1"
-                  aria-hidden="true"
-                >
-                  {entry.post.data.heroImage && (
-                    <Image
-                      src={entry.post.data.heroImage}
-                      alt=""
-                      width={720}
-                      height={405}
-                      loading="lazy"
-                    />
-                  )}
-                </a>
-                <h3>
-                  <a href={`/blog/${entry.post.id}/`}>{entry.title}</a>
-                </h3>
-                <p>{entry.summary}</p>
-                <Button
-                  href={`/blog/${entry.post.id}/`}
-                  variant="secondary"
-                  size="sm"
-                  {tone}
-                  iconRight="arrow-up-right"
-                >
-                  Read the write-up
-                </Button>
-              </>
-            ) : (
-              <>
-                <div class="video-embed">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${entry.youtubeId}`}
-                    title={`THUNDERGONG! ${entry.year} recap`}
+    {entries.map((entry) => (
+      <li class="entry">
+        <p class="year">{entry.year}</p>
+        <div class="body">
+          {entry.kind === "post" ? (
+            <>
+              <a
+                class="media-frame thumb"
+                href={`/blog/${entry.post.id}/`}
+                tabindex="-1"
+                aria-hidden="true"
+              >
+                {entry.post.data.heroImage && (
+                  <Image
+                    src={entry.post.data.heroImage}
+                    alt=""
+                    width={720}
+                    height={405}
                     loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
                   />
-                </div>
-                <h3>{entry.title}</h3>
-                <p>{entry.summary}</p>
-              </>
-            )}
-          </div>
-        </li>
-      ))
-    }
+                )}
+              </a>
+              <h3>
+                <a href={`/blog/${entry.post.id}/`}>{entry.title}</a>
+              </h3>
+              <p>{entry.summary}</p>
+              <Button
+                href={`/blog/${entry.post.id}/`}
+                variant="secondary"
+                size="sm"
+                {tone}
+                iconRight="arrow-up-right"
+              >
+                Read the write-up
+              </Button>
+            </>
+          ) : (
+            <>
+              <div class="video-embed">
+                <iframe
+                  src={`https://www.youtube.com/embed/${entry.youtubeId}`}
+                  title={`THUNDERGONG! ${entry.year} recap`}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                />
+              </div>
+              <h3>{entry.title}</h3>
+              <p>{entry.summary}</p>
+            </>
+          )}
+        </div>
+      </li>
+    ))}
   </ol>
 </section>
 

@@ -40,14 +40,15 @@ const first = rockFacts[rockFacts.length - 1];
     </p>
     <p>
       Then Nikki Sixx's management got in touch. They wanted the account so they
-      could post <em>real</em> facts about rock. <a href="#the-sale"
-        >That part's at the bottom.</a
-      >
+      could post <em>real</em> facts about rock.{" "}
+      <a href="#the-sale">That part's at the bottom.</a>
     </p>
   </header>
 
   <section class="container-prose shuffle" aria-labelledby="shuffle-heading">
-    <h2 id="shuffle-heading" class="sr-only">Random fact</h2>
+    <h2 id="shuffle-heading" class="sr-only">
+      Random fact
+    </h2>
     <figure class="card" aria-live="polite">
       <div class="card-head">
         <Image
@@ -64,18 +65,14 @@ const first = rockFacts[rockFacts.length - 1];
         </div>
       </div>
       <blockquote class="card-text" data-card-text>
-        {
-          splitHashtags(featured.text).map((part) =>
-            part.hashtag ? (
-              <span class="hashtag">{part.value}</span>
-            ) : (
-              part.value
-            ),
-          )
-        }
+        {splitHashtags(featured.text).map((part) =>
+          part.hashtag ? <span class="hashtag">{part.value}</span> : part.value,
+        )}
       </blockquote>
       <figcaption class="card-meta">
-        <time datetime={featured.date} data-card-time>{featured.stamp}</time>
+        <time datetime={featured.date} data-card-time>
+          {featured.stamp}
+        </time>
         <span data-card-count>{140 - featured.text.length}</span>
       </figcaption>
     </figure>
@@ -101,28 +98,27 @@ const first = rockFacts[rockFacts.length - 1];
       </div>
     </div>
 
-    <p class="tab" aria-hidden="true"><span>Tweets</span></p>
+    <p class="tab" aria-hidden="true">
+      <span>Tweets</span>
+    </p>
     <ol class="timeline" data-timeline>
       <li class="notice">
         <p>
-          <strong>This account changed hands in 2010.</strong> The new owners posted
-          real facts about rock. These are the fake ones. <a href="#the-sale"
-            >Read about the sale ↓</a
-          >
+          <strong>This account changed hands in 2010.</strong> The new owners
+          posted real facts about rock. These are the fake ones.{" "}
+          <a href="#the-sale">Read about the sale ↓</a>
         </p>
       </li>
-      {
-        rockFacts.map((tweet, i) => (
-          <RockFactsTweet
-            id={tweet.id}
-            text={tweet.text}
-            stamp={tweet.stamp}
-            date={tweet.date}
-            avatar={avatar.src}
-            later={i >= PAGE_SIZE}
-          />
-        ))
-      }
+      {rockFacts.map((tweet, i) => (
+        <RockFactsTweet
+          id={tweet.id}
+          text={tweet.text}
+          stamp={tweet.stamp}
+          date={tweet.date}
+          avatar={avatar.src}
+          later={i >= PAGE_SIZE}
+        />
+      ))}
     </ol>
     <button type="button" class="more" data-more hidden>
       more <span aria-hidden="true">↓</span>
@@ -151,9 +147,9 @@ const first = rockFacts[rockFacts.length - 1];
       <figcaption>The invoice. Client: Nikki Sixx. Payee: me.</figcaption>
     </figure>
     <p>
-      <strong
-        >It's the only time a member of Mötley Crüe has paid me for anything.</strong
-      >
+      <strong>
+        It's the only time a member of Mötley Crüe has paid me for anything.
+      </strong>
     </p>
   </section>
 
@@ -163,7 +159,6 @@ const first = rockFacts[rockFacts.length - 1];
     id="rockfacts-data"
     set:html={JSON.stringify(rockFacts).replace(/</g, "\\u003c")}
   />
-
   <script>
     interface Fact {
       id: string;

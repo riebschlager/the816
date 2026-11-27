@@ -6,13 +6,13 @@ import SocialLinks from "./SocialLinks.astro";
 
 <header>
   <div class="container inner">
-    <a class="wordmark" href="/">{SITE_TITLE}</a>
+    <a class="wordmark" href="/">
+      {SITE_TITLE}
+    </a>
     <nav aria-label="Main">
-      {
-        NAVIGATION.map(({ href, label }) => (
-          <HeaderLink {href}>{label}</HeaderLink>
-        ))
-      }
+      {NAVIGATION.map(({ href, label }) => (
+        <HeaderLink {href}>{label}</HeaderLink>
+      ))}
     </nav>
     <SocialLinks placement="header" />
   </div>

@@ -6,7 +6,9 @@ interface Props {
 const { tone = "neutral" } = Astro.props;
 ---
 
-<span class:list={["tag", tone]}><slot /></span>
+<span class:list={["tag", tone]}>
+  <slot />
+</span>
 
 <style>
   .tag {

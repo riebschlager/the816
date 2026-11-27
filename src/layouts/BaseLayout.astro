@@ -27,7 +27,9 @@ const { mainClass, ...head } = Astro.props;
     <BaseHead {...head} />
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <a class="skip-link" href="#main-content">
+      Skip to main content
+    </a>
     <Header />
     <main id="main-content" class={mainClass}>
       <slot />

@@ -29,8 +29,8 @@
     "@astrojs/check": "0.9.12",
     "husky": "9.1.7",
     "lint-staged": "17.6.2",
-    "prettier": "3.9.5",
-    "prettier-plugin-astro": "0.14.1",
+    "prettier": "3.10.1",
+    "prettier-plugin-astro": "1.1.2",
     "typescript": "6.0.3"
   }
 }

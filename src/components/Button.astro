@@ -31,15 +31,9 @@ const {
 >
   {icon && <Icon name={icon} size={size === "sm" ? 16 : 18} />}
   <slot />
-  {
-    iconRight && (
-      <Icon
-        name={iconRight}
-        size={size === "sm" ? 16 : 18}
-        class="icon-right"
-      />
-    )
-  }
+  {iconRight && (
+    <Icon name={iconRight} size={size === "sm" ? 16 : 18} class="icon-right" />
+  )}
 </a>
 
 <style>
