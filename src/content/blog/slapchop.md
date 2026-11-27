@@ -4,7 +4,6 @@ description: "I built my own generative motion studio for making Instagram video
 pubDate: "2026-11-26T12:00:00.000Z"
 heroImage: "./heroes/slapchop.jpg"
 heroImageAlt: "GIF Rings mode in SlapChop: rings of dancing neon cartoon creatures spiraling toward a vanishing point on a black background"
-draft: true
 ---
 
 I make a lot of short, weird videos for [my Instagram](https://www.instagram.com/riebschlager/). Most of them start the same way: a folder full of animated GIFs and a crazy idea about what to do with them. Wallpaper a tunnel with them. Fly through a cloud of them. Paint with them like they're a brush.
@@ -161,4 +160,4 @@ The [code is on GitHub](https://github.com/riebschlager/slapchop), MIT-licensed 
 
 ## Credits
 
-The GIFs in these clips are GIPHY stickers by some wonderful artists, including [Neil Sanders](https://giphy.com/neilsanders) (the dancing animals in GIF Rings), Keyframe Kit, Klar.graphics, Pleins Écrans, jellygummies, Tarver and Jen Stark. Go follow them. The Instagram piece above uses animation by [mastertingus](https://www.instagram.com/mastertingus/).
+The GIFs in these clips are GIPHY stickers by some wonderful artists, including [Neil Sanders](https://giphy.com/neilsanders) (the dancing animals in GIF Rings), Keyframe Kit, Pleins Écrans, Tarver, Michel Poisson, Pi-Slices and Jen Stark. Go follow them. The Instagram piece above uses animation by [mastertingus](https://www.instagram.com/mastertingus/).
