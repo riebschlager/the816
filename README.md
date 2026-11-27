@@ -33,6 +33,26 @@ npm run astro -- dev logs
 npm run astro -- dev stop
 ```
 
+To check a production build, build first and then start the preview server in
+the background. Preview serves the existing `dist/` directory and does not
+rebuild it:
+
+```sh
+npm run build
+npm run astro -- preview --background
+```
+
+The preview server is managed separately from the dev server:
+
+```sh
+npm run astro -- preview status
+npm run astro -- preview logs
+npm run astro -- preview stop
+```
+
+Both servers default to port 4321. If the dev server is already running, preview
+uses the next free port, so check `preview status` for the URL.
+
 Use the other project scripts to validate and preview a production build:
 
 | Command                | Purpose                                         |
@@ -41,7 +61,7 @@ Use the other project scripts to validate and preview a production build:
 | `npm run format`       | Format supported repository files with Prettier |
 | `npm run format:check` | Check formatting without changing files         |
 | `npm run build`        | Generate the production site in `dist/`         |
-| `npm run preview`      | Serve the most recent production build locally  |
+| `npm run preview`      | Serve `dist/` in the foreground (build first)   |
 
 Before submitting a change, run `npm run check`, `npm run format:check`, and
 `npm run build`.

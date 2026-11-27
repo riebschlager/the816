@@ -39,6 +39,9 @@ that matter for this site:
 
 ## Recommended roadmap
 
+All six items are complete as of November 27, 2026. TypeScript 7 is deferred
+under item 5.
+
 ### 1. Upgrade Astro to 7.4 and raise the Node floor ✅
 
 **Priority: high**
@@ -227,9 +230,32 @@ rather than together:
 - **TypeScript 6 → 7**: wait until `@astrojs/check` and the Astro language tools
   officially support it. Until then, `astro check` results may be unreliable.
 
-### 6. Document `astro preview --background`
+### 6. Document `astro preview --background` ✅
 
 **Priority: low**
+
+**Status: Complete — November 27, 2026**
+
+On Astro 7.4.13, `astro preview --help` lists `--background` and its own
+`stop`, `status`, and `logs [--follow]` subcommands, separate from the
+`astro dev` ones. In a trial, `npm run build` followed by
+`astro preview --background` served the home page, `/rockfacts/`,
+`/blog/collage-o-tron-5000/`, and `/projects/atlas9/` with 200. A missing path
+returned 404. Preview and dev both default to port 4321. With the background dev
+server already on 4321, preview logged "Port 4321 is in use, trying another
+one..." and used 4322, and both ran side by side. Starting preview a second time
+reported the running instance instead of launching another. `astro preview stop`
+stopped only the preview server, and the dev server kept running and serving.
+
+`README.md` and `AGENTS.md` now document the preview command and its management
+commands next to the dev-server ones. They note that preview serves the existing
+`dist/` without rebuilding, so `npm run build` comes first, and that preview
+moves to the next free port when dev holds 4321. `CLAUDE.md` is a symlink to
+`AGENTS.md`, so it picks up the change. In the README scripts table, the
+`npm run preview` row now reads "Serve `dist/` in the foreground (build first)",
+which separates it from the background command above it. `npm run verify`
+passes with 0 errors, 0 warnings, and 0 hints. No application code,
+dependencies, or config changed.
 
 The README and `AGENTS.md` require the dev server to run in the background.
 After the item 1 upgrade, `astro preview --background` lets the same
