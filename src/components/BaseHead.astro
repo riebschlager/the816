@@ -131,4 +131,4 @@ const jsonLd = schema && JSON.stringify(schema).replace(/</g, "\\u003c");
 <meta name="twitter:image" content={socialImageURL} />
 <meta name="twitter:image:alt" content={socialImageAlt} />
 
-{jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
+{jsonLd && <script is:inline type="application/ld+json" set:html={jsonLd} />}
