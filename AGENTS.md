@@ -8,6 +8,14 @@ astro dev --background
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
+When previewing a production build, run `npm run build` first, then use background mode. Preview serves the existing `dist/` and does not rebuild:
+
+```
+astro preview --background
+```
+
+Manage the preview server separately with `astro preview stop`, `astro preview status`, and `astro preview logs`. If the dev server already holds port 4321, preview uses the next free port, so check `astro preview status` for the URL.
+
 ## Documentation
 
 Full documentation: https://docs.astro.build
