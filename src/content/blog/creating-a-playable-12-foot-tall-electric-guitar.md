@@ -6,13 +6,13 @@ heroImage: "./heroes/creating-a-playable-12-foot-tall-electric-guitar.jpeg"
 heroImageAlt: "A festival attendee playing a giant illuminated electric guitar"
 ---
 
-![Creating a Playable 12-Foot-Tall Electric Guitar](/images/blog/creating-a-playable-12-foot-tall-electric-guitar/01.jpeg)
+![Creating a Playable 12-Foot-Tall Electric Guitar](./creating-a-playable-12-foot-tall-electric-guitar/01.jpeg)
 
 My team at [Dimensional Innovations](http://dimin.com) was asked to create something amazing for [Boulevardia](http://boulevardia.com), a two day festival of music, food and of course, beer. The space we had to work with was the area immediately after the main entrance of the festival. We wanted to create something iconic, interactive and engaging. It had to be something that welcomed visitors and let them know that they had left Kansas City and had entered a whole other nation. The nation of Boulevardia!
 
 After a few false starts (including a concept that involved Solo cups and chain link fence that I don’t want to talk about), I landed on a concept I knew we could hit out of the park. A huge electric guitar you could actually play. Honestly, I didn’t know if we would be able to make this happen. (Spoiler alert: We did.) But I was smitten with the idea, so I pitched it to the team.
 
-![Creating a Playable 12-Foot-Tall Electric Guitar](/images/blog/creating-a-playable-12-foot-tall-electric-guitar/02.jpeg)
+![Creating a Playable 12-Foot-Tall Electric Guitar](./creating-a-playable-12-foot-tall-electric-guitar/02.jpeg)
 
 The first task was to prototype the electronics that would make the guitar playable. Without that, we’d just have a huge guitar sculpture (lame). I had been looking for an excuse to use a [Bare Conductive](https://www.bareconductive.com/) board and it was the perfect fit for this job. The Bare Conductive touch board extends a capacitive touch surface through any conductive material you connect to it, in this case 16-gauge galvanized wire.
 
@@ -30,15 +30,15 @@ I ran into issues with the 3.5mm audio jack on the Pi. Namely, it’s noisy as h
 
 To tie the guitar back to the festival, we wanted the design of the guitar to be a nod to the breweries and bands that take part in Boulevardia. Over a dozen designers at DI created “stickers” for each band that played the festival, taking design cues from Boulevardia’s own branding and design elements. We also produced stickers for each brewery using their logos. We printed them in-house on 3M Controltac.
 
-![Creating a Playable 12-Foot-Tall Electric Guitar](/images/blog/creating-a-playable-12-foot-tall-electric-guitar/03.png)
+![Creating a Playable 12-Foot-Tall Electric Guitar](./creating-a-playable-12-foot-tall-electric-guitar/03.png)
 
 The next step was engineering and fabrication. This is completely out of my wheelhouse. Thankfully, DI has amazing engineering talent. Our engineer designed a solution for creating and mounting what would end up being a 500 pound guitar made of MDF and steel.
 
-![Creating a Playable 12-Foot-Tall Electric Guitar](/images/blog/creating-a-playable-12-foot-tall-electric-guitar/04.png)
+![Creating a Playable 12-Foot-Tall Electric Guitar](./creating-a-playable-12-foot-tall-electric-guitar/04.png)
 
 All of the parts for the body and neck of the guitar were milled on one of our CNC machines. The body of the guitar is actually several layers of 3/4" MDF that are laminated together to create the final form. We also added cavities inside to house the wiring and electronics.
 
-![Creating a Playable 12-Foot-Tall Electric Guitar](/images/blog/creating-a-playable-12-foot-tall-electric-guitar/05.png)
+![Creating a Playable 12-Foot-Tall Electric Guitar](./creating-a-playable-12-foot-tall-electric-guitar/05.png)
 
 Once the parts were cut, we were off to the races with fabrication, paint and finishes. And finally, installation! This video takes you through the whole process. I’m constantly blown away by the insane talent of our fabricators and artists. They made the guitar look ten times better than I could have hoped.
 
@@ -48,13 +48,13 @@ The reaction we got at the event was overwhelming. It was being played and being
 
 ![Creating a Playable 12-Foot-Tall Electric Guitar](./heroes/creating-a-playable-12-foot-tall-electric-guitar.jpeg)
 
-![Creating a Playable 12-Foot-Tall Electric Guitar](/images/blog/creating-a-playable-12-foot-tall-electric-guitar/07.jpeg)
+![Creating a Playable 12-Foot-Tall Electric Guitar](./creating-a-playable-12-foot-tall-electric-guitar/07.jpeg)
 
-![Creating a Playable 12-Foot-Tall Electric Guitar](/images/blog/creating-a-playable-12-foot-tall-electric-guitar/08.jpeg)
+![Creating a Playable 12-Foot-Tall Electric Guitar](./creating-a-playable-12-foot-tall-electric-guitar/08.jpeg)
 
-![Creating a Playable 12-Foot-Tall Electric Guitar](/images/blog/creating-a-playable-12-foot-tall-electric-guitar/09.jpeg)
+![Creating a Playable 12-Foot-Tall Electric Guitar](./creating-a-playable-12-foot-tall-electric-guitar/09.jpeg)
 
-![The guitar was also a hit on social media, it was a regular feature in people’s posts from the event. Brody Buster even snapped a photo featuring his sticker. I’m a big fan of Brody, so this made me *really* happy to see.](/images/blog/creating-a-playable-12-foot-tall-electric-guitar/10.png)
+![The guitar was also a hit on social media, it was a regular feature in people’s posts from the event. Brody Buster even snapped a photo featuring his sticker. I’m a big fan of Brody, so this made me *really* happy to see.](./creating-a-playable-12-foot-tall-electric-guitar/10.png)
 
 _The guitar was also a hit on social media, it was a regular feature in people’s posts from the event. Brody Buster even snapped a photo featuring his sticker. I’m a big fan of Brody, so this made me *really* happy to see._
 
@@ -62,4 +62,4 @@ This project was without a doubt one of the most exciting, challenging and rewar
 
 If you’d like to see it in person, [come visit us](http://www.dimin.com/contact/). We’re going to have it set up in the shop so we can show off how bad ass we are at making insanely cool things like this.
 
-![Creating a Playable 12-Foot-Tall Electric Guitar](/images/blog/creating-a-playable-12-foot-tall-electric-guitar/11.jpeg)
+![Creating a Playable 12-Foot-Tall Electric Guitar](./creating-a-playable-12-foot-tall-electric-guitar/11.jpeg)
